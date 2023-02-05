@@ -1,0 +1,28 @@
+﻿@page "/map/{Id:int}"
+@inject IConfiguration Configuration
+@namespace Portfolio.UI.Pages.OldArizonaRoads
+
+<NavLink class="nav-link" href="/map/search">
+    Return to map search
+</NavLink>
+
+@if (Id <= 0)
+{
+    <p>Map id is invalid.</p>
+}
+else if (MapDetail == null)
+{
+    <p>Unable to find map.</p>
+}
+else if (string.IsNullOrWhiteSpace(MapDetail.MapUrl))
+{
+    <p>Map url is invalid.</p>
+}
+else if (string.IsNullOrWhiteSpace(MapDetail.MapDescription))
+{
+    <p>Map description is invalid.</p>
+}
+else
+{
+    <MapComponent MapUrl="@MapDetail.MapUrl" PageTitle="@MapDetail.MapDescription"></MapComponent>
+}
