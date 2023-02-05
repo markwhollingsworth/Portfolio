@@ -1,0 +1,30 @@
+﻿@namespace Portfolio.UI.Components.OldArizonaRoads
+@inject IJSRuntime jsRuntime
+
+@if (string.IsNullOrWhiteSpace(MapUrl))
+{
+    <div class="container">
+        <div class="row">
+            <p>Map url is invalid.</p>
+        </div>
+    </div>
+}
+else if (string.IsNullOrWhiteSpace(PageTitle))
+{
+    <div class="container">
+        <div class="row">
+            <p>Page title is invalid.</p>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container">
+        <div class="row">
+            <div id="mapContainer" style="width: 500px; height: 500px;"></div>
+        </div>
+    </div>
+}
+
+
+
