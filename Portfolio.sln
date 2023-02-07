@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.UI", "Portfolio.UI.csproj", "{9F83146D-FC3D-4500-B738-31C632DA6CBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.UI", "..\Portfolio\Portfolio.UI\Portfolio.UI.csproj", "{9F83146D-FC3D-4500-B738-31C632DA6CBF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.Common", "..\Portfolio.Common\Portfolio.Common.csproj", "{078D0EC4-69E0-41CD-9042-CB58C4B657BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.Common", "..\Portfolio\Portfolio.Common\Portfolio.Common.csproj", "{078D0EC4-69E0-41CD-9042-CB58C4B657BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.API", "..\Portfolio.API\Portfolio.API.csproj", "{D95E957D-9CDB-4FE3-B976-CD554AC04805}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.API", "..\Portfolio\Portfolio.API\Portfolio.API.csproj", "{D95E957D-9CDB-4FE3-B976-CD554AC04805}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
