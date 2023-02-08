@@ -24,7 +24,7 @@ namespace Portfolio.UI.Pages.Collectibles
         {
             // Validation
 
-            var baseApiUrl = Configuration["BaseCollectibleApiUrl"];
+            var baseApiUrl = Configuration["BasePortfolioApiUrl"];
             var request = new HttpRequestMessage(HttpMethod.Post, $"{baseApiUrl}api/inventory/coin/add");
             request.Content = JsonContent.Create(AddCoinRequest);
 
@@ -40,7 +40,7 @@ namespace Portfolio.UI.Pages.Collectibles
         private async Task<List<MintModel>> GetMintsAsync()
         {
             List<MintModel>? mints = null;
-            var baseApiUrl = Configuration["BaseCollectibleApiUrl"];
+            var baseApiUrl = Configuration["BasePortfolioApiUrl"];
             var request = new HttpRequestMessage(HttpMethod.Get, $"{baseApiUrl}api/mint/all");
 
             var client = ClientFactory.CreateClient("api");
@@ -58,7 +58,7 @@ namespace Portfolio.UI.Pages.Collectibles
         private async Task<List<DenominationModel>> GetDenominationsAsync()
         {
             List<DenominationModel>? denominations = null;
-            var baseApiUrl = Configuration.GetValue<string>("BaseCollectibleApiUrl");
+            var baseApiUrl = Configuration.GetValue<string>("BasePortfolioApiUrl");
             var request = new HttpRequestMessage(HttpMethod.Get, $"{baseApiUrl}api/denomination/all");
 
             var client = ClientFactory.CreateClient("api");
