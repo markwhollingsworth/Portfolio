@@ -19,7 +19,7 @@ namespace Portfolio.UI.Pages.Collectibles
         private async Task<List<InventoryModel>> GetInventoryAsync()
         {
             List<InventoryModel>? inventory = null;
-            var baseApiUrl = Configuration.GetValue<string>("BaseCollectibleApiUrl");
+            var baseApiUrl = Configuration.GetValue<string>("BasePortfolioApiUrl");
             var request = new HttpRequestMessage(HttpMethod.Get, $"{baseApiUrl}api/inventory");
 
             var client = ClientFactory.CreateClient("api");
@@ -40,7 +40,7 @@ namespace Portfolio.UI.Pages.Collectibles
         //{
         //    // Validation
 
-        //    var baseApiUrl = Configuration["BaseCollectibleApiUrl"];
+        //    var baseApiUrl = Configuration["BasePortfolioApiUrl"];
         //    var request = new HttpRequestMessage(HttpMethod.Delete, $"{baseApiUrl}api/inventory/delete/coin");
         //    request.Content = JsonContent.Create(coinId);
 
