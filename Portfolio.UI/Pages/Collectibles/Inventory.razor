@@ -3,9 +3,7 @@
 @inject IConfiguration Configuration
 @namespace Portfolio.UI.Pages.Collectibles
 
-<PageTitle>Collectible | Inventory</PageTitle>
-
-@if (!IsLoadingComplete)
+@if (Items == null)
 {
     <div class="container">
         <div class="row">
@@ -38,7 +36,6 @@ else
                                         <th class="sorting_asc">Description</th>
                                         <th class="sorting_asc">List Price</th>
                                         <th class="sorting_asc">Quantity</th>
-                                        @*  <th>Delete</th>*@
                                     </tr>
                                     @foreach (var item in Items)
                                     {
@@ -46,7 +43,6 @@ else
                                             <td><NavLink href="@GetItemLink(item.Id)">@item.Description</NavLink></td>
                                             <td>@item.ListPrice.ToString("C2")</td>
                                             <td>@item.Quantity</td>
-                                            @*<td @onclick="(() => DeleteCoin(item.Id))">Delete</td>*@
                                         </tr>
                                     }
                                 </tbody>
