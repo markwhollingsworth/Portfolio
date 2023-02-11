@@ -1,3 +1,3 @@
 #Portfolio
 
-Built using .NET 6, C#, Blazor, Web API, and Azure.
+Built using .NET 7, C#, Blazor, Web API, and Azure.
