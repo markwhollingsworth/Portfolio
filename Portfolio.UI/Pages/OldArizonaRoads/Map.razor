@@ -1,6 +1,6 @@
 ﻿@page "/map/{Id:int}"
-@inject IConfiguration Configuration
 @namespace Portfolio.UI.Pages.OldArizonaRoads
+@inject IConfiguration Configuration
 
 @if (Id <= 0)
 {
@@ -10,15 +10,16 @@ else if (MapDetail == null)
 {
     <p>Unable to find map.</p>
 }
-else if (string.IsNullOrWhiteSpace(MapDetail.MapUrl))
+else if (string.IsNullOrWhiteSpace(MapDetail.Url))
 {
     <p>Map url is invalid.</p>
 }
-else if (string.IsNullOrWhiteSpace(MapDetail.MapDescription))
-{
-    <p>Map description is invalid.</p>
-}
 else
 {
-    <MapComponent MapUrl="@MapDetail.MapUrl" PageTitle="@MapDetail.MapDescription"></MapComponent>
+    <MapComponent Url="@MapDetail.Url" 
+                  Description="@MapDetail.Description" 
+                  Year="@MapDetail.Year" 
+                  Month="@MapDetail.Month" 
+                  State="@MapDetail.State">
+    </MapComponent>
 }

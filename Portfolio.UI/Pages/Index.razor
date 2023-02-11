@@ -1,7 +1,28 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
-
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
+<div class="container text-center">
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title text-green">Collectibles</h4>
+                    <p>
+                        Collectibles is a project geared toward keeping track of coins, stamps, and other collectibles.
+                    </p>
+                    <NavLink href="/inventory">View inventory</NavLink>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title text-green">Old Arizona Roads</h4>
+                    <p>Old Arizona Roads covers old highways across the state of Arizona, 
+                       with a collection of digital maps dating between 1930 and 1993.
+                    </p>
+                    <NavLink href="/map/search">Search for maps</NavLink>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

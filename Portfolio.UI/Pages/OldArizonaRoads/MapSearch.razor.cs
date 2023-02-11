@@ -7,26 +7,50 @@ namespace Portfolio.UI.Pages.OldArizonaRoads
     {
         #region Properties
 
-        public string SearchText { get; set; } = string.Empty;
+        private string? SearchText { get; set; }
 
-        public List<MapModel> Maps { get; set; } = new List<MapModel>();
+        private List<MapModel>? Maps { get; set; }
 
-        public List<MapModel> FilteredMaps => Maps.Where(
-            x => x.MapDescription.Contains(SearchText, StringComparison.OrdinalIgnoreCase)).ToList();
+        private List<MapModel>? FilteredMaps => GetFilteredMaps();
 
         #endregion Properties
 
         #region Methods
 
-        private async Task<List<MapModel>> GetMaps()
+        private async Task<List<MapModel>?> GetMaps()
         {
-            var mapDataJsonUrl = Configuration.GetValue<string>("MapDataJsonUrl");
-            using var client = new HttpClient();
-            using var stream = await client.GetStreamAsync(mapDataJsonUrl);
-            using var streamReader = new StreamReader(stream);
-            var text = streamReader.ReadToEnd();
-            var maps = JsonConvert.DeserializeObject<List<MapModel>>(text);
-            return maps ?? new List<MapModel>();
+            List<MapModel>? maps = null;
+            var url = Configuration.GetValue<string>("MapsDataUrl");
+
+            if (!string.IsNullOrWhiteSpace(url))
+            {
+                using var client = new HttpClient();
+                using var stream = await client.GetStreamAsync(url);
+                using var streamReader = new StreamReader(stream);
+                var json = streamReader.ReadToEnd();
+                maps = JsonConvert.DeserializeObject<List<MapModel>>(json);
+            }
+
+            return maps;
+        }
+
+        private List<MapModel>? GetFilteredMaps()
+        {
+            List<MapModel>? filteredMaps = null;
+
+            if (Maps != null && !string.IsNullOrWhiteSpace(SearchText))
+            {
+                bool predicate(MapModel x)
+                {
+                    return x.Description.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                           x.Year.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                           x.Month.Contains(SearchText, StringComparison.OrdinalIgnoreCase);
+                }
+
+                filteredMaps = Maps.FindAll(predicate);
+            }
+
+            return filteredMaps;
         }
 
         private static string GetMapLink(int id) => $"/map/{id}";

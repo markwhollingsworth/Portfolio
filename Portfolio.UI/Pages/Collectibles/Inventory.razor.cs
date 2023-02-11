@@ -7,51 +7,35 @@ namespace Portfolio.UI.Pages.Collectibles
     {
         #region Properties
 
-        private List<InventoryModel> Items { get; set; } = new List<InventoryModel>();
-
-        //private bool IsDeleteCoinSuccessful { get; set; } = false;
-        private bool IsLoadingComplete { get; set; } = false;
+        private List<InventoryModel>? Items { get; set; }
 
         #endregion Properties
 
         #region Methods
 
-        private async Task<List<InventoryModel>> GetInventoryAsync()
+        private async Task<List<InventoryModel>?> GetInventoryAsync()
         {
-            List<InventoryModel>? inventory = null;
+            List<InventoryModel>? inventory = new List<InventoryModel>();
             var baseApiUrl = Configuration.GetValue<string>("BasePortfolioApiUrl");
-            var request = new HttpRequestMessage(HttpMethod.Get, $"{baseApiUrl}api/inventory");
 
-            var client = ClientFactory.CreateClient("api");
-            var response = await client.SendAsync(request);
-
-            if (response.IsSuccessStatusCode)
+            if (!string.IsNullOrWhiteSpace(baseApiUrl))
             {
-                using var responseStream = await response.Content.ReadAsStreamAsync();
-                inventory = await JsonSerializer.DeserializeAsync<List<InventoryModel>>(responseStream);
+                var request = new HttpRequestMessage(HttpMethod.Get, $"{baseApiUrl}api/inventory");
+
+                var client = ClientFactory.CreateClient("api");
+                var response = await client.SendAsync(request);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    using var responseStream = await response.Content.ReadAsStreamAsync();
+                    inventory = await JsonSerializer.DeserializeAsync<List<InventoryModel>>(responseStream);
+                }
             }
 
-            return inventory ?? new List<InventoryModel>();
+            return inventory;
         }
 
         private static string GetItemLink(int id) => $"/item/{id}";
-
-        //private async Task DeleteCoin(int coinId)
-        //{
-        //    // Validation
-
-        //    var baseApiUrl = Configuration["BasePortfolioApiUrl"];
-        //    var request = new HttpRequestMessage(HttpMethod.Delete, $"{baseApiUrl}api/inventory/delete/coin");
-        //    request.Content = JsonContent.Create(coinId);
-
-        //    var client = ClientFactory.CreateClient("api");
-        //    var response = await client.SendAsync(request);
-
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        IsDeleteCoinSuccessful = true;
-        //    }
-        //}
 
         #endregion Methods
 
@@ -60,7 +44,6 @@ namespace Portfolio.UI.Pages.Collectibles
         protected override async Task OnInitializedAsync()
         {
             Items = await GetInventoryAsync();
-            IsLoadingComplete = true;
         }
 
         #endregion Lifecycle
