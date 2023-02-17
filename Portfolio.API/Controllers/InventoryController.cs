@@ -8,7 +8,7 @@ using System.Data;
 
 namespace Collectible.API.Controllers
 {
-    [Authorize, RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes"), ApiController, Route("inventory")]
+    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes"), ApiController, Route("inventory")]
     public class InventoryController : ControllerBase
     {
         readonly ILogger<InventoryController> _logger;
