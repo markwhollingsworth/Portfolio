@@ -1,18 +1,20 @@
 ﻿using Dapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Microsoft.Identity.Web.Resource;
 using Portfolio.Common.Models.Collectibles;
 using System.Data;
 
 namespace Collectible.API.Controllers
 {
-    [ApiController, Route("api/inventory")]
+    [Authorize, RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes"), ApiController, Route("inventory")]
     public class InventoryController : ControllerBase
     {
-        private readonly ILogger<InventoryController> _logger;
-        private readonly string? _connectionString;
-        private readonly CommandType _commandType;
-        private readonly int _commandTimeout;
+        readonly ILogger<InventoryController> _logger;
+        readonly string? _connectionString;
+        readonly CommandType _commandType;
+        readonly int _commandTimeout;
 
         public InventoryController(ILogger<InventoryController> logger, IConfiguration configuration)
         {
@@ -23,10 +25,20 @@ namespace Collectible.API.Controllers
         }
 
         [HttpGet, Route("")]
-        public async Task<IEnumerable<InventoryModel>> GetInventory()
+        public async Task<IActionResult> GetInventory()
         {
-            using var connection = new SqlConnection(_connectionString);
-            return await connection.QueryAsync<InventoryModel>("dbo.GetInventory", null, null, _commandTimeout, _commandType);
+            IEnumerable<InventoryModel>? result = null;
+            try
+            {
+                using var connection = new SqlConnection(_connectionString);
+                result = await connection.QueryAsync<InventoryModel>("dbo.GetInventory", null, null, _commandTimeout, _commandType);
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
+
+            return Ok(result);
         }
     }
 }

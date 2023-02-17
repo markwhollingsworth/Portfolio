@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Microsoft.Identity.Web.Resource;
 using Portfolio.Common.Extensions.Colectibles;
 using Portfolio.Common.Models.Collectibles;
 using Portfolio.Common.Requests.Collectibles.Coin;
@@ -8,7 +9,7 @@ using System.Data;
 
 namespace Collectible.API.Controllers
 {
-    [ApiController, Route("api/coin")]
+    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes"), ApiController, Route("coin")]
     public class CoinController : ControllerBase
     {
         private readonly ILogger<InventoryController> _logger;
@@ -49,7 +50,7 @@ namespace Collectible.API.Controllers
             return await connection.ExecuteAsync("dbo.AddCoin", parameters, null, _commandTimeout, _commandType);
         }
 
-        [HttpPatch, Route("update")]
+        [HttpPut, Route("update")]
         public async Task<IActionResult> UpdateCoin(UpdateCoinRequest request)
         {
             throw new NotImplementedException();

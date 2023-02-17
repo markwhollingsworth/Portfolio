@@ -1,12 +1,13 @@
 ﻿using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Microsoft.Identity.Web.Resource;
 using Portfolio.Common.Requests.Collectibles.Currency;
 using System.Data;
 
 namespace Collectible.API.Controllers
 {
-    [ApiController, Route("api/currency")]
+    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes"), ApiController, Route("currency")]
     public class CurrencyController : ControllerBase
     {
         private readonly ILogger<CurrencyController> _logger;
@@ -43,7 +44,7 @@ namespace Collectible.API.Controllers
             return await connection.ExecuteAsync("dbo.AddCurrency", parameters, null, _commandTimeout, _commandType);
         }
 
-        [HttpPatch, Route("update")]
+        [HttpPut, Route("update")]
         public async Task<IActionResult> UpdateCurrency(UpdateCurrencyRequest request)
         {
             throw new NotImplementedException();

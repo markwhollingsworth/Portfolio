@@ -1,12 +1,13 @@
 ﻿using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Microsoft.Identity.Web.Resource;
 using Portfolio.Common.Requests.Collectibles.Stamp;
 using System.Data;
 
 namespace Collectible.API.Controllers
 {
-    [ApiController, Route("api/stamp")]
+    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes"), ApiController, Route("stamp")]
     public class StampController : ControllerBase
     {
         private readonly ILogger<StampController> _logger;
@@ -31,7 +32,7 @@ namespace Collectible.API.Controllers
             return await connection.ExecuteAsync("dbo.AddStamp", parameters, null, _commandTimeout, _commandType);
         }
 
-        [HttpPatch, Route("update")]
+        [HttpPut, Route("update")]
         public async Task<IActionResult> UpdateStamp(UpdateStampRequest request)
         {
             throw new NotImplementedException();
