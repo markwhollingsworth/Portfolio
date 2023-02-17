@@ -1,12 +1,13 @@
 ﻿using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Microsoft.Identity.Web.Resource;
 using Portfolio.Common.Models.Collectibles;
 using System.Data;
 
 namespace Collectible.API.Controllers
 {
-    [ApiController, Route("api/denomination")]
+    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes"), ApiController, Route("denomination")]
     public class DenominationController : ControllerBase
     {
         private readonly ILogger<InventoryController> _logger;
