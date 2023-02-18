@@ -1,13 +1,5 @@
 [
   {
-    "id": 1,
-    "year": 1930,
-    "month": "January",
-    "state": "AZ",
-    "url": "https://oldazroads.blob.core.windows.net/map-images/1930/january/highway-map/",
-    "description": "Highway map"
-  },
-  {
     "id": 2,
     "year": 1940,
     "month": "",
