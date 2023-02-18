@@ -1,6 +1,7 @@
 ﻿@page "/map/search"
 @namespace Portfolio.UI.Pages.OldArizonaRoads
 @inject IConfiguration Configuration
+@inject IHttpClientFactory ClientFactory
 
 @if (Maps == null || !Maps.Any())
 {
