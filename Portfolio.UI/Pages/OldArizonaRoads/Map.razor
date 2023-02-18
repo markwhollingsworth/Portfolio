@@ -1,6 +1,7 @@
 ﻿@page "/map/{Id:int}"
 @namespace Portfolio.UI.Pages.OldArizonaRoads
 @inject IConfiguration Configuration
+@inject IHttpClientFactory ClientFactory
 
 @if (Id <= 0)
 {

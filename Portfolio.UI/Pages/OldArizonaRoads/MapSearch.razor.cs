@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using Portfolio.Common.Models.OldArizonaRoads;
+﻿using Portfolio.Common.Models.OldArizonaRoads;
+using System.Text.Json;
 
 namespace Portfolio.UI.Pages.OldArizonaRoads
 {
@@ -20,15 +20,20 @@ namespace Portfolio.UI.Pages.OldArizonaRoads
         private async Task<List<MapModel>?> GetMaps()
         {
             List<MapModel>? maps = null;
-            var url = Configuration.GetValue<string>("MapsDataUrl");
+            var url = Configuration.GetValue<string>("BasePortfolioApiUrl");
 
             if (!string.IsNullOrWhiteSpace(url))
             {
-                using var client = new HttpClient();
-                using var stream = await client.GetStreamAsync(url);
-                using var streamReader = new StreamReader(stream);
-                var json = streamReader.ReadToEnd();
-                maps = JsonConvert.DeserializeObject<List<MapModel>>(json);
+                var request = new HttpRequestMessage(HttpMethod.Get, $"{url}/map/all");
+
+                var client = ClientFactory.CreateClient("api");
+                var response = await client.SendAsync(request);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    using var responseStream = await response.Content.ReadAsStreamAsync();
+                    maps = await JsonSerializer.DeserializeAsync<List<MapModel>>(responseStream);
+                }
             }
 
             return maps;

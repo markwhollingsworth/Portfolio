@@ -20,7 +20,7 @@ namespace Portfolio.UI.Pages.Collectibles
 
             if (!string.IsNullOrWhiteSpace(baseApiUrl))
             {
-                var request = new HttpRequestMessage(HttpMethod.Get, $"{baseApiUrl}api/inventory");
+                var request = new HttpRequestMessage(HttpMethod.Get, $"{baseApiUrl}/inventory");
 
                 var client = ClientFactory.CreateClient("api");
                 var response = await client.SendAsync(request);
