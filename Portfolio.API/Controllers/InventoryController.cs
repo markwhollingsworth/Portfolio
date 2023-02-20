@@ -1,8 +1,8 @@
 ﻿using Dapper;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.Identity.Web.Resource;
+using Portfolio.API.Extensions;
 using Portfolio.Common.Models.Collectibles;
 using System.Data;
 
@@ -19,9 +19,9 @@ namespace Collectible.API.Controllers
         public InventoryController(ILogger<InventoryController> logger, IConfiguration configuration)
         {
             _logger = logger;
-            _connectionString = configuration.GetConnectionString("DefaultConnection");
+            _connectionString = configuration.GetDefaultConnectionString();
             _commandType = CommandType.StoredProcedure;
-            _commandTimeout = configuration.GetValue<int>("CommandTimeout");
+            _commandTimeout = configuration.GetCommandTimeout();
         }
 
         [HttpGet, Route("")]

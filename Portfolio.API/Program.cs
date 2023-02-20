@@ -2,12 +2,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
 
 var builder = WebApplication.CreateBuilder(args);
-
-//var origins = "_origins";
-
-
-//builder.Services.AddCors(options => { options.AddPolicy(name: origins, policy => policy.WithOrigins("https://localhost:7298").AllowAnyMethod()); });
-//builder.Services.AddCors();
 builder.Services.AddControllers().AddJsonOptions(options => { options.JsonSerializerOptions.PropertyNamingPolicy = null; });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -23,12 +17,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHsts();
+}
+
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-
-//app.UseCors(origins);
 app.UseCors(builder => builder
     .AllowAnyOrigin()
     .AllowAnyMethod()

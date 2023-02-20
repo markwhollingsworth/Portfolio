@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Portfolio.Common.Models.OldArizonaRoads;
+using Portfolio.UI.Extensions;
 using System.Text.Json;
 
 namespace Portfolio.UI.Pages.OldArizonaRoads
@@ -11,7 +12,7 @@ namespace Portfolio.UI.Pages.OldArizonaRoads
         [Parameter]
         public int Id { get; set; }
 
-        private MapModel? MapDetail { get; set; }
+        public MapModel? MapDetail { get; set; }
 
         #endregion Properties
 
@@ -20,14 +21,13 @@ namespace Portfolio.UI.Pages.OldArizonaRoads
         private async Task<MapModel?> GetMap()
         {
             MapModel? map = null;
-            var url = Configuration?.GetValue<string>("BasePortfolioApiUrl");
+            var baseUri = Configuration?.GetBasePortfolioApiUri();
 
-            if (!string.IsNullOrWhiteSpace(url))
+            if (!string.IsNullOrWhiteSpace(baseUri))
             {
-                var request = new HttpRequestMessage(HttpMethod.Get, $"{url}/map/{Id}");
-
-                var client = ClientFactory.CreateClient("api");
-                var response = await client.SendAsync(request);
+                using var request = new HttpRequestMessage(HttpMethod.Get, $"{baseUri}/map/{Id}");
+                using var client = ClientFactory.CreateClient("api");
+                using var response = await client.SendAsync(request);
 
                 if (response.IsSuccessStatusCode)
                 {

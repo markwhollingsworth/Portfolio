@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using Portfolio.Common.Models.OldArizonaRoads;
 
 namespace Portfolio.UI.Components.OldArizonaRoads
 {
@@ -8,25 +9,13 @@ namespace Portfolio.UI.Components.OldArizonaRoads
         #region Properties
 
         [Parameter]
-        public required string Url { get; set; }
-
-        [Parameter]
-        public required string Description { get; set; }
-
-        [Parameter]
-        public required string Year { get; set; }
-
-        [Parameter]
-        public string? Month { get; set; }
-
-        [Parameter]
-        public required string State { get; set; }
+        public MapModel? Map { get; set; }
 
         #endregion Properties
 
         #region Methods
 
-        private string GetFullDescription() => $"{Month?.Trim()} {Year?.Trim()} {State?.Trim()} {Description?.Trim()}";
+        private string GetFullDescription() => $"{Map?.Month?.Trim()} {Map?.Year?.Trim()} {Map?.State?.Trim()} {Map?.Description?.Trim()}";
 
         #endregion
 
@@ -34,9 +23,9 @@ namespace Portfolio.UI.Components.OldArizonaRoads
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if (!string.IsNullOrWhiteSpace(Url))
+            if (!string.IsNullOrWhiteSpace(Map?.Url))
             {
-                await JSRuntime.InvokeVoidAsync("loadZoomify", new object[] { Url });
+                await JSRuntime.InvokeVoidAsync("loadZoomify", new object[] { Map.Url });
             }
         }
 

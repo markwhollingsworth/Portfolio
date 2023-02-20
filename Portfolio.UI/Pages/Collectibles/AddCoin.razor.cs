@@ -1,5 +1,6 @@
 ﻿using Portfolio.Common.Models.Collectibles;
 using Portfolio.Common.Requests.Collectibles.Coin;
+using Portfolio.UI.Extensions;
 using System.Net.Http.Json;
 using System.Text.Json;
 
@@ -58,11 +59,10 @@ namespace Portfolio.UI.Pages.Collectibles
         private async Task<List<DenominationModel>> GetDenominationsAsync()
         {
             List<DenominationModel>? denominations = null;
-            var baseApiUrl = Configuration.GetValue<string>("BasePortfolioApiUrl");
-            var request = new HttpRequestMessage(HttpMethod.Get, $"{baseApiUrl}/denomination/all");
-
-            var client = ClientFactory.CreateClient("api");
-            var response = await client.SendAsync(request);
+            var baseApiUrl = Configuration.GetBasePortfolioApiUri();
+            using var request = new HttpRequestMessage(HttpMethod.Get, $"{baseApiUrl}/denomination/all");
+            using var client = ClientFactory.CreateClient("api");
+            using var response = await client.SendAsync(request);
 
             if (response.IsSuccessStatusCode)
             {

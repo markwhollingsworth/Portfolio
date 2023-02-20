@@ -1,4 +1,5 @@
 ﻿using Portfolio.Common.Models.Collectibles;
+using Portfolio.UI.Extensions;
 using System.Text.Json;
 
 namespace Portfolio.UI.Pages.Collectibles
@@ -15,15 +16,14 @@ namespace Portfolio.UI.Pages.Collectibles
 
         private async Task<List<InventoryModel>?> GetInventoryAsync()
         {
-            List<InventoryModel>? inventory = new List<InventoryModel>();
-            var baseApiUrl = Configuration.GetValue<string>("BasePortfolioApiUrl");
+            List<InventoryModel>? inventory = null;
+            var baseApiUrl = Configuration.GetBasePortfolioApiUri();
 
             if (!string.IsNullOrWhiteSpace(baseApiUrl))
             {
-                var request = new HttpRequestMessage(HttpMethod.Get, $"{baseApiUrl}/inventory");
-
-                var client = ClientFactory.CreateClient("api");
-                var response = await client.SendAsync(request);
+                using var request = new HttpRequestMessage(HttpMethod.Get, $"{baseApiUrl}/inventory");
+                using var client = ClientFactory.CreateClient("api");
+                using var response = await client.SendAsync(request);
 
                 if (response.IsSuccessStatusCode)
                 {

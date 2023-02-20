@@ -1,4 +1,5 @@
 ﻿using Portfolio.Common.Models.OldArizonaRoads;
+using Portfolio.UI.Extensions;
 using System.Text.Json;
 
 namespace Portfolio.UI.Pages.OldArizonaRoads
@@ -20,11 +21,11 @@ namespace Portfolio.UI.Pages.OldArizonaRoads
         private async Task<List<MapModel>?> GetMaps()
         {
             List<MapModel>? maps = null;
-            var url = Configuration.GetValue<string>("BasePortfolioApiUrl");
+            var baseUrl = Configuration.GetBasePortfolioApiUri();
 
-            if (!string.IsNullOrWhiteSpace(url))
+            if (!string.IsNullOrWhiteSpace(baseUrl))
             {
-                var request = new HttpRequestMessage(HttpMethod.Get, $"{url}/map/all");
+                var request = new HttpRequestMessage(HttpMethod.Get, $"{baseUrl}/map/all");
 
                 var client = ClientFactory.CreateClient("api");
                 var response = await client.SendAsync(request);

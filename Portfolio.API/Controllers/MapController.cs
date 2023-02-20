@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web.Resource;
 using Newtonsoft.Json;
+using Portfolio.API.Extensions;
 using Portfolio.Common.Models.OldArizonaRoads;
-using System.Data;
 
 namespace Portfolio.API.Controllers
 {
@@ -10,33 +10,31 @@ namespace Portfolio.API.Controllers
     public class MapController : ControllerBase
     {
         readonly ILogger<MapController> _logger;
-        readonly string? _connectionString;
-        readonly CommandType _commandType;
-        readonly int _commandTimeout;
-        readonly IConfiguration _configuration;
+        readonly string? _mapDataLocation;
 
         public MapController(ILogger<MapController> logger, IConfiguration configuration)
         {
             _logger = logger;
-            _connectionString = configuration.GetConnectionString("DefaultConnection");
-            _commandType = CommandType.StoredProcedure;
-            _commandTimeout = configuration.GetValue<int>("CommandTimeout");
-            _configuration = configuration;
+            _mapDataLocation = configuration.GetMapDataLocation();
         }
 
         [HttpGet, Route("all")]
         public async Task<IActionResult> GetMaps()
         {
             List<MapModel>? maps = null;
-            var location = _configuration?.GetValue<string>("MapsDataLocation");
 
-            if (!string.IsNullOrWhiteSpace(location))
+            try
             {
-                using (var streamReader = new StreamReader(location))
+                if (!string.IsNullOrWhiteSpace(_mapDataLocation))
                 {
+                    using var streamReader = new StreamReader(_mapDataLocation);
                     var text = await streamReader.ReadToEndAsync();
                     maps = JsonConvert.DeserializeObject<List<MapModel>>(text);
                 }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
             }
 
             return Ok(maps);
@@ -46,13 +44,24 @@ namespace Portfolio.API.Controllers
         public async Task<IActionResult> GetMap(int id)
         {
             MapModel? map = null;
-            var location = _configuration?.GetValue<string>("MapsDataLocation");
 
-            if (!string.IsNullOrWhiteSpace(location))
+            try
             {
-                using var streamReader = new StreamReader(location);
-                var text = await streamReader.ReadToEndAsync();
-                map = JsonConvert.DeserializeObject<List<MapModel>>(text)?.FirstOrDefault(x => x.Id == id);
+                if (id <= 0)
+                {
+                    throw new ArgumentException($"{nameof(id)} is invalid");
+                }
+
+                if (!string.IsNullOrWhiteSpace(_mapDataLocation))
+                {
+                    using var streamReader = new StreamReader(_mapDataLocation);
+                    var text = await streamReader.ReadToEndAsync();
+                    map = JsonConvert.DeserializeObject<List<MapModel>>(text)?.FirstOrDefault(x => x.Id == id);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
             }
 
             return Ok(map);

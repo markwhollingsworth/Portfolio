@@ -1,25 +1,14 @@
 ﻿@namespace Portfolio.UI.Components.OldArizonaRoads
 @inject IJSRuntime JSRuntime
 
-@if (string.IsNullOrWhiteSpace(Url))
-{
-    <div class="container">
-        <div class="row">
-            <p>Map url is invalid.</p>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>@GetFullDescription()</h3>
+            <div id="mapContainer" style="width: 800px; height: 450px;"></div>
         </div>
     </div>
-}
-else
-{
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h3>@GetFullDescription()</h3>
-                <div id="mapContainer" style="width: 800px; height: 450px;"></div>
-            </div>
-        </div>
-    </div>
-}
+</div>
 
 
 

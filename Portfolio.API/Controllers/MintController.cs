@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.Identity.Web.Resource;
+using Portfolio.API.Extensions;
 using Portfolio.Common.Models.Collectibles;
-
 using System.Data;
 
 namespace Collectible.API.Controllers
@@ -19,16 +19,27 @@ namespace Collectible.API.Controllers
         public MintController(ILogger<InventoryController> logger, IConfiguration configuration)
         {
             _logger = logger;
-            _connectionString = configuration.GetConnectionString("DefaultConnection");
+            _connectionString = configuration.GetDefaultConnectionString();
             _commandType = CommandType.StoredProcedure;
-            _commandTimeout = configuration.GetValue<int>("CommandTimeout");
+            _commandTimeout = configuration.GetCommandTimeout();
         }
 
-        [HttpGet, Route(""), Route("all")]
-        public async Task<IEnumerable<MintModel>> GetMints()
+        [HttpGet, Route("mints")]
+        public async Task<IActionResult> GetMints()
         {
-            using var connection = new SqlConnection(_connectionString);
-            return await connection.QueryAsync<MintModel>("dbo.GetMintMarks", null, null, _commandTimeout, _commandType);
+            IEnumerable<MintModel>? mints = null;
+
+            try
+            {
+                using var connection = new SqlConnection(_connectionString);
+                mints = await connection.QueryAsync<MintModel>("dbo.GetMintMarks", null, null, _commandTimeout, _commandType);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
+
+            return Ok(mints);
         }
     }
 }
