@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.Identity.Web.Resource;
+using Portfolio.API.Extensions;
 using Portfolio.Common.Extensions.Colectibles;
 using Portfolio.Common.Models.Collectibles;
 using Portfolio.Common.Requests.Collectibles.Coin;
@@ -20,51 +21,66 @@ namespace Collectible.API.Controllers
         public CoinController(ILogger<InventoryController> logger, IConfiguration configuration)
         {
             _logger = logger;
-            _connectionString = configuration.GetConnectionString("DefaultConnection");
+            _connectionString = configuration.GetDefaultConnectionString();
             _commandType = CommandType.StoredProcedure;
-            _commandTimeout = configuration.GetValue<int>("CommandTimeout");
-            var test = "";
+            _commandTimeout = configuration.GetCommandTimeout();
         }
 
         [HttpGet, Route("{id:int}")]
-        public async Task<IEnumerable<CoinModel>> GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            using var connection = new SqlConnection(_connectionString);
-            var parameters = new { Id = id };
-            return await connection.QueryAsync<CoinModel>("dbo.GetCoinById", parameters, null, _commandTimeout, _commandType);
+            CoinModel? coin = null;
+
+            try
+            {
+                if (id <= 0)
+                {
+                    throw new ArgumentException($"{nameof(id)} is invalid.");
+                }
+
+                using var connection = new SqlConnection(_connectionString);
+                var parameters = new { Id = id };
+                coin = (await connection.QueryAsync<CoinModel>("dbo.GetCoinById", parameters, null, _commandTimeout, _commandType)).First();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
+
+            return Ok(coin);
         }
 
         [HttpPost, Route("add")]
-        public async Task<int> AddCoin(AddCoinRequest request)
+        public async Task<IActionResult> AddCoin(AddCoinRequest request)
         {
-            using var connection = new SqlConnection(_connectionString);
-            var parameters = new
-            {
-                Year = request.Year.ToInt32(),
-                MintId = request.MintId.ToInt32(),
-                DenominationId = request.DenominationId.ToInt32(),
-                ListPrice = 1.99,
-                Quantity = request.Quantity.ToInt32()
-            };
+            var rowsAffected = 0;
 
-            return await connection.ExecuteAsync("dbo.AddCoin", parameters, null, _commandTimeout, _commandType);
+            try
+            {
+                using var connection = new SqlConnection(_connectionString);
+                var parameters = new
+                {
+                    Year = request.Year.ToInt32(),
+                    MintId = request.MintId.ToInt32(),
+                    DenominationId = request.DenominationId.ToInt32(),
+                    ListPrice = 1.99,
+                    Quantity = request.Quantity.ToInt32()
+                };
+
+                rowsAffected = await connection.ExecuteAsync("dbo.AddCoin", parameters, null, _commandTimeout, _commandType);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
+
+            return Ok(rowsAffected);
         }
 
         [HttpPut, Route("update")]
         public async Task<IActionResult> UpdateCoin(UpdateCoinRequest request)
         {
             throw new NotImplementedException();
-            //using var connection = new SqlConnection(_connectionString);
-            //var parameters = new
-            //{
-            //    Year = Convert.ToInt32(request.Year),
-            //    MintId = Convert.ToInt32(request.MintId),
-            //    DenominationId = Convert.ToInt32(request.DenominationId),
-            //    ListPrice = 1.99,
-            //    Quantity = Convert.ToInt32(request.Quantity)
-            //};
-
-            //return await connection.ExecuteAsync("dbo.UpdateCoin", parameters, null, _commandTimeout, _commandType);
         }
     }
 }

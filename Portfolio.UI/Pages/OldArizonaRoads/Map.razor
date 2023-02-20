@@ -9,7 +9,13 @@
 }
 else if (MapDetail == null)
 {
-    <p>Unable to find map.</p>
+    <div class="container">
+        <div class="row">
+            <div id="global-loader">
+                <div class="whirly-loader"></div>
+            </div>
+        </div>
+    </div>
 }
 else if (string.IsNullOrWhiteSpace(MapDetail.Url))
 {
@@ -17,10 +23,5 @@ else if (string.IsNullOrWhiteSpace(MapDetail.Url))
 }
 else
 {
-    <MapComponent Url="@MapDetail.Url" 
-                  Description="@MapDetail.Description" 
-                  Year="@MapDetail.Year" 
-                  Month="@MapDetail.Month" 
-                  State="@MapDetail.State">
-    </MapComponent>
+    <MapComponent Map="@MapDetail"></MapComponent>
 }
