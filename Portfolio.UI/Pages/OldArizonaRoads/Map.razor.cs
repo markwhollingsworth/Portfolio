@@ -5,14 +5,20 @@ using System.Text.Json;
 
 namespace Portfolio.UI.Pages.OldArizonaRoads
 {
-    public partial class Map
+    public partial class Map : ComponentBase
     {
         #region Properties
 
         [Parameter]
         public int Id { get; set; }
 
-        public MapModel? MapDetail { get; set; }
+        private MapModel? MapDetail { get; set; }
+
+        [Inject]
+        private IConfiguration Configuration { get; set; }
+
+        [Inject]
+        private IHttpClientFactory ClientFactory { get; set; }
 
         #endregion Properties
 

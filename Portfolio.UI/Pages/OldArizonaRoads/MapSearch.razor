@@ -1,7 +1,5 @@
 ﻿@page "/map/search"
 @namespace Portfolio.UI.Pages.OldArizonaRoads
-@inject IConfiguration Configuration
-@inject IHttpClientFactory ClientFactory
 
 @if (Maps == null || !Maps.Any())
 {
@@ -35,7 +33,7 @@ else
 
 @if (!string.IsNullOrWhiteSpace(SearchText))
 {
-    @if (FilteredMaps?.Any() ?? false)
+    if (FilteredMaps?.Any() ?? false)
     {
         <div class="container">
             <div class="row table-responsive-md">
