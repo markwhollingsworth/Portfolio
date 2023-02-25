@@ -1,12 +1,19 @@
-﻿using Portfolio.Common.Models.OldArizonaRoads;
+﻿using Microsoft.AspNetCore.Components;
+using Portfolio.Common.Models.OldArizonaRoads;
 using Portfolio.UI.Extensions;
 using System.Text.Json;
 
 namespace Portfolio.UI.Pages.OldArizonaRoads
 {
-    public partial class MapSearch
+    public partial class MapSearch : ComponentBase
     {
         #region Properties
+
+        [Inject]
+        private IConfiguration Configuration { get; set; }
+
+        [Inject]
+        private IHttpClientFactory ClientFactory { get; set; }
 
         private string? SearchText { get; set; }
 
