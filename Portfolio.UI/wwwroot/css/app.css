@@ -1,5 +1,4 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
-@import url('/scss/base/base.scss')
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -7,10 +6,6 @@ html, body {
 
 h1:focus {
     outline: none;
-}
-
-a, .btn-link {
-    color: #0071c1;
 }
 
 .btn-primary {
@@ -75,3 +70,47 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+h1, h2, h3 {
+    color: #2e94b9 !important;
+}
+
+h4, h5, h6 {
+    color: #00ccaa !important;
+}
+
+a {
+    color: royalblue !important;
+}
+
+.mapContainer {
+    border: 1px solid gray;
+    border-radius: 5px;
+    height: 500px;
+}
+
+.text-saffron {
+    color:#ffbb33 !important;
+}
+
+/*
+.first-color {
+    background: #2e94b9;
+}
+
+.second-color {
+    background: #475053;
+}
+
+.third-color {
+    background: #acdcee;
+}
+
+.fourth-color {
+    background: #f0fbff;
+}*/
+
+/* Resume */
+.time-span { 
+    font-size: 14px;
+}

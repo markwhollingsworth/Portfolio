@@ -35,7 +35,7 @@ $__font__size__40: 40px;
 $__font__size__42: 42px;
 $__font__size__50: 50px;
 
-h1 {
+/*h1 {
     font-weight: $__normal;
     font-size: $__font__size__40;
 
@@ -95,4 +95,4 @@ h6 {
     @include respond-below(custom1023) {
         font-size: $__font__size__16;
     }
-}
+}*/

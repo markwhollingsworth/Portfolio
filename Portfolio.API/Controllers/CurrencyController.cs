@@ -1,49 +1,47 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web.Resource;
-using Portfolio.API.Extensions;
+using Portfolio.API.Interfaces;
 using Portfolio.Common.Requests.Collectibles.Currency;
-using System.Data;
 
 namespace Collectible.API.Controllers
 {
-    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes"), ApiController, Route("currency")]
+    [ApiController, Route("currency"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class CurrencyController : ControllerBase
     {
         private readonly ILogger<CurrencyController> _logger;
-        private readonly string? _connectionString;
-        private readonly CommandType _commandType;
-        private readonly int _commandTimeout;
+        private readonly IConfiguration _configuration;
+        private readonly ICurrencyRepository _repository;
 
-        public CurrencyController(ILogger<CurrencyController> logger, IConfiguration configuration)
+        public CurrencyController(ILogger<CurrencyController> logger, IConfiguration configuration, ICurrencyRepository repository)
         {
             _logger = logger;
-            _connectionString = configuration.GetDefaultConnectionString();
-            _commandType = CommandType.StoredProcedure;
-            _commandTimeout = configuration.GetCommandTimeout();
+            _configuration = configuration;
+            _repository = repository;
+            _repository.InjectDependencies(_logger, _configuration);
         }
 
         [HttpGet, Route("")]
-        public async Task<IActionResult> GetCurrency()
+        public async Task<IActionResult> GetAllCurrency()
         {
-            throw new NotImplementedException();
+            return Ok(await _repository.GetAllCurrency());
         }
 
         [HttpGet, Route("{id:int}")]
         public async Task<IActionResult> GetCurrencyById(int id)
         {
-            throw new NotImplementedException();
+            return id <= 0 ? BadRequest(ModelState) : Ok(await _repository.GetCurrencyById(id));
         }
 
         [HttpPost, Route("add")]
-        public async Task<int> AddCurrency(AddCurrencyRequest request)
+        public async Task<IActionResult> AddCurrency(AddCurrencyRequest request)
         {
-            throw new NotImplementedException();
+            return request == null ? BadRequest(ModelState) : Ok(await _repository.AddCurrency(request));
         }
 
         [HttpPut, Route("update")]
         public async Task<IActionResult> UpdateCurrency(UpdateCurrencyRequest request)
         {
-            throw new NotImplementedException();
+            return request == null ? BadRequest(ModelState) : Ok(await _repository.UpdateCurrency(request));
         }
     }
 }

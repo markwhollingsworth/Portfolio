@@ -15,10 +15,10 @@ namespace Portfolio.UI.Pages.OldArizonaRoads
         private MapModel? MapDetail { get; set; }
 
         [Inject]
-        private IConfiguration Configuration { get; set; }
+        private IConfiguration? Configuration { get; set; }
 
         [Inject]
-        private IHttpClientFactory ClientFactory { get; set; }
+        private IHttpClientFactory? ClientFactory { get; set; }
 
         #endregion Properties
 
@@ -27,7 +27,7 @@ namespace Portfolio.UI.Pages.OldArizonaRoads
         private async Task<MapModel?> GetMap()
         {
             MapModel? map = null;
-            var baseUri = Configuration?.GetBasePortfolioApiUri();
+            var baseUri = Configuration.GetValue<string>("BasePortfolioApiUrl");
 
             if (!string.IsNullOrWhiteSpace(baseUri))
             {

@@ -1,6 +1,15 @@
 ﻿@page "/map/search"
 @namespace Portfolio.UI.Pages.OldArizonaRoads
 
+<div class="container my-3 fs-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item">Map search</li>
+        </ol>
+    </nav>
+</div>
+
 @if (Maps == null || !Maps.Any())
 {
     <div class="container">

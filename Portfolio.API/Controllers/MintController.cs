@@ -2,44 +2,33 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.Identity.Web.Resource;
+using Portfolio.API.Controllers;
 using Portfolio.API.Extensions;
+using Portfolio.API.Interfaces;
 using Portfolio.Common.Models.Collectibles;
 using System.Data;
 
 namespace Collectible.API.Controllers
 {
-    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes"), ApiController, Route("mint")]
+    [ApiController, Route("mint"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class MintController : ControllerBase
     {
-        private readonly ILogger<InventoryController> _logger;
-        private readonly string? _connectionString;
-        private readonly CommandType _commandType;
-        private readonly int _commandTimeout;
+        private readonly ILogger<MintController> _logger;
+        private readonly IConfiguration _configuration;
+        private readonly IMintRepository _repository;
 
-        public MintController(ILogger<InventoryController> logger, IConfiguration configuration)
+        public MintController(ILogger<MintController> logger, IConfiguration configuration, IMintRepository repository)
         {
             _logger = logger;
-            _connectionString = configuration.GetDefaultConnectionString();
-            _commandType = CommandType.StoredProcedure;
-            _commandTimeout = configuration.GetCommandTimeout();
+            _configuration = configuration;
+            _repository = repository;
+            _repository.InjectDependencies(logger, configuration);
         }
 
         [HttpGet, Route("mints")]
-        public async Task<IActionResult> GetMints()
+        public async Task<IActionResult> GetAllMints()
         {
-            IEnumerable<MintModel>? mints = null;
-
-            try
-            {
-                using var connection = new SqlConnection(_connectionString);
-                mints = await connection.QueryAsync<MintModel>("dbo.GetMintMarks", null, null, _commandTimeout, _commandType);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex.Message);
-            }
-
-            return Ok(mints);
+            return Ok(await _repository.GetAllMints());
         }
     }
 }

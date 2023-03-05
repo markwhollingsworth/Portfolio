@@ -1,44 +1,28 @@
-﻿using Dapper;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web.Resource;
-using Portfolio.API.Extensions;
-using Portfolio.Common.Models.Collectibles;
-using System.Data;
+using Portfolio.API.Interfaces;
 
 namespace Collectible.API.Controllers
 {
-    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes"), ApiController, Route("inventory")]
+    [ApiController, Route("inventory"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class InventoryController : ControllerBase
     {
-        readonly ILogger<InventoryController> _logger;
-        readonly string? _connectionString;
-        readonly CommandType _commandType;
-        readonly int _commandTimeout;
+        private readonly ILogger<InventoryController> _logger;
+        private readonly IConfiguration _configuration;
+        private readonly IInventoryRepository _repository;
 
-        public InventoryController(ILogger<InventoryController> logger, IConfiguration configuration)
+        public InventoryController(ILogger<InventoryController> logger, IConfiguration configuration, IInventoryRepository repository)
         {
             _logger = logger;
-            _connectionString = configuration.GetDefaultConnectionString();
-            _commandType = CommandType.StoredProcedure;
-            _commandTimeout = configuration.GetCommandTimeout();
+            _configuration = configuration;
+            _repository = repository;
+            _repository.InjectDependencies(logger, configuration);
         }
 
         [HttpGet, Route("")]
         public async Task<IActionResult> GetInventory()
         {
-            IEnumerable<InventoryModel>? result = null;
-            try
-            {
-                using var connection = new SqlConnection(_connectionString);
-                result = await connection.QueryAsync<InventoryModel>("dbo.GetInventory", null, null, _commandTimeout, _commandType);
-            }
-            catch (Exception ex)
-            {
-                return Problem(ex.Message);
-            }
-
-            return Ok(result);
+            return Ok(await _repository.GetInventory());
         }
     }
 }

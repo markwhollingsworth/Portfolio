@@ -35,13 +35,13 @@ button {
 }
 
 a {
-    color: $__primarycolor;
+    color: blue;
     cursor: pointer;
-    text-decoration: $__none;
     @include transition(all 0.2s ease);
 
     &:hover {
-        color: $__primarycolorhover;
+        color: blue
+            ;
         @include transition(all 0.2s ease);
     }
 
