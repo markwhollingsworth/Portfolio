@@ -79,7 +79,7 @@ namespace Portfolio.UI.Services
         {
             List<MintModel>? mints = null;
             var baseApiUrl = _configuration["BasePortfolioApiUrl"];
-            var request = new HttpRequestMessage(HttpMethod.Get, $"{baseApiUrl}/mint/all");
+            var request = new HttpRequestMessage(HttpMethod.Get, $"{baseApiUrl}/mint/mints");
             var response = await _httpClient.SendAsync(request);
 
             if (response.IsSuccessStatusCode)

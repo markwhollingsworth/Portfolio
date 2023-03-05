@@ -52,5 +52,14 @@
     </div>
 
     <script src="_framework/blazor.server.js"></script>
+    <script>
+        <script>
+            Blazor.start().then(() => {
+                Blazor.defaultReconnectionHandler._reconnectCallback = function (d) {
+                    document.location.reload();
+                }
+            });
+    </script>
+    </script>
 </body>
 </html>
