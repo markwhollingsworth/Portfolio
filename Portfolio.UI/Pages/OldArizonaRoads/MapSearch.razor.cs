@@ -28,7 +28,7 @@ namespace Portfolio.UI.Pages.OldArizonaRoads
         private async Task<List<MapModel>?> GetMaps()
         {
             List<MapModel>? maps = null;
-            var baseUrl = Configuration.GetBasePortfolioApiUri();
+            var baseUrl = Configuration.GetValue<string>("BasePortfolioApiUrl");
 
             if (!string.IsNullOrWhiteSpace(baseUrl))
             {

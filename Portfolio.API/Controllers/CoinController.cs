@@ -1,86 +1,41 @@
-﻿using Dapper;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web.Resource;
-using Portfolio.API.Extensions;
-using Portfolio.Common.Extensions.Colectibles;
-using Portfolio.Common.Models.Collectibles;
+using Portfolio.API.Interfaces;
 using Portfolio.Common.Requests.Collectibles.Coin;
-using System.Data;
 
 namespace Collectible.API.Controllers
 {
-    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes"), ApiController, Route("coin")]
+    [ApiController, Route("coin"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class CoinController : ControllerBase
     {
-        private readonly ILogger<InventoryController> _logger;
-        private readonly string? _connectionString;
-        private readonly CommandType _commandType;
-        private readonly int _commandTimeout;
+        private readonly ILogger<CoinController> _logger;
+        private readonly IConfiguration _configuration;
+        private readonly ICoinRepository _repository;
 
-        public CoinController(ILogger<InventoryController> logger, IConfiguration configuration)
+        public CoinController(ILogger<CoinController> logger, IConfiguration configuration, ICoinRepository repository)
         {
             _logger = logger;
-            _connectionString = configuration.GetDefaultConnectionString();
-            _commandType = CommandType.StoredProcedure;
-            _commandTimeout = configuration.GetCommandTimeout();
+            _configuration = configuration;
+            _repository = repository;
+            _repository.InjectDependencies(_logger, _configuration);
         }
 
         [HttpGet, Route("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {
-            CoinModel? coin = null;
-
-            try
-            {
-                if (id <= 0)
-                {
-                    throw new ArgumentException($"{nameof(id)} is invalid.");
-                }
-
-                using var connection = new SqlConnection(_connectionString);
-                var parameters = new { Id = id };
-                coin = (await connection.QueryAsync<CoinModel>("dbo.GetCoinById", parameters, null, _commandTimeout, _commandType)).First();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex.Message);
-            }
-
-            return Ok(coin);
+            return id <= 0 ? BadRequest(ModelState) : Ok(await _repository.GetById(id));
         }
 
         [HttpPost, Route("add")]
         public async Task<IActionResult> AddCoin(AddCoinRequest request)
         {
-            var rowsAffected = 0;
-
-            try
-            {
-                using var connection = new SqlConnection(_connectionString);
-                var parameters = new
-                {
-                    Year = request.Year.ToInt32(),
-                    MintId = request.MintId.ToInt32(),
-                    DenominationId = request.DenominationId.ToInt32(),
-                    ListPrice = 1.99,
-                    Quantity = request.Quantity.ToInt32()
-                };
-
-                rowsAffected = await connection.ExecuteAsync("dbo.AddCoin", parameters, null, _commandTimeout, _commandType);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex.Message);
-            }
-
-            return Ok(rowsAffected);
+            return request == null ? BadRequest(ModelState) : Ok(await _repository.AddCoin(request));
         }
 
-        [HttpPut, Route("update")]
+        [HttpPut, Route("update")] // TODO: Not fully implemented or tested.
         public async Task<IActionResult> UpdateCoin(UpdateCoinRequest request)
         {
-            throw new NotImplementedException();
+            return request == null ? BadRequest(ModelState) : Ok(await _repository.UpdateCoin(request));
         }
     }
 }

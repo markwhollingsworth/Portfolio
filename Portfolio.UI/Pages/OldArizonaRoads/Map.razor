@@ -1,9 +1,23 @@
 ﻿@page "/map/{Id:int}"
 @namespace Portfolio.UI.Pages.OldArizonaRoads
 
+<div class="container my-3 fs-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/map/search">Map search</a></li>
+            <li class="breadcrumb-item">Map detail</li>
+        </ol>
+    </nav>
+</div>
+
 @if (Id <= 0)
 {
-    <p>Map id is invalid.</p>
+    <div class="container">
+        <div class="row">
+            <p>Map id is invalid.</p>
+        </div>
+    </div>
 }
 else if (MapDetail == null)
 {
@@ -17,7 +31,11 @@ else if (MapDetail == null)
 }
 else if (string.IsNullOrWhiteSpace(MapDetail.Url))
 {
-    <p>Map url is invalid.</p>
+    <div class="container">
+        <div class="row">
+            <p>Map url is invalid.</p>
+        </div>
+    </div>
 }
 else
 {
