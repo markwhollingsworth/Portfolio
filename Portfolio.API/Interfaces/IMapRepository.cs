@@ -1,4 +1,4 @@
-﻿using Portfolio.Common.Models.OldArizonaRoads;
+﻿using Portfolio.Shared.Models.OldArizonaRoads;
 
 namespace Portfolio.API.Interfaces
 {

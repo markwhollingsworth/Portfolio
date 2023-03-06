@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Portfolio.Common.Models.OldArizonaRoads;
+using Portfolio.Shared.Models.OldArizonaRoads;
 using Portfolio.UI.Extensions;
 using System.Text.Json;
 

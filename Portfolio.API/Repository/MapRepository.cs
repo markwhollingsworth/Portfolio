@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Portfolio.API.Extensions;
 using Portfolio.API.Interfaces;
-using Portfolio.Common.Models.OldArizonaRoads;
+using Portfolio.Shared.Models.OldArizonaRoads;
 
 namespace Portfolio.API.Repository
 {

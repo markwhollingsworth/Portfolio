@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Portfolio.API.Interfaces;
-using Portfolio.Common.Models.Collectibles;
+using Portfolio.Shared.Models.Collectibles;
 
 namespace Portfolio.API.Repository
 {

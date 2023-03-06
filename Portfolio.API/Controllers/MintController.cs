@@ -5,7 +5,7 @@ using Microsoft.Identity.Web.Resource;
 using Portfolio.API.Controllers;
 using Portfolio.API.Extensions;
 using Portfolio.API.Interfaces;
-using Portfolio.Common.Models.Collectibles;
+using Portfolio.Shared.Models.Collectibles;
 using System.Data;
 
 namespace Collectible.API.Controllers

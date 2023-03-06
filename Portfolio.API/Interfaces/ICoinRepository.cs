@@ -1,5 +1,5 @@
-﻿using Portfolio.Common.Models.Collectibles;
-using Portfolio.Common.Requests.Collectibles.Coin;
+﻿using Portfolio.Shared.Models.Collectibles;
+using Portfolio.Shared.Requests.Collectibles.Coin;
 
 namespace Portfolio.API.Interfaces
 {
