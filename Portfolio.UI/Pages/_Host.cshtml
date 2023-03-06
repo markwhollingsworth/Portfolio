@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="/" />
     <title>Mark Hollingsworth | Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
     <!-- Styles -->
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
@@ -53,13 +54,11 @@
 
     <script src="_framework/blazor.server.js"></script>
     <script>
-        <script>
-            Blazor.start().then(() => {
-                Blazor.defaultReconnectionHandler._reconnectCallback = function (d) {
-                    document.location.reload();
-                }
-            });
-    </script>
+        Blazor.start().then(() => {
+            Blazor.defaultReconnectionHandler._reconnectCallback = function (d) {
+                document.location.reload();
+            }
+        });
     </script>
 </body>
 </html>
