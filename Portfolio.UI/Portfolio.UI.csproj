@@ -460,7 +460,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Portfolio.Common\Portfolio.Common.csproj" />
+    <ProjectReference Include="..\Portfolio.Shared\Portfolio.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

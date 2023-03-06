@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web.Resource;
 using Portfolio.API.Interfaces;
-using Portfolio.Common.Requests.Collectibles.Coin;
+using Portfolio.Shared.Requests.Collectibles.Coin;
 
 namespace Collectible.API.Controllers
 {

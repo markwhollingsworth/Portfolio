@@ -1,8 +1,8 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
 using Portfolio.API.Interfaces;
-using Portfolio.Common.Models.Collectibles;
-using Portfolio.Common.Requests.Collectibles.Currency;
+using Portfolio.Shared.Models.Collectibles;
+using Portfolio.Shared.Requests.Collectibles.Currency;
 
 namespace Portfolio.API.Repository
 {

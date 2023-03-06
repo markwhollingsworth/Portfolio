@@ -1,4 +1,4 @@
-﻿using Portfolio.Common.Models.Collectibles;
+﻿using Portfolio.Shared.Models.Collectibles;
 
 namespace Portfolio.UI.Pages.Collectibles
 {

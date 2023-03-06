@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
-using Portfolio.Common.Models.OldArizonaRoads;
+using Portfolio.Shared.Models.OldArizonaRoads;
 
 namespace Portfolio.UI.Components.OldArizonaRoads
 {
