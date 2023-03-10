@@ -1,7 +1,7 @@
-﻿using Portfolio.Shared.Models.Collectibles;
-using Portfolio.Shared.Requests.Collectibles.Coin;
+﻿using Portfolio.Shared.Models;
+using Portfolio.Shared.Requests;
 
-namespace Portfolio.UI.Pages.Collectibles
+namespace Portfolio.UI.Pages
 {
     public partial class AddCoin
     {
@@ -12,10 +12,7 @@ namespace Portfolio.UI.Pages.Collectibles
         private bool IsAddCoinSuccessful { get; set; } = false;
         private string AddCoinMessage { get; set; } = "Success!  Coin was added to inventory.";
 
-        private async Task SaveCoin()
-        {
-            await PortfolioService.AddCoin(AddCoinRequest);
-        }
+        private async Task SaveCoin() => await PortfolioService.AddCoinAsync(AddCoinRequest);
 
         protected override async Task OnInitializedAsync()
         {

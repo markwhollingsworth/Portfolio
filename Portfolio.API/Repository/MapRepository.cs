@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Portfolio.API.Extensions;
 using Portfolio.API.Interfaces;
-using Portfolio.Shared.Models.OldArizonaRoads;
+using Portfolio.Shared.Models;
 
 namespace Portfolio.API.Repository
 {
@@ -10,7 +10,7 @@ namespace Portfolio.API.Repository
         private RepositoryConfiguration? _configuration;
         private string? _mapDataLocation;
 
-        public async Task<IEnumerable<MapModel>?> GetAllMaps()
+        public async Task<IEnumerable<MapModel>?> GetAllMapsAsync()
         {
             List<MapModel>? maps = null;
 
@@ -25,7 +25,7 @@ namespace Portfolio.API.Repository
             }
             catch (Exception ex)
             {
-                _configuration?.Logger.LogError(ex.Message);
+                _configuration?.Logger.LogError(ex.Message, ex);
             }
 
             return maps;
@@ -51,7 +51,7 @@ namespace Portfolio.API.Repository
             }
             catch (Exception ex)
             {
-                _configuration?.Logger.LogError(ex.Message);
+                _configuration?.Logger.LogError(ex.Message, ex);
             }
 
             return map;

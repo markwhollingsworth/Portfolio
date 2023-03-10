@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web.Resource;
 using Portfolio.API.Interfaces;
-using Portfolio.Shared.Requests.Collectibles.Currency;
+using Portfolio.Shared.Requests;
 
-namespace Collectible.API.Controllers
+namespace Portfolio.API.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [ApiController, Route("currency"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class CurrencyController : ControllerBase
     {
@@ -20,12 +23,21 @@ namespace Collectible.API.Controllers
             _repository.InjectDependencies(_logger, _configuration);
         }
 
+        /// <summary>
+        /// Gets all currency.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet, Route("")]
         public async Task<IActionResult> GetAllCurrency()
         {
             return Ok(await _repository.GetAllCurrency());
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet, Route("{id:int}")]
         public async Task<IActionResult> GetCurrencyById(int id)
         {

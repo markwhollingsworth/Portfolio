@@ -1,15 +1,15 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
 using Portfolio.API.Interfaces;
-using Portfolio.Shared.Extensions.Colectibles;
-using Portfolio.Shared.Models.Collectibles;
-using Portfolio.Shared.Requests.Collectibles.Coin;
+using Portfolio.Shared.Extensions;
+using Portfolio.Shared.Models;
+using Portfolio.Shared.Requests;
 
 namespace Portfolio.API.Repository
 {
     public class CoinRepository : ICoinRepository
     {
-        private RepositoryConfiguration _configuration;
+        private RepositoryConfiguration? _configuration;
 
         public async Task<CoinModel> GetById(int id)
         {

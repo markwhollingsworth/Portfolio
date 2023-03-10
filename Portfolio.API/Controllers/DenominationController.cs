@@ -2,8 +2,11 @@
 using Microsoft.Identity.Web.Resource;
 using Portfolio.API.Interfaces;
 
-namespace Collectible.API.Controllers
+namespace Portfolio.API.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [ApiController, Route("denomination"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class DenominationController : ControllerBase
     {

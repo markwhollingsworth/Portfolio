@@ -26,7 +26,6 @@
     <None Include="wwwroot\css\open-iconic\font\fonts\open-iconic.svg" />
     <None Include="wwwroot\css\open-iconic\ICON-LICENSE" />
     <None Include="wwwroot\css\open-iconic\README.md" />
-    <None Include="wwwroot\css\style.css.map" />
     <None Include="wwwroot\fonts\fontawesome-webfont.svg" />
     <None Include="wwwroot\fonts\fontawesome-webfont.woff2" />
     <None Include="wwwroot\fonts\la-brands-400.svg" />
@@ -171,7 +170,7 @@
     <None Include="wwwroot\js\multiselect.min.js" />
     <None Include="wwwroot\js\script.js" />
     <None Include="wwwroot\js\select2.min.js" />
-    <None Include="wwwroot\js\zoomify.js" />
+    <None Include="wwwroot\js\jsInterop.js" />
     <None Include="wwwroot\js\ZoomifyImageViewerPro-min.js" />
     <None Include="wwwroot\plugins\alertify\alertify.min.js" />
     <None Include="wwwroot\plugins\alertify\app.js" />
@@ -457,6 +456,8 @@
   <ItemGroup>
     <PackageReference Include="AspNetCore.SassCompiler" Version="1.58.1" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
+    <PackageReference Include="MudBlazor" Version="6.1.9" />
+    <PackageReference Include="OpenXmlPowerTools" Version="4.5.3.2" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿namespace Portfolio.Shared.Extensions.Colectibles
+﻿namespace Portfolio.Shared.Extensions
 {
     public static class StringExtensions
     {

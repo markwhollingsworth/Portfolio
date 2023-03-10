@@ -1,4 +1,4 @@
-﻿namespace Portfolio.Shared.Requests.Collectibles.Inventory
+﻿namespace Portfolio.Shared.Requests
 {
     public class AddInventoryRequest
     {

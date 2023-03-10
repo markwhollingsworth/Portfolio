@@ -1,8 +1,8 @@
-﻿using Portfolio.Shared.Enums.Collectibles;
+﻿using Portfolio.Shared.Enums;
 
-namespace Portfolio.Shared.Extensions.Colectibles
+namespace Portfolio.Shared.Extensions
 {
-    public static class MintExtensions
+    public static class EnumExtensions
     {
         public static string ToMintMark(this Mint mint)
         {

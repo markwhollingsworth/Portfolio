@@ -1,6 +1,6 @@
-﻿using Portfolio.Shared.Enums.Collectibles;
+﻿using Portfolio.Shared.Enums;
 
-namespace Portfolio.Shared.Models.Collectibles
+namespace Portfolio.Shared.Models
 {
     public class InventoryModel
     {
@@ -12,4 +12,3 @@ namespace Portfolio.Shared.Models.Collectibles
         public int Quantity { get; set; }
     }
 }
-

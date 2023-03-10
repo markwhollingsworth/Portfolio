@@ -1,7 +1,7 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
 using Portfolio.API.Interfaces;
-using Portfolio.Shared.Models.Collectibles;
+using Portfolio.Shared.Models;
 
 namespace Portfolio.API.Repository
 {

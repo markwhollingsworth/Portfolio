@@ -1,4 +1,4 @@
-﻿namespace Portfolio.Shared.Models.Collectibles
+﻿namespace Portfolio.Shared.Models
 {
     public class CurrencyModel
     {

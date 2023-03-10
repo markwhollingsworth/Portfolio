@@ -1,4 +1,5 @@
 ﻿@page "/about-site"
+@inject IConfiguration Configuration
 @namespace Portfolio.UI.Pages
 
 <div class="container my-3 fs-5">
@@ -37,7 +38,7 @@
                         <small class="text-muted">Server-Side</small>
                     </div>
                     <p class="mb-1">Originally built using Blazor WebAssembly, the website is now leveraging Blazor Server</p>
-                    <small><a href="@GetBlazorUrl()" target="_blank">Learn more about Blazor</a></small>
+                    <small><a href="@Configuration.GetBlazorUrl()" target="_blank">Learn more about Blazor</a></small>
                 </div>
                 <div class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
@@ -45,7 +46,7 @@
                         <small class="text-muted">Version 11</small>
                     </div>
                     <p class="mb-1">The 3 layers of the website (UI, Shared, and API) utilize C#</p>
-                    <small><a href="@GetCSharpUrl()" target="_blank">Learn more about C#</a></small>
+                    <small><a href="@Configuration.GetCSharpUrl()" target="_blank">Learn more about C#</a></small>
                 </div>
                 <div class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
@@ -53,7 +54,7 @@
                         <small class="text-muted">Version 7</small>
                     </div>
                     <p class="mb-1">The 3 layers of the website (UI, Shared, and API) utilize .NET 7</p>
-                    <small><a href="@GetDotNetUrl()" target="_blank">Learn more about .NET 7</a></small>
+                    <small><a href="@Configuration.GetDotNetUrl()" target="_blank">Learn more about .NET 7</a></small>
                 </div>
                 <div class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
@@ -61,21 +62,21 @@
                         <small class="text-muted">Version 5</small>
                     </div>
                     <p class="mb-1">The website applies Bootstrap for styling and layout</p>
-                    <small><a href="@GetBootstrapUrl()" target="_blank">Learn more about Bootstrap</a></small>
+                    <small><a href="@Configuration.GetBootstrapUrl()" target="_blank">Learn more about Bootstrap</a></small>
                 </div>
                 <div class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1"><strong>Javascript</strong></h5>
                     </div>
                     <p class="mb-1">Javascript is used primarily for interacting with 3rd party libraries such as jQuery and Zoomify (highway maps)</p>
-                    <small><a href="@GetJavascriptUrl()" target="_blank">Learn more about Javascript</a></small>
+                    <small><a href="@Configuration.GetJavascriptUrl()" target="_blank">Learn more about Javascript</a></small>
                 </div>
                 <div class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1"><strong>Microsoft Azure</strong></h5>
                     </div>
                     <p class="mb-1">The website uses several Azure services, which includes: App Services, Blob Storage, Active Directory, SQL, and API Management Service</p>
-                    <small class="text-muted"><a href="@GetAzureUrl()" target="_blank">Learn more about Azure</a></small>
+                    <small class="text-muted"><a href="@Configuration.GetAzureUrl()" target="_blank">Learn more about Azure</a></small>
                 </div>
                 <div class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
@@ -83,7 +84,7 @@
                         <small class="text-muted">Git</small>
                     </div>
                     <p class="mb-1">Source code maintained using Git and can be found on Github</p>
-                    <small class="text-muted"><a href="@GetGithubUrl()" target="_blank">View code on Github</a></small>
+                    <small class="text-muted"><a href="@Configuration.GetGithubUrl()" target="_blank">View code on Github</a></small>
                 </div>
             </div>
         </div>

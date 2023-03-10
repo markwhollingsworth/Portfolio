@@ -14,15 +14,13 @@
 
     <!-- Styles -->
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/app.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
     <link href="css/dataTables.bootstrap4.min.css" rel="stylesheet" />
-    <link href="plugins/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
 
     <!-- Scripts -->
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/feather.min.js"></script>
-    <!--<script src="js/jquery.slimscroll.min.js"></script>-->
+    <script src="js/jquery.slimscroll.min.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>
     <script src="js/dataTables.bootstrap4.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
@@ -31,15 +29,13 @@
     <script src="plugins/select2/js/select2.min.js"></script>
     <script src="js/moment.min.js"></script>
     <script src="js/bootstrap-datetimepicker.min.js"></script>
-    <script src="plugins/sweetalert/sweetalert2.all.min.js"></script>
-    <script src="plugins/sweetalert/sweetalerts.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/ZoomifyImageViewerPro-min.js"></script>
-    <script src="js/zoomify.js"></script>
-    <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
+    <script src="js/jsInterop.js"></script>
+    <component type="typeof(HeadOutlet)" render-mode="Server" />
 </head>
 <body>
-    <component type="typeof(App)" render-mode="ServerPrerendered" />
+    <component type="typeof(App)" render-mode="Server" />
 
     <div id="blazor-error-ui">
         <environment include="Staging,Production">
@@ -53,12 +49,10 @@
     </div>
 
     <script src="_framework/blazor.server.js"></script>
-    <script>
-        Blazor.start().then(() => {
-            Blazor.defaultReconnectionHandler._reconnectCallback = function (d) {
-                document.location.reload();
-            }
-        });
-    </script>
+@*    <script>
+        Blazor.defaultReconnectionHandler._reconnectCallback = function (d) {
+            document.location.reload();
+        }
+    </script>*@
 </body>
 </html>

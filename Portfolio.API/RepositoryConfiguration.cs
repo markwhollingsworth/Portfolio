@@ -1,5 +1,4 @@
-﻿using Collectible.API.Controllers;
-using Portfolio.API.Extensions;
+﻿using Portfolio.API.Extensions;
 using System.Data;
 
 namespace Portfolio.API

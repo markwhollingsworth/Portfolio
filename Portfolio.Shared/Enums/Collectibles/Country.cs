@@ -1,8 +1,9 @@
-﻿namespace Portfolio.Shared.Enums.Collectibles
+﻿namespace Portfolio.Shared.Enums
 {
     public enum Country
     {
         Unknown = 0,
-        USA = 1
+        USA = 1,
+        Mexico = 2
     }
 }
