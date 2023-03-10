@@ -3,7 +3,7 @@ using Microsoft.JSInterop;
 
 namespace Portfolio.UI.Pages
 {
-    public partial class Photography : ComponentBase
+    public partial class Photography
     {
         [Inject]
         private IJSRuntime? JsRuntime { get; set; }
@@ -12,7 +12,7 @@ namespace Portfolio.UI.Pages
         {
             if (JsRuntime != null)
             {
-                await JsRuntime.InvokeVoidAsync("loadCarousel");
+                await JsRuntime.InvokeVoidAsync("jsInterop.loadCarousel");
             }
         }
     }

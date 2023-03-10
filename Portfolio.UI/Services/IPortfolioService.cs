@@ -1,15 +1,20 @@
-﻿using Portfolio.Shared.Models.Collectibles;
-using Portfolio.Shared.Requests.Collectibles.Coin;
+﻿using Microsoft.AspNetCore.Components;
+using Portfolio.Shared.Models;
+using Portfolio.Shared.Requests;
 
 namespace Portfolio.UI.Services
 {
     public interface IPortfolioService
     {
-        Task AddCoin(AddCoinRequest request);
-        Task<CoinModel?> GetById(int id);
+        Task AddCoinAsync(AddCoinRequest request);
+        Task<MarkupString> ConvertDocumentToHtmlAsync(string key);
+        Task<CoinModel?> GetCoinByIdAsync(int id);
         Task<IEnumerable<DenominationModel>?> GetDenominationsAsync();
-        Task<IEnumerable<InventoryModel>?> GetInventoryAsync();
+        IEnumerable<MapModel>? GetFilteredMaps(IEnumerable<MapModel>? maps, string? searchText);
+        Task<IEnumerable<InventoryModel>> GetInventoryAsync();
+        Task<MapModel?> GetMapAsync(int id);
+        Task<IEnumerable<MapModel>?> GetMapsAsync();
         Task<IEnumerable<MintModel>?> GetMintsAsync();
-        Task UpdateCoin(UpdateCoinRequest request);
+        Task UpdateCoinAsync(UpdateCoinRequest request);
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Portfolio.Shared.Requests.Collectibles.Stamp
+﻿namespace Portfolio.Shared.Requests
 {
     public class UpdateStampRequest
     {

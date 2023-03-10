@@ -1,4 +1,4 @@
-﻿using Portfolio.Shared.Models.Collectibles;
+﻿using Portfolio.Shared.Models;
 
 namespace Portfolio.API.Interfaces
 {

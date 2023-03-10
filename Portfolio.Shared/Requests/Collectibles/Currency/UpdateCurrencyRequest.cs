@@ -1,4 +1,4 @@
-﻿namespace Portfolio.Shared.Requests.Collectibles.Currency
+﻿namespace Portfolio.Shared.Requests
 {
     public class UpdateCurrencyRequest
     {

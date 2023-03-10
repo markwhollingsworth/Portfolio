@@ -2,7 +2,7 @@
 using Microsoft.Identity.Web.Resource;
 using Portfolio.API.Interfaces;
 
-namespace Collectible.API.Controllers
+namespace Portfolio.API.Controllers
 {
     [ApiController, Route("inventory"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class InventoryController : ControllerBase

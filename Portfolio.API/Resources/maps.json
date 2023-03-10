@@ -5,7 +5,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1940-arizona-highway-map/",
-    "description": "Highway map"
+    "description": "Highway map",
+    "source":  ""
   },
   {
     "id": 3,
@@ -13,7 +14,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1941-arizona-highway-map/",
-    "description": "Highway map"
+    "description": "Highway map",
+    "source": ""
   },
   {
     "id": 4,
@@ -21,7 +23,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1944-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": ""
   },
   {
     "id": 5,
@@ -29,7 +32,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1945-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": ""
   },
   {
     "id": 6,
@@ -37,7 +41,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1948-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": ""
   },
   {
     "id": 7,
@@ -45,7 +50,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1949-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": ""
   },
   {
     "id": 8,
@@ -53,7 +59,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1950-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": ""
   },
   {
     "id": 9,
@@ -61,7 +68,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1950-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": ""
   },
   {
     "id": 10,
@@ -69,7 +77,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1951-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": ""
   },
   {
     "id": 11,
@@ -77,7 +86,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1951-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": ""
   },
   {
     "id": 12,
@@ -85,7 +95,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1952-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": ""
   },
   {
     "id": 13,
@@ -93,7 +104,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1952-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": ""
   },
   {
     "id": 14,
@@ -101,7 +113,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1953-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": ""
   },
   {
     "id": 15,
@@ -109,7 +122,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1953-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": ""
   },
   {
     "id": 16,
@@ -117,7 +131,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1954-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": ""
   },
   {
     "id": 17,
@@ -125,7 +140,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1954-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": ""
   },
   {
     "id": 18,
@@ -133,7 +149,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1955-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": ""
   },
   {
     "id": 19,
@@ -141,7 +158,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1955-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": ""
   },
   {
     "id": 20,
@@ -149,7 +167,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1955-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": ""
   },
   {
     "id": 21,
@@ -157,7 +176,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1956-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": ""
   },
   {
     "id": 22,
@@ -165,7 +185,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1956-general-highway-arizona-highway-map/",
-    "description": "Highway map"
+    "description": "Highway map",
+    "source": ""
   },
   {
     "id": 23,
@@ -173,7 +194,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1956-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": ""
   },
   {
     "id": 24,
@@ -181,7 +203,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1957-casa-grande-and-vicinity-arizona-highway-map/",
-    "description": "Casa Grande and vicinity map"
+    "description": "Casa Grande and vicinity map",
+    "source": ""
   },
   {
     "id": 25,
@@ -189,7 +212,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1957-federal-aid-secondary-highway-system-arizona-highway-map/",
-    "description": "Federal-aid secondary highway system map"
+    "description": "Federal-aid secondary highway system map",
+    "source": ""
   },
   {
     "id": 26,
@@ -197,7 +221,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1957-phoenix-and-vicinity-arizona-highway-map/",
-    "description": "Phoenix and vicinity map"
+    "description": "Phoenix and vicinity map",
+    "source": ""
   },
   {
     "id": 27,
@@ -205,7 +230,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1957-yuma-and-vicinity-arizona-highway-map/",
-    "description": "Yuma and vicinity map"
+    "description": "Yuma and vicinity map",
+    "source": ""
   },
   {
     "id": 28,
@@ -213,7 +239,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1958-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": ""
   },
   {
     "id": 29,
@@ -221,7 +248,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1958-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": ""
   },
   {
     "id": 30,
@@ -229,7 +257,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1958-general-highway-arizona-highway-map/",
-    "description": "Highway map"
+    "description": "Highway map",
+    "source": ""
   },
   {
     "id": 31,
@@ -237,7 +266,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1958-highway-commission-and-engineering-districts-arizona-highway-map/",
-    "description": "Highway commission and engineering districts map"
+    "description": "Highway commission and engineering districts map",
+    "source": ""
   },
   {
     "id": 32,
@@ -245,7 +275,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1958-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": ""
   },
   {
     "id": 33,
@@ -253,7 +284,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1959-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": ""
   },
   {
     "id": 34,
@@ -261,7 +293,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1959-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 35,
@@ -269,7 +302,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1959-general-highway-arizona-highway-map/",
-    "description": "Highway map"
+    "description": "Highway map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 36,
@@ -277,7 +311,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1959-highway-commission-and-engineering-districts-arizona-highway-map/",
-    "description": "Highway commission and engineering districts map"
+    "description": "Highway commission and engineering districts map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 37,
@@ -285,7 +320,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1959-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 38,
@@ -293,7 +329,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1960-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 39,
@@ -301,7 +338,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1960-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 40,
@@ -309,7 +347,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1960-general-highway-arizona-highway-map/",
-    "description": "Highway map"
+    "description": "Highway map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 41,
@@ -317,7 +356,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1960-highway-commission-and-engineering-districts-arizona-highway-map/",
-    "description": "Highway commission and engineering districts map"
+    "description": "Highway commission and engineering districts map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 42,
@@ -325,7 +365,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1960-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 43,
@@ -333,7 +374,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1961-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 44,
@@ -341,7 +383,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1961-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 45,
@@ -349,7 +392,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1961-general-highway-arizona-highway-map/",
-    "description": "Highway map"
+    "description": "Highway map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 46,
@@ -357,7 +401,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1961-highway-commission-and-engineering-districts-arizona-highway-map/",
-    "description": "Highway commission and engineering districts map"
+    "description": "Highway commission and engineering districts map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 47,
@@ -365,7 +410,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1961-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 48,
@@ -373,7 +419,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1962-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 49,
@@ -381,7 +428,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1962-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 50,
@@ -389,7 +437,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1962-general-highway-arizona-highway-map/",
-    "description": "Highway map"
+    "description": "Highway map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 51,
@@ -397,7 +446,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1962-highway-commission-and-engineering-districts-arizona-highway-map/",
-    "description": "Highway commission and engineering districts map"
+    "description": "Highway commission and engineering districts map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 52,
@@ -405,7 +455,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1962-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 53,
@@ -413,7 +464,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1963-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 54,
@@ -421,7 +473,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1963-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 55,
@@ -429,7 +482,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1963-general-highway-arizona-highway-map/",
-    "description": "Highway map"
+    "description": "Highway map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 56,
@@ -437,7 +491,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1963-highway-commission-and-engineering-districts-arizona-highway-map/",
-    "description": "Highway commission and engineering districts map"
+    "description": "Highway commission and engineering districts map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 57,
@@ -445,7 +500,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1963-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 58,
@@ -453,7 +509,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1964-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 59,
@@ -461,7 +518,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1964-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 60,
@@ -469,7 +527,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1964-general-highway-arizona-highway-map/",
-    "description": "Highway map"
+    "description": "Highway map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 61,
@@ -477,7 +536,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1964-highway-commission-and-engineering-districts-arizona-highway-map/",
-    "description": "Highway commission and engineering districts"
+    "description": "Highway commission and engineering districts",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 62,
@@ -485,7 +545,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1964-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 63,
@@ -493,7 +554,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1965-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 64,
@@ -501,7 +563,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1965-federal-aid-primary-system-arizona-highway-map/",
-    "description": "Federal-aid primary system map"
+    "description": "Federal-aid primary system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 65,
@@ -509,7 +572,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1965-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 66,
@@ -517,7 +581,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1965-highway-commission-and-engineering-districts-arizona-highway-map/",
-    "description": "Highway commission and engineering districts map"
+    "description": "Highway commission and engineering districts map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 67,
@@ -525,7 +590,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1965-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 68,
@@ -533,7 +599,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1965-state-federal-aid-secondary-system-arizona-highway-map/",
-    "description": "State federal-aid secondary system map"
+    "description": "State federal-aid secondary system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 69,
@@ -541,7 +608,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1965-state-non-federal-aid-system-arizona-highway-map/",
-    "description": "State Non-Federal-aid system map"
+    "description": "State Non-Federal-aid system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 70,
@@ -549,7 +617,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1966-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 71,
@@ -557,7 +626,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1966-federal-aid-primary-system-arizona-highway-map/",
-    "description": "Federal-aid primary system map"
+    "description": "Federal-aid primary system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 72,
@@ -565,7 +635,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1966-federal-aid-route-designations-arizona-highway-map/",
-    "mapDescriptvion": "Federal-aid route designations map"
+    "mapDescriptvion": "Federal-aid route designations map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 73,
@@ -573,7 +644,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1966-highway-commission-and-engineering-districts-arizona-highway-map/",
-    "description": "Highway commission and engineering districts map"
+    "description": "Highway commission and engineering districts map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 74,
@@ -581,7 +653,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1966-interstate-system-arizona-highway-map/",
-    "description": "Interstate system map"
+    "description": "Interstate system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 75,
@@ -589,7 +662,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1966-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 76,
@@ -597,7 +671,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1966-state-federal-aid-secondary-system-arizona-highway-map/",
-    "description": "State federal-aid secondary system map"
+    "description": "State federal-aid secondary system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 77,
@@ -605,7 +680,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1966-state-non-federal-aid-system-arizona-highway-map/",
-    "description": "State non-federal-aid system map"
+    "description": "State non-federal-aid system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 78,
@@ -613,7 +689,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1967-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 79,
@@ -621,7 +698,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1967-federal-aid-primary-system-arizona-highway-map/",
-    "description": "Federal-aid primary system map"
+    "description": "Federal-aid primary system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 80,
@@ -629,7 +707,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1967-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 81,
@@ -637,7 +716,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1967-highway-commission-and-engineering-districts-arizona-highway-map/",
-    "description": "Highway commission and engineering districts map"
+    "description": "Highway commission and engineering districts map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 82,
@@ -645,7 +725,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1967-interstate-system-arizona-highway-map/",
-    "description": "Interstate system map"
+    "description": "Interstate system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 83,
@@ -653,7 +734,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1967-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 84,
@@ -661,7 +743,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1967-state-federal-aid-secondary-system-arizona-highway-map/",
-    "description": "State federal-aid secondary system map"
+    "description": "State federal-aid secondary system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 85,
@@ -669,7 +752,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1967-state-non-federal-aid-system-arizona-highway-map/",
-    "description": "State non-federal-aid system map"
+    "description": "State non-federal-aid system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 86,
@@ -677,7 +761,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1968-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 87,
@@ -685,7 +770,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1968-federal-aid-primary-system-arizona-highway-map/",
-    "description": "Federal-aid primary system map"
+    "description": "Federal-aid primary system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 88,
@@ -693,7 +779,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1968-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 89,
@@ -701,7 +788,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1968-highway-commission-and-engineering-districts-arizona-highway-map/",
-    "description": "Highway commission and engineering districts map"
+    "description": "Highway commission and engineering districts map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 90,
@@ -709,7 +797,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1968-interstate-system-arizona-highway-map/",
-    "description": "Interstate system map"
+    "description": "Interstate system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 91,
@@ -717,7 +806,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1968-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 92,
@@ -725,7 +815,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1968-state-federal-aid-secondary-system-arizona-highway-map/",
-    "description": "State federal-aid secondary system map"
+    "description": "State federal-aid secondary system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 93,
@@ -733,7 +824,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1968-state-non-federal-aid-system-arizona-highway-map/",
-    "description": "State non-federal-aid system map"
+    "description": "State non-federal-aid system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 94,
@@ -741,7 +833,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1969-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 95,
@@ -749,7 +842,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1969-federal-aid-primary-system-arizona-highway-map/",
-    "description": "Federal-aid primary system map"
+    "description": "Federal-aid primary system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 96,
@@ -757,7 +851,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1969-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 97,
@@ -765,7 +860,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1969-highway-commission-and-engineering-districts-arizona-highway-map/",
-    "description": "Highway commission and engineering districts map"
+    "description": "Highway commission and engineering districts map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 98,
@@ -773,7 +869,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1969-interstate-system-arizona-highway-map/",
-    "description": "1969 Interstate system map"
+    "description": "1969 Interstate system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 99,
@@ -781,7 +878,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1969-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 100,
@@ -789,7 +887,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1969-state-federal-aid-secondary-system-arizona-highway-map/",
-    "description": "State federal-aid secondary system map"
+    "description": "State federal-aid secondary system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 101,
@@ -797,7 +896,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1969-state-non-federal-aid-system-arizona-highway-map/",
-    "description": "State non-federal-aid sysytem map"
+    "description": "State non-federal-aid sysytem map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 102,
@@ -805,7 +905,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1970-casa-grande-and-vicinity-arizona-highway-map/",
-    "description": "Casa Grande and vicinity map"
+    "description": "Casa Grande and vicinity map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 103,
@@ -813,7 +914,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1970-central-yavapai-county-arizona-highway-map/",
-    "description": "Central Yavapai County map"
+    "description": "Central Yavapai County map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 104,
@@ -821,7 +923,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1970-phoenix-and-vicinity-arizona-highway-map/",
-    "description": "Phoenix and vicinity map"
+    "description": "Phoenix and vicinity map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 105,
@@ -829,7 +932,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1970-state-federal-aid-secondary-system-arizona-highway-map/",
-    "description": "State federal-aid secondary system map"
+    "description": "State federal-aid secondary system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 106,
@@ -837,7 +941,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1970-yuma-and-tucson-and-vicinities-arizona-highway-map/",
-    "description": "Yuma and Tucson and vicinity map"
+    "description": "Yuma and Tucson and vicinity map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 107,
@@ -845,7 +950,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1971-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 108,
@@ -853,7 +959,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1971-federal-aid-primary-system-arizona-highway-map/",
-    "description": "Federal-aid primary system map"
+    "description": "Federal-aid primary system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 109,
@@ -861,7 +968,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1971-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 110,
@@ -869,7 +977,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1971-highway-commission-and-engineering-districts-arizona-highway-map/",
-    "description": "Highway commission and engineering districts map"
+    "description": "Highway commission and engineering districts map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 111,
@@ -877,7 +986,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1971-interstate-system-arizona-highway-map/",
-    "description": "Interstate system map"
+    "description": "Interstate system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 112,
@@ -885,7 +995,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1971-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 113,
@@ -893,7 +1004,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1971-state-federal-aid-secondary-system-arizona-highway-map/",
-    "description": "State federal-aid secondary system map"
+    "description": "State federal-aid secondary system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 114,
@@ -901,7 +1013,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1971-state-non-federal-aid-system-arizona-highway-map/",
-    "description": "State non-federal-aid system map"
+    "description": "State non-federal-aid system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 115,
@@ -909,7 +1022,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1972-casa-grande-and-vicinity-arizona-highway-map/",
-    "description": "Casa Grande and vicinity map"
+    "description": "Casa Grande and vicinity map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 116,
@@ -917,7 +1031,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1972-central-yavapai-county-arizona-highway-map/",
-    "description": "Central Yavapai County map"
+    "description": "Central Yavapai County map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 117,
@@ -925,7 +1040,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1972-flagstaff-and-vicinity-arizona-highway-map/",
-    "description": "Flagstaff and vicinity map"
+    "description": "Flagstaff and vicinity map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 118,
@@ -933,7 +1049,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1972-phoenix-and-vicinity-arizona-highway-map/",
-    "description": "Phoenix and vicinity map"
+    "description": "Phoenix and vicinity map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 119,
@@ -941,7 +1058,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1972-state-federal-aid-secondary-system-arizona-highway-map/",
-    "description": "State federal-aid secondary system map"
+    "description": "State federal-aid secondary system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 120,
@@ -949,7 +1067,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1972-yuma-and-tucson-and-vicinities-arizona-highway-map/",
-    "description": "Yuma and Tucson and vicinity map"
+    "description": "Yuma and Tucson and vicinity map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 121,
@@ -957,7 +1076,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1972-yuma-and-tucson-and-vicnities-arizona-highway-map/",
-    "description": "Yuma and Tucson and vicinity map"
+    "description": "Yuma and Tucson and vicinity map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 122,
@@ -965,7 +1085,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1972-yuma-and-tucson-and-vicnity-arizona-highway-map/",
-    "description": "Yuma and Tucson and vicinity map"
+    "description": "Yuma and Tucson and vicinity map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 123,
@@ -973,7 +1094,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1973-casa-grande-and-vicinity-arizona-highway-map/",
-    "description": "Casa Grande and vicinity map"
+    "description": "Casa Grande and vicinity map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 124,
@@ -981,7 +1103,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1973-casa-grande-and-vicinity-map-arizona-highway-map/",
-    "description": "Casa Grande and vicinity map"
+    "description": "Casa Grande and vicinity map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 125,
@@ -989,7 +1112,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1973-central-yavapai-county-arizona-highway-map/",
-    "description": "Central Yavapai County map"
+    "description": "Central Yavapai County map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 126,
@@ -997,7 +1121,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1973-flagstaff-and-vicinity-arizona-highway-map/",
-    "description": "Flagstaff and vicinity map"
+    "description": "Flagstaff and vicinity map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 127,
@@ -1005,7 +1130,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1973-phoenix-and-vicinity-arizona-highway-map/",
-    "description": "Phoenix and vicinity map"
+    "description": "Phoenix and vicinity map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 128,
@@ -1013,7 +1139,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1973-state-federal-aid-secondary-system-arizona-highway-map/",
-    "description": "State federal-aid secondary system map"
+    "description": "State federal-aid secondary system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 129,
@@ -1021,7 +1148,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1973-state-non-federal-aid-system-arizona-highway-map/",
-    "description": "State non-federal-aid system map"
+    "description": "State non-federal-aid system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 130,
@@ -1029,7 +1157,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1973-yuma-and-tucson-and-vicinities-arizona-highway-map/",
-    "description": "Yuma and Tucson and vicinity map"
+    "description": "Yuma and Tucson and vicinity map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 131,
@@ -1037,7 +1166,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1974-casa-grande-and-vicinity-arizona-highway-map/",
-    "description": "Casa Grande and vicinity map"
+    "description": "Casa Grande and vicinity map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 132,
@@ -1045,7 +1175,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1974-central-yavapai-county-arizona-highway-map/",
-    "description": "Central Yavapai County map"
+    "description": "Central Yavapai County map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 133,
@@ -1053,7 +1184,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1974-federal-aid-secondary-highway-system-arizona-highway-map/",
-    "description": "Federal-aid secondary system map"
+    "description": "Federal-aid secondary system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 134,
@@ -1061,7 +1193,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1974-flagstaff-and-vicinity-arizona-highway-map/",
-    "description": "Flagstaff and vicinity map"
+    "description": "Flagstaff and vicinity map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 135,
@@ -1069,7 +1202,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1974-phoenix-and-vicinity-arizona-highway-map/",
-    "description": "Phoenix and vicinity map"
+    "description": "Phoenix and vicinity map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 136,
@@ -1077,7 +1211,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1974-state-non-federal-aid-system-arizona-highway-map/",
-    "description": "State non-federal-aid system map"
+    "description": "State non-federal-aid system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 137,
@@ -1085,7 +1220,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1974-state-non-federal-aid-system-highway-map/",
-    "description": "State non-federal-aid system map"
+    "description": "State non-federal-aid system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 138,
@@ -1093,7 +1229,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1974-yuma-and-tucson-and-vicinities-arizona-highway-map/",
-    "description": "Yuma and Tucson and vicinity map"
+    "description": "Yuma and Tucson and vicinity map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 139,
@@ -1101,7 +1238,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1975-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 140,
@@ -1109,7 +1247,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1975-federal-aid-primary-system-arizona-highway-map/",
-    "description": "Federal-aid primary system map"
+    "description": "Federal-aid primary system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 141,
@@ -1117,7 +1256,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1975-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 142,
@@ -1125,7 +1265,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1975-federal-aid-secondary-highway-system-arizona-highway-map/",
-    "description": "Federal-aid secondary highway system map"
+    "description": "Federal-aid secondary highway system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 143,
@@ -1133,7 +1274,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1975-general-highway-arizona-highway-map/",
-    "description": "Highway map"
+    "description": "Highway map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 144,
@@ -1141,7 +1283,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1975-highway-commission-and-engineering-districts-arizona-highway-map/",
-    "description": "Highway commission and engineering districts map"
+    "description": "Highway commission and engineering districts map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 145,
@@ -1149,7 +1292,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1975-interstate-17-19-and-40-detailed-arizona-highway-map/",
-    "description": "Interstate 17, 19, and 40 map"
+    "description": "Interstate 17, 19, and 40 map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 146,
@@ -1157,7 +1301,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1975-interstate-8-10-and-15-detailed-arizona-highway-map/",
-    "description": "Interstate 8, 10, and 15 map"
+    "description": "Interstate 8, 10, and 15 map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 147,
@@ -1165,7 +1310,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1975-interstate-system-arizona-highway-map/",
-    "description": "Interstate system map"
+    "description": "Interstate system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 148,
@@ -1173,7 +1319,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1975-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 149,
@@ -1181,7 +1328,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1975-state-non-federal-aid-system-arizona-highway-map/",
-    "description": "State non-federal-aid system map"
+    "description": "State non-federal-aid system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 150,
@@ -1189,7 +1337,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1977-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 151,
@@ -1197,7 +1346,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1977-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 152,
@@ -1205,7 +1355,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1977-federal-aid-secondary-highway-system-arizona-highway-map/",
-    "description": "Federal-aid secondary highway system map"
+    "description": "Federal-aid secondary highway system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 153,
@@ -1213,7 +1364,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1977-interstate-17-19-and-40-detailed-arizona-highway-map/",
-    "description": "Interstate 17, 19, and 40 map"
+    "description": "Interstate 17, 19, and 40 map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 154,
@@ -1221,7 +1373,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1977-interstate-8-10-and-15-detailed-arizona-highway-map/",
-    "description": "Interstate 8, 10, and 15 map"
+    "description": "Interstate 8, 10, and 15 map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 155,
@@ -1229,7 +1382,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1977-interstate-system-arizona-highway-map/",
-    "description": "Interstate system map"
+    "description": "Interstate system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 156,
@@ -1237,7 +1391,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1977-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 157,
@@ -1245,7 +1400,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1977-regional-insets-arizona-highway-map/",
-    "description": "Metro areas maps"
+    "description": "Metro areas maps",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 158,
@@ -1253,7 +1409,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1977-transportation-board-and-engineering-districts-arizona-highway-map/",
-    "description": "Transportation board and engineering districts map"
+    "description": "Transportation board and engineering districts map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 159,
@@ -1261,7 +1418,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1978-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 160,
@@ -1269,7 +1427,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1978-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 161,
@@ -1277,7 +1436,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1978-interstate-system-arizona-highway-map/",
-    "description": "Interstate system map"
+    "description": "Interstate system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 162,
@@ -1285,7 +1445,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1978-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 163,
@@ -1293,7 +1454,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1978-regional-insets-arizona-highway-map/",
-    "description": "Metro areas map"
+    "description": "Metro areas map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 164,
@@ -1301,7 +1463,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1978-transportation-board-and-engineering-districts-arizona-highway-map/",
-    "description": "Transportation board and engineering districts map"
+    "description": "Transportation board and engineering districts map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 165,
@@ -1309,7 +1472,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1979-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 166,
@@ -1317,7 +1481,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1979-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 167,
@@ -1325,7 +1490,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1979-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 168,
@@ -1333,7 +1499,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1979-regional-insets-arizona-highway-map/",
-    "description": "Metro areas map"
+    "description": "Metro areas map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 169,
@@ -1341,7 +1508,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1979-transportation-board-and-engineering-districts-arizona-highway-map/",
-    "description": "Transportation board and engineering districts map"
+    "description": "Transportation board and engineering districts map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 170,
@@ -1349,7 +1517,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1980-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 171,
@@ -1357,7 +1526,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1980-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 172,
@@ -1365,7 +1535,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1980-federal-aid-secondary-highway-system-arizona-highway-map/",
-    "description": "Federal-aid secondary highway system map"
+    "description": "Federal-aid secondary highway system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 173,
@@ -1373,7 +1544,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1980-general-highway-arizona-highway-map/",
-    "description": "State highway system map"
+    "description": "State highway system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 174,
@@ -1381,7 +1553,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1980-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 175,
@@ -1389,7 +1562,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1980-regional-insets-arizona-highway-map/",
-    "description": "Metro areas map"
+    "description": "Metro areas map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 176,
@@ -1397,7 +1571,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1981-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 177,
@@ -1405,7 +1580,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1981-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 178,
@@ -1413,7 +1589,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1981-general-highway-arizona-highway-map/",
-    "description": "State highway system map"
+    "description": "State highway system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 179,
@@ -1421,7 +1598,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1981-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 180,
@@ -1429,7 +1607,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1981-regional-insets-arizona-highway-map/",
-    "description": "Metro areas map"
+    "description": "Metro areas map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 181,
@@ -1437,7 +1616,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1982-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 182,
@@ -1445,7 +1625,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1982-general-highway-arizona-highway-map/",
-    "description": "State highway system map"
+    "description": "State highway system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 183,
@@ -1453,7 +1634,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1982-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 184,
@@ -1461,7 +1643,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1983-engineering-districts-and-maintenance-sections-arizona-highway-map/",
-    "description": "Engineering districts and maintenance sections map"
+    "description": "Engineering districts and maintenance sections map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 185,
@@ -1469,7 +1652,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1983-federal-aid-route-designations-arizona-highway-map/",
-    "description": "Federal-aid route designations map"
+    "description": "Federal-aid route designations map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 186,
@@ -1477,7 +1661,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1983-general-highway-arizona-highway-map/",
-    "description": "State highway system map"
+    "description": "State highway system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 187,
@@ -1485,7 +1670,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1983-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 189,
@@ -1493,7 +1679,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1983-regional-insets-arizona-highway-map/",
-    "description": "Metro areas map"
+    "description": "Metro areas map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 190,
@@ -1501,7 +1688,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1985-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 191,
@@ -1509,7 +1697,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1985-state-legislative-districts-arizona-highway-map/",
-    "description": "State legislative districts map"
+    "description": "State legislative districts map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 192,
@@ -1517,7 +1706,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1986-general-highway-arizona-highway-map/",
-    "description": "State highway system map"
+    "description": "State highway system map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 193,
@@ -1525,7 +1715,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1986-traffic-count-arizona-highway-map/",
-    "description": "Average daily traffic map"
+    "description": "Average daily traffic map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 194,
@@ -1533,7 +1724,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1987-general-highway-arizona-highway-map/",
-    "description": "Arizona highway map"
+    "description": "Arizona highway map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 195,
@@ -1541,7 +1733,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1988-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 196,
@@ -1549,7 +1742,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1989-mile-post-location-arizona-highway-map/",
-    "description": "Maricopa controlled access routes map"
+    "description": "Maricopa controlled access routes map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 197,
@@ -1557,7 +1751,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1989-phoenix-and-vicinity-map-proposals-arizona-highway-map/",
-    "description": "Phoenix and vicinity proposals map"
+    "description": "Phoenix and vicinity proposals map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 198,
@@ -1565,7 +1760,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1989-state-legislative-districts-arizona-highway-map/",
-    "description": "State legislative districts map"
+    "description": "State legislative districts map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 199,
@@ -1573,7 +1769,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1989-tucson-and-vicinity-arizona-highway-map/",
-    "description": "Tucson and vicinity map"
+    "description": "Tucson and vicinity map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 200,
@@ -1581,7 +1778,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1990-mile-post-location-arizona-highway-map/",
-    "description": "Milepost location map"
+    "description": "Milepost location map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 201,
@@ -1589,7 +1787,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1990-state-legislative-districts-arizona-highway-map/",
-    "description": "State legislative districts map"
+    "description": "State legislative districts map",
+    "source": "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 202,
@@ -1597,7 +1796,8 @@
     "month": "",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/1993-general-highway-arizona-highway-map/",
-    "description": "Highway map"
+    "description": "Highway map",
+    "source":  "Arizona Department of Transportation (ADOT)"
   },
   {
     "id": 203,
@@ -1981,7 +2181,8 @@
     "month": "October",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/october-1931-arizona-highway-map/",
-    "description": "Highway map"
+    "description": "Highway map",
+    "source": ""
   },
   {
     "id": 251,
@@ -1989,7 +2190,8 @@
     "month": "October",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/october-1934-arizona-highway-map/",
-    "description": "Highway map"
+    "description": "Highway map",
+    "source":  ""
   },
   {
     "id": 252,
@@ -1997,7 +2199,8 @@
     "month": "October",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/october-1939-arizona-highway-map/",
-    "description": "Highway map"
+    "description": "Highway map",
+    "source":  ""
   },
   {
     "id": 253,
@@ -2005,7 +2208,8 @@
     "month": "September",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/september-1930-arizona-highway-map/",
-    "description": "Highway map"
+    "description": "Highway map",
+    "source": ""
   },
   {
     "id": 254,
@@ -2013,7 +2217,8 @@
     "month": "September",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/september-1931-arizona-highway-map/",
-    "description": "Highway map"
+    "description": "Highway map",
+    "source": "Arizona Highways Magazine"
   },
   {
     "id": 255,
@@ -2021,7 +2226,8 @@
     "month": "September",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/september-1934-arizona-highway-map/",
-    "description": "Highway map"
+    "description": "Arizona Highways Magazine",
+    "source": ""
   },
   {
     "id": 256,
@@ -2029,6 +2235,7 @@
     "month": "September",
     "state": "AZ",
     "url": "https://oldazroads.blob.core.windows.net/map-images/september-1939-arizona-highway-map/",
-    "description": "Highway map"
+    "description": "Highway map",
+    "source":  ""
   }
 ]

@@ -1,15 +1,12 @@
-﻿using Dapper;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web.Resource;
-using Portfolio.API.Controllers;
-using Portfolio.API.Extensions;
 using Portfolio.API.Interfaces;
-using Portfolio.Shared.Models.Collectibles;
-using System.Data;
 
-namespace Collectible.API.Controllers
+namespace Portfolio.API.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [ApiController, Route("mint"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class MintController : ControllerBase
     {
@@ -17,6 +14,12 @@ namespace Collectible.API.Controllers
         private readonly IConfiguration _configuration;
         private readonly IMintRepository _repository;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="logger"></param>
+        /// <param name="configuration"></param>
+        /// <param name="repository"></param>
         public MintController(ILogger<MintController> logger, IConfiguration configuration, IMintRepository repository)
         {
             _logger = logger;
@@ -25,6 +28,10 @@ namespace Collectible.API.Controllers
             _repository.InjectDependencies(logger, configuration);
         }
 
+        /// <summary>
+        /// Gets all mints.
+        /// </summary>
+        /// <returns>Returns a collection of mints.</returns>
         [HttpGet, Route("mints")]
         public async Task<IActionResult> GetAllMints()
         {

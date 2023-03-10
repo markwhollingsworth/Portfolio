@@ -1,4 +1,4 @@
-﻿namespace Portfolio.UI.Pages.Collectibles
+﻿namespace Portfolio.UI.Pages
 {
     public partial class AddCurrency
     {

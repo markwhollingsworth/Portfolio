@@ -1,4 +1,4 @@
-﻿namespace Portfolio.Shared.Enums.Collectibles
+﻿namespace Portfolio.Shared.Enums
 {
     public enum Mint
     {

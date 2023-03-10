@@ -1,8 +1,8 @@
-﻿namespace Portfolio.Shared.Models.Collectibles
+﻿namespace Portfolio.Shared.Models
 {
     public class DenominationModel
     {
         public int Id { get; set; }
-        public string Description { get; set; } = string.Empty;
+        public string? Description { get; set; }
     }
 }
