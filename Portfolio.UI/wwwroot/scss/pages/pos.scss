@@ -461,7 +461,7 @@
                 span:before {
                     @include position($__absolute,2px,5px,null,null);
                     content: "\f054";
-                    font-family: "Font Awesome 5 Free";
+                    font-family: "Josephin Sans";
                     font-style: normal;
                     font-weight: 900;
                     font-size: 10px;
@@ -472,7 +472,7 @@
             &.owl-prev {
                 span:before {
                     content: "\f053";
-                    font-family: "Font Awesome 5 Free";
+                    font-family: "Josephin Sans";
                     font-style: normal;
                     font-weight: 900;
                     font-size: 10px;

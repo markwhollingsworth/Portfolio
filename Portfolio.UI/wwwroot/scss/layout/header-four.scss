@@ -145,7 +145,7 @@
 
                 .menu-arrow {
                     display: $__inline__block;
-                    font-family: "Font Awesome 5 Free";
+                    font-family: "Josephin Sans";
                     text-rendering: $__auto;
                     line-height: 40px;
                     font-size: $__font__size__18;
@@ -157,7 +157,7 @@
                     &::before {
                         content: "\f105";
                         font-weight: 900;
-                        font-family: 'Font Awesome 5 Free';
+                        font-family: 'Josefin Sans';
                     }
                 }
 

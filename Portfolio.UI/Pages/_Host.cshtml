@@ -1,7 +1,7 @@
 ﻿@page "/"
 @using Microsoft.AspNetCore.Components.Web
-@namespace Portfolio.UI.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@namespace Portfolio.UI.Pages
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,10 +12,10 @@
     <title>Mark Hollingsworth | Portfolio</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-    <!-- Styles -->
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/dataTables.bootstrap4.min.css" rel="stylesheet" />
-    <link href="css/app.css" rel="stylesheet" />
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
 
     <!-- Scripts -->
     <script src="js/jquery-3.6.0.min.js"></script>
@@ -31,7 +31,12 @@
     <script src="js/bootstrap-datetimepicker.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/ZoomifyImageViewerPro-min.js"></script>
-    <script src="js/jsInterop.js"></script>
+    <script src="js/interop.js"></script>
+
+    <!-- Styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
     <component type="typeof(HeadOutlet)" render-mode="Server" />
 </head>
 <body>
@@ -49,10 +54,10 @@
     </div>
 
     <script src="_framework/blazor.server.js"></script>
-@*    <script>
+    <script>
         Blazor.defaultReconnectionHandler._reconnectCallback = function (d) {
             document.location.reload();
         }
-    </script>*@
+    </script>
 </body>
 </html>

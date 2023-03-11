@@ -1,6 +1,6 @@
 ﻿namespace Portfolio.UI.Pages
 {
-    public partial class AboutSite
+    public partial class About
     {
 
     }

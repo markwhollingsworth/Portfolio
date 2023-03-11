@@ -1,18 +1,14 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
+﻿using Microsoft.JSInterop;
 
 namespace Portfolio.UI.Pages
 {
     public partial class Photography
     {
-        [Inject]
-        private IJSRuntime? JsRuntime { get; set; }
-
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if (JsRuntime != null)
+            if (firstRender)
             {
-                await JsRuntime.InvokeVoidAsync("jsInterop.loadCarousel");
+                await JS.InvokeVoidAsync("interop.loadCarousel");
             }
         }
     }

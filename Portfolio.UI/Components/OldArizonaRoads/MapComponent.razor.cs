@@ -13,9 +13,12 @@ namespace Portfolio.UI.Components
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if (!string.IsNullOrWhiteSpace(Map?.Url))
+            if (firstRender)
             {
-                await JSRuntime.InvokeVoidAsync("jsInterop.loadZoomify", new object[] { Map.Url });
+                if (!string.IsNullOrWhiteSpace(Map?.Url))
+                {
+                    await JS.InvokeVoidAsync("interop.loadZoomify", new object[] { Map.Url });
+                }
             }
         }
     }
