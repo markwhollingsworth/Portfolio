@@ -21,7 +21,7 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>Never</CopyToPublishDirectory>
     </None>
-    <None Include="wwwroot\css\bootstrap\bootstrap.min.css.map" />
+    <None Include="wwwroot\css\bootstrap.min.css.map" />
     <None Include="wwwroot\css\open-iconic\FONT-LICENSE" />
     <None Include="wwwroot\css\open-iconic\font\fonts\open-iconic.svg" />
     <None Include="wwwroot\css\open-iconic\ICON-LICENSE" />
@@ -170,7 +170,7 @@
     <None Include="wwwroot\js\multiselect.min.js" />
     <None Include="wwwroot\js\script.js" />
     <None Include="wwwroot\js\select2.min.js" />
-    <None Include="wwwroot\js\jsInterop.js" />
+    <None Include="wwwroot\js\interop.js" />
     <None Include="wwwroot\js\ZoomifyImageViewerPro-min.js" />
     <None Include="wwwroot\plugins\alertify\alertify.min.js" />
     <None Include="wwwroot\plugins\alertify\app.js" />
@@ -198,8 +198,6 @@
     <None Include="wwwroot\plugins\flot\jquery.flot.fillbetween.js" />
     <None Include="wwwroot\plugins\flot\jquery.flot.js" />
     <None Include="wwwroot\plugins\flot\jquery.flot.pie.js" />
-    <None Include="wwwroot\plugins\fontawesome\js\all.js" />
-    <None Include="wwwroot\plugins\fontawesome\js\all.min.js" />
     <None Include="wwwroot\plugins\fontawesome\js\brands.js" />
     <None Include="wwwroot\plugins\fontawesome\js\brands.min.js" />
     <None Include="wwwroot\plugins\fontawesome\js\conflict-detection.js" />
@@ -414,7 +412,6 @@
     <None Include="wwwroot\scss\components\button.scss" />
     <None Include="wwwroot\scss\layout\avatar.scss" />
     <None Include="wwwroot\scss\layout\boostrap.scss" />
-    <None Include="wwwroot\scss\layout\calendar.scss" />
     <None Include="wwwroot\scss\layout\chart.scss" />
     <None Include="wwwroot\scss\layout\common.scss" />
     <None Include="wwwroot\scss\layout\components.scss" />

@@ -2,7 +2,7 @@
 
 namespace Portfolio.UI.Pages
 {
-    public partial class Resume : ComponentBase
+    public partial class Resume
     {
         public MarkupString ResumeHtml { get; set; }
 

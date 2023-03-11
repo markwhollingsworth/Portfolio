@@ -15,7 +15,6 @@ namespace Portfolio.UI.Pages
         protected override async Task OnInitializedAsync()
         {
             Maps = (await PortfolioService.GetMapsAsync())?.ToList();
-            //FilteredMaps = PortfolioService.GetFilteredMaps(Maps, SearchText)?.ToList();
         }
     }
 }

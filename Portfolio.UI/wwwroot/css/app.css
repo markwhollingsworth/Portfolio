@@ -1,7 +1,7 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 h1:focus {
@@ -271,7 +271,7 @@ h2 {
 h3 {
     font-weight: normal;
     font-size: 24px;
-}
+},
 
 @media (max-width: 1023px) {
     h3 {
@@ -325,7 +325,7 @@ h6 {
 }
 
 body {
-    font-family: "Nunito", sans-serif;
+    font-family: "Josefin Sans", sans-serif;
     font-size: 14px;
     color: #000;
     line-height: 1.5;
@@ -1045,13 +1045,13 @@ strong {
 .fc-toolbar h2 {
     font-size: 18px;
     font-weight: 600;
-    font-family: "Roboto", sans-serif;
+    font-family: "Josefin Sans", sans-serif;
     line-height: 30px;
     text-transform: uppercase;
 }
 
 .fc-day-grid-event .fc-time {
-    font-family: "Roboto", sans-serif;
+    font-family: "Josefin Sans", sans-serif;
 }
 
 .fc-day {
@@ -1144,13 +1144,13 @@ strong {
 .fc-basic-view td.fc-week-number span {
     padding-right: 8px;
     font-weight: 700;
-    font-family: "Roboto", sans-serif;
+    font-family: "Josefin Sans", sans-serif;
 }
 
 .fc-basic-view td.fc-day-number {
     padding-right: 8px;
     font-weight: 700;
-    font-family: "Roboto", sans-serif;
+    font-family: "Josefin Sans", sans-serif;
 }
 
 .event-form .input-group .form-control {
@@ -3450,7 +3450,7 @@ table.dataTable > thead .sorting_asc_disabled:after,
 table.dataTable > thead .sorting_desc_disabled:after {
     right: 0.5em;
     content: "\f107";
-    font-family: "Font Awesome 5 Free";
+    font-family: "Josefin Sans", sans-serif;
     top: 14px;
     color: #BABFC7;
     font-size: 12px;
@@ -3464,7 +3464,7 @@ table.dataTable > thead .sorting_asc_disabled:before,
 table.dataTable > thead .sorting_desc_disabled:before {
     right: 0.5em;
     content: "\f106";
-    font-family: "Font Awesome 5 Free";
+    font-family: "Josefin Sans", sans-serif;
     top: 5px;
     color: #BABFC7;
     font-size: 12px;
@@ -4485,7 +4485,7 @@ hr {
                 .sidebar.new-header .sidebar-menu > ul > li .menu-arrow::before {
                     content: "\f105";
                     font-weight: 900;
-                    font-family: "Font Awesome 5 Free";
+                    font-family: "Josefin Sans", sans-serif;
                 }
 
             .sidebar.new-header .sidebar-menu > ul > li ul {
@@ -4614,7 +4614,7 @@ hr {
     .sidebar.sidebar-two .sidebar-menu > ul li a .menu-arrow::before {
         content: "\f105";
         font-weight: 900;
-        font-family: "Font Awesome 5 Free";
+        font-family: "Josefin Sans", sans-serif;
     }
 
     .sidebar.sidebar-two .sidebar-menu .menu-arrow {
@@ -4751,7 +4751,7 @@ hr {
                 .sidebar.side-three.new-header .sidebar-menu > ul > li .menu-arrow::before {
                     content: "\f105";
                     font-weight: 900;
-                    font-family: "Font Awesome 5 Free";
+                    font-family: "Josefin Sans", sans-serif;
                 }
 
             .sidebar.side-three.new-header .sidebar-menu > ul > li ul {
@@ -4994,7 +4994,7 @@ hr {
 
             .sidebar.sidebar-four .sidebar-menu ul li a .menu-arrow {
                 display: inline-block;
-                font-family: "Font Awesome 5 Free";
+                font-family: "Josefin Sans", sans-serif;
                 text-rendering: auto;
                 line-height: 40px;
                 font-size: 18px;
@@ -5013,7 +5013,7 @@ hr {
                 .sidebar.sidebar-four .sidebar-menu ul li a .menu-arrow::before {
                     content: "\f105";
                     font-weight: 900;
-                    font-family: "Font Awesome 5 Free";
+                    font-family: "Josefin Sans", sans-serif;
                 }
 
             .sidebar.sidebar-four .sidebar-menu ul li a.subdrop .menu-arrow {
@@ -5277,7 +5277,7 @@ span.select2-container.select2-container--default.select2-container--open {
 
             .sidebar .sidebar-menu > ul > li > a .menu-arrow {
                 display: inline-block;
-                font-family: "Font Awesome 5 Free";
+                font-family: "Josefin Sans", sans-serif;
                 text-rendering: auto;
                 line-height: 40px;
                 font-size: 18px;
@@ -5296,7 +5296,7 @@ span.select2-container.select2-container--default.select2-container--open {
                 .sidebar .sidebar-menu > ul > li > a .menu-arrow::before {
                     content: "\f105";
                     font-weight: 900;
-                    font-family: "Font Awesome 5 Free";
+                    font-family: "Josefin Sans", sans-serif;
                 }
 
             .sidebar .sidebar-menu > ul > li > a.subdrop .menu-arrow {
@@ -5456,7 +5456,7 @@ span.select2-container.select2-container--default.select2-container--open {
     -o-transition: -o-transform 0.15s;
     transition: transform 0.15s;
     display: inline-block;
-    font-family: "Font Awesome 5 Free";
+    font-family: "Josefin Sans", sans-serif;
     text-rendering: auto;
     line-height: 40px;
     font-size: 18px;
@@ -8601,7 +8601,7 @@ span.select2-container.select2-container--default.select2-container--open {
                 top: 2px;
                 right: 5px;
                 content: "\f054";
-                font-family: "Font Awesome 5 Free";
+                font-family: "Josefin Sans", sans-serif;
                 font-style: normal;
                 font-weight: 900;
                 font-size: 10px;
@@ -8610,7 +8610,7 @@ span.select2-container.select2-container--default.select2-container--open {
 
             .owl-product .owl-nav button.owl-prev span:before {
                 content: "\f053";
-                font-family: "Font Awesome 5 Free";
+                font-family: "Josefin Sans", sans-serif;
                 font-style: normal;
                 font-weight: 900;
                 font-size: 10px;
