@@ -146,7 +146,7 @@ namespace Portfolio.UI.Services
             return map;
         }
 
-        public async Task<IEnumerable<MapModel>?> GetMapsAsync()
+        public async Task<IEnumerable<MapModel>> GetMapsAsync()
         {
             List<MapModel>? maps = null;
             var baseUrl = _configuration.GetValue<string>(StringRepository.BasePortfolioApiUrlKey);
@@ -163,7 +163,7 @@ namespace Portfolio.UI.Services
                 }
             }
 
-            return maps;
+            return maps ?? new List<MapModel>();
         }
 
         public async Task<IEnumerable<MintModel>?> GetMintsAsync()

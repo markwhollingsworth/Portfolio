@@ -8,7 +8,7 @@ namespace Portfolio.API.Controllers
     /// <summary>
     /// 
     /// </summary>
-    [ApiController, Route("currency"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
+    [ApiController, Route("v1/currency"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class CurrencyController : ControllerBase
     {
         private readonly ILogger<CurrencyController> _logger;

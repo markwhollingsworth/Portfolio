@@ -3,7 +3,7 @@ using Microsoft.Identity.Web.Resource;
 
 namespace Portfolio.API.Controllers
 {
-    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes"), ApiController]
+    [ApiController, Route("v1"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class HomeController : ControllerBase
     {
         [HttpGet, Route("")]

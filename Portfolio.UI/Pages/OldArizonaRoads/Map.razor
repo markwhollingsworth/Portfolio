@@ -5,9 +5,19 @@
 <div class="container my-3 fs-5">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item"><a href="/map/search">Map search</a></li>
-            <li class="breadcrumb-item">Map detail</li>
+            <li class="breadcrumb-item">
+                <NavLink href="/">
+                    Home
+                </NavLink>
+            </li>
+            <li class="breadcrumb-item">
+                <NavLink href="/map/search">
+                    Map search
+                </NavLink>
+            </li>
+            <li class="breadcrumb-item">
+                Map detail
+            </li>
         </ol>
     </nav>
 </div>
@@ -16,7 +26,9 @@
 {
     <div class="container">
         <div class="row">
-            <p>Map id is invalid.</p>
+            <p>
+                Map id is invalid.
+            </p>
         </div>
     </div>
 }
@@ -25,7 +37,8 @@ else if (MapDetail == null)
     <div class="container">
         <div class="row">
             <div id="global-loader">
-                <div class="whirly-loader"></div>
+                <div class="whirly-loader">
+                </div>
             </div>
         </div>
     </div>
@@ -34,11 +47,14 @@ else if (string.IsNullOrWhiteSpace(MapDetail.Url))
 {
     <div class="container">
         <div class="row">
-            <p>Map url is invalid.</p>
+            <p>
+                Map url is invalid.
+            </p>
         </div>
     </div>
 }
 else
 {
-    <MapComponent Map="@MapDetail"></MapComponent>
+    <MapComponent Map="@MapDetail">
+    </MapComponent>
 }

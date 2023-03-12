@@ -4,7 +4,7 @@ using Portfolio.API.Interfaces;
 
 namespace Portfolio.API.Controllers
 {
-    [ApiController, Route("inventory"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
+    [ApiController, Route("v1/inventory"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class InventoryController : ControllerBase
     {
         private readonly ILogger<InventoryController> _logger;

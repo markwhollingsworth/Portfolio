@@ -2,6 +2,11 @@
 
 html, body {
     font-family: 'Josefin Sans', sans-serif;
+    background-image: url('../img/forest.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
 }
 
 h1:focus {
@@ -80,7 +85,8 @@ h4, h5, h6 {
 }
 
 a {
-    color: royalblue !important;
+    color: #22559c !important;
+    text-decoration: underline;
 }
 
 .mapContainer {
