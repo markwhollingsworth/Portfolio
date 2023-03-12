@@ -26,37 +26,13 @@
     <None Include="wwwroot\css\open-iconic\font\fonts\open-iconic.svg" />
     <None Include="wwwroot\css\open-iconic\ICON-LICENSE" />
     <None Include="wwwroot\css\open-iconic\README.md" />
-    <None Include="wwwroot\fonts\fontawesome-webfont.svg" />
-    <None Include="wwwroot\fonts\fontawesome-webfont.woff2" />
-    <None Include="wwwroot\fonts\la-brands-400.svg" />
-    <None Include="wwwroot\fonts\la-brands-400.woff2" />
-    <None Include="wwwroot\fonts\la-regular-400.svg" />
-    <None Include="wwwroot\fonts\la-regular-400.woff2" />
-    <None Include="wwwroot\fonts\la-solid-900.svg" />
-    <None Include="wwwroot\fonts\la-solid-900.woff2" />
-    <None Include="wwwroot\fonts\line-awesome.svg" />
-    <None Include="wwwroot\fonts\line-awesome.woff2" />
-    <None Include="wwwroot\fonts\MaterialIcons-Regular.svg" />
-    <None Include="wwwroot\fonts\MaterialIcons-Regular.woff2" />
-    <None Include="wwwroot\img\icons\add-circle.svg" />
-    <None Include="wwwroot\img\icons\addprofile.svg" />
     <None Include="wwwroot\img\icons\arrow-left.svg" />
-    <None Include="wwwroot\img\icons\bar.svg" />
     <None Include="wwwroot\img\icons\bar1.svg" />
-    <None Include="wwwroot\img\icons\Calculator.svg" />
-    <None Include="wwwroot\img\icons\calendars.svg" />
     <None Include="wwwroot\img\icons\cash.svg" />
     <None Include="wwwroot\img\icons\close-circle.svg" />
     <None Include="wwwroot\img\icons\close-circle1.svg" />
     <None Include="wwwroot\img\icons\close-icon.svg" />
     <None Include="wwwroot\img\icons\closes.svg" />
-    <None Include="wwwroot\img\icons\dash1.svg" />
-    <None Include="wwwroot\img\icons\dash2.svg" />
-    <None Include="wwwroot\img\icons\dash3.svg" />
-    <None Include="wwwroot\img\icons\dash4.svg" />
-    <None Include="wwwroot\img\icons\dash5.svg" />
-    <None Include="wwwroot\img\icons\dash6.svg" />
-    <None Include="wwwroot\img\icons\dash7.svg" />
     <None Include="wwwroot\img\icons\dashboard.svg" />
     <None Include="wwwroot\img\icons\datepicker.svg" />
     <None Include="wwwroot\img\icons\debitcard.svg" />
@@ -159,7 +135,6 @@
     <None Include="wwwroot\js\dataTables.bootstrap4.min.js" />
     <None Include="wwwroot\js\feather.min.js" />
     <None Include="wwwroot\js\feather.min.js.map" />
-    <None Include="wwwroot\js\fullcalendar.min.js" />
     <None Include="wwwroot\js\jquery-3.6.0.min.js" />
     <None Include="wwwroot\js\jquery-ui.min.js" />
     <None Include="wwwroot\js\jquery.dataTables.min.js" />
@@ -410,7 +385,6 @@
     <None Include="wwwroot\scss\base\reset.scss" />
     <None Include="wwwroot\scss\base\typography.scss" />
     <None Include="wwwroot\scss\components\button.scss" />
-    <None Include="wwwroot\scss\layout\avatar.scss" />
     <None Include="wwwroot\scss\layout\boostrap.scss" />
     <None Include="wwwroot\scss\layout\chart.scss" />
     <None Include="wwwroot\scss\layout\common.scss" />
@@ -434,12 +408,7 @@
     <None Include="wwwroot\scss\layout\sidebar.scss" />
     <None Include="wwwroot\scss\layout\table.scss" />
     <None Include="wwwroot\scss\main.scss" />
-    <None Include="wwwroot\scss\pages\chat.scss" />
     <None Include="wwwroot\scss\pages\common.scss" />
-    <None Include="wwwroot\scss\pages\dashboard.scss" />
-    <None Include="wwwroot\scss\pages\email.scss" />
-    <None Include="wwwroot\scss\pages\login.scss" />
-    <None Include="wwwroot\scss\pages\pos.scss" />
     <None Include="wwwroot\scss\pages\product.scss" />
     <None Include="wwwroot\scss\pages\profile.scss" />
     <None Include="wwwroot\scss\utils\mixins.scss" />
@@ -453,7 +422,6 @@
   <ItemGroup>
     <PackageReference Include="AspNetCore.SassCompiler" Version="1.58.1" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
-    <PackageReference Include="MudBlazor" Version="6.1.9" />
     <PackageReference Include="OpenXmlPowerTools" Version="4.5.3.2" />
   </ItemGroup>
 

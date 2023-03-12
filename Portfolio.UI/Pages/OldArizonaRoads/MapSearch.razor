@@ -10,80 +10,99 @@
         </ol>
     </nav>
 </div>
-
-@if (Maps == null || !Maps.Any())
-{
-    <div class="container">
-        <div class="row">
-            <div id="global-loader">
-                <div class="whirly-loader"></div>
-            </div>
-        </div>
-    </div>
-}
-else
-{
-    <div class="container">
-        <h3>Map search</h3>
-        <div class="table-top">
-            <div class="search-set text-center">
-                <div class="search-path">
-                    <div class="search-input">
-                        <label>
-                            <input type="search" class="form-control form-control-lg" placeholder="Search..."
-                               aria-controls="DataTables_Table_0" @bind-value="SearchText" @bind-value:event="oninput">
-                        </label>
-                        <a class="btn btn-searchset"><img src="img/icons/search-white.svg" alt="img"></a>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title display-4">Map search</h4>
+            <div class="table-top">
+                <div class="search-set text-center">
+                    <div class="search-path">
+                        <div class="search-input">
+                            <label>
+                                <input type="search" class="form-control form-control-lg" placeholder="Search..."
+                                       aria-controls="DataTables_Table_0" @bind-value="SearchText" @bind-value:event="oninput">
+                            </label>
+                            <a class="btn btn-searchset"><img src="img/icons/search-white.svg" alt="img"></a>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            @if (!string.IsNullOrWhiteSpace(SearchText))
+            {
+                if (FilteredMaps?.Any() ?? false)
+                {
+                    <h4 class="card-title display-4">
+                        Search results
+                    </h4>
+                    <div class="row table-responsive-md">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        Date
+                                    </th>
+                                    <th scope="col">
+                                        State
+                                    </th>
+                                    <th scope="col">
+                                        Description
+                                    </th>
+                                    <th scope="col">
+                                        Source
+                                    </th>
+                                    <th scope="col">
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var map in FilteredMaps)
+                                {
+                                    <tr>
+                                        @if (String.IsNullOrWhiteSpace(map.Month))
+                                        {
+                                            <td>
+                                                @map.Year
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td>
+                                                @map.Month @map.Year
+                                            </td>
+                                        }
+                                        <td>
+                                            @map.State
+                                        </td>
+                                        <td>
+                                            @map.Description
+                                        </td>
+                                        <td>
+                                            @map.Source
+                                        </td>
+                                        <td>
+                                            <NavLink href="@GetMapLink(map.Id)" class="link-primary">
+                                                View
+                                            </NavLink>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <div class="row">
+                        <div class="col-sm col-md col-lg col-xl">
+                            <p class="text-danger">
+                                Oh no!  There were no maps found for "@SearchText".  The map collection contains maps from 1930 to 1993,
+                                but not all years are represented.  It is usually easiest to search by year, for example, searching for "1985".
+                            </p>
+                        </div>
+                    </div>
+                }
+            }
         </div>
     </div>
-}
-
-@if (!string.IsNullOrWhiteSpace(SearchText))
-{
-    if (FilteredMaps?.Any() ?? false)
-    {
-        <div class="container">
-            <div class="row table-responsive-md">
-                <table class="table table-striped table-bordered">
-                    <caption>List of maps</caption>
-                    <thead>
-                        <tr>
-                            <th scope="col">Month</th>
-                            <th scope="col">Year</th>
-                            <th scope="col">State</th>
-                            <th scope="col">Description</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var map in FilteredMaps)
-                        {
-                            <tr>
-                                <td>@map.Month</td>
-                                <td>@map.Year</td>
-                                <td>@map.State</td>
-                                <td>@map.Description</td>
-                                <td>
-                                    <a href="@GetMapLink(map.Id)" class="link-primary">View</a>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    }
-    else
-    {
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    There were no maps found.
-                </div>
-            </div>
-        </div>
-    }
-}
+</div>

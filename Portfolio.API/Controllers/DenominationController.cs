@@ -7,7 +7,7 @@ namespace Portfolio.API.Controllers
     /// <summary>
     /// 
     /// </summary>
-    [ApiController, Route("denomination"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
+    [ApiController, Route("v1/denomination"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class DenominationController : ControllerBase
     {
         private readonly ILogger<DenominationController> _logger;

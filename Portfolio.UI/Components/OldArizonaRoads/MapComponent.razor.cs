@@ -9,7 +9,7 @@ namespace Portfolio.UI.Components
         [Parameter]
         public MapModel? Map { get; set; }
 
-        private string GetFullDescription() => $"{Map?.Month?.Trim()} {Map?.Year?.Trim()} {Map?.State?.Trim()} {Map?.Description?.Trim()}";
+        private string GetFullDescription() => $"{Map?.Month?.Trim()} {Map?.Year?.Trim()} {Map?.Description?.Trim()} ({Map?.State?.Trim()})";
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {

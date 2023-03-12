@@ -7,7 +7,7 @@ namespace Portfolio.API.Controllers
     /// <summary>
     /// 
     /// </summary>
-    [ApiController, Route("mint"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
+    [ApiController, Route("v1/mint"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class MintController : ControllerBase
     {
         private readonly ILogger<MintController> _logger;

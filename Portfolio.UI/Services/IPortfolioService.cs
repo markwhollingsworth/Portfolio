@@ -13,7 +13,7 @@ namespace Portfolio.UI.Services
         IEnumerable<MapModel>? GetFilteredMaps(IEnumerable<MapModel>? maps, string? searchText);
         Task<IEnumerable<InventoryModel>> GetInventoryAsync();
         Task<MapModel?> GetMapAsync(int id);
-        Task<IEnumerable<MapModel>?> GetMapsAsync();
+        Task<IEnumerable<MapModel>> GetMapsAsync();
         Task<IEnumerable<MintModel>?> GetMintsAsync();
         Task UpdateCoinAsync(UpdateCoinRequest request);
     }

@@ -2,89 +2,191 @@
 @inject IConfiguration Configuration
 @namespace Portfolio.UI.Pages
 
-<div class="container my-3 fs-5">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item">About</li>
-        </ol>
-    </nav>
-</div>
-
 <div class="container">
     <div class="row">
-        <div class="col-lg-7 col-md-6 col-sm-6">
-            <div class="jumbotron jumbotron-fluid text-center">
-                <h3 class="display-4">About this website</h3>
-                <p class="lead text-dark">
-                    The story of this website begins in 2012.  I had created a website called Old Arizona Roads.  At the time, I was on the way out of college, and
-                    was deeply interested in highways.  Old Arizona Roads was a website built using HTML, CSS, Javascript, and Azure Blob
-                    Storage.  While the site was functional and helped me learn about application development, it was difficult to maintain.
-                </p>
-                <p class="lead text-dark">
-                    Fast forward to 2023, nearly 11 years after starting in software development, and I wanted to learn how to use Blazor to
-                    develop single page applications.  This website was originally born out of a desire to learn Blazor, and also re-develop Old
-                    Arizona Roads.  I also have an interest in coin collecting, so this site is also an outlet to track the collectibles that I own.
-                    Ultimately, I would like to start a marketplace to sell coins and other collectibles.
-                </p>
-            </div>
+        <div class="my-3 fs-5">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <NavLink href="/">
+                            Home
+                        </NavLink>
+                    </li>
+                    <li class="breadcrumb-item">
+                        About
+                    </li>
+                </ol>
+            </nav>
         </div>
-        <div class="col-lg-5 col-md-6 col-sm-6">
-            <h6 class="text-center"><strong>Proudly built using the following technology</strong></h6>
-            <div class="list-group">
-                <div class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1"><strong>Blazor</strong></h5>
-                        <small class="text-muted">Server-Side</small>
+    </div>
+</div>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm col-md col-lg col-xl">
+                    <div class="jumbotron jumbotron-fluid text-center">
+                        <h3 class="display-4">
+                            About this website
+                        </h3>
+                        <p class="lead text-dark">
+                            The story of this website begins in 2012.  I had created a website called Old Arizona Roads.
+                            At the time, I was on the way out of college, and was deeply interested in highways.  Old Arizona Roads
+                            was a website built using HTML, CSS, Javascript, and Azure Blob Storage.  While the site was functional
+                            and helped me learn about application development, it was difficult to maintain.
+                        </p>
+                        <p class="lead text-dark">
+                            Fast forward to 2023, nearly 11 years after starting in software development, and I wanted to learn how
+                            to use Blazor to develop single page applications.  This website was originally born out of a desire to
+                            learn Blazor, and also re-develop Old Arizona Roads.  I also have an interest in coin collecting, so this
+                            site is also an outlet to track the collectibles that I own.
+                        </p>
                     </div>
-                    <p class="mb-1">Originally built using Blazor WebAssembly, the website is now leveraging Blazor Server</p>
-                    <small><a href="@Configuration.GetBlazorUrl()" target="_blank">Learn more about Blazor</a></small>
                 </div>
-                <div class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1"><strong>C#</strong></h5>
-                        <small class="text-muted">Version 11</small>
+                <div class="col-sm col-md col-lg col-xl">
+                    <div class="list-group">
+                        <div class="list-group-item list-group-item-action flex-column align-items-start">
+                            <h6>
+                                <strong>
+                                    Proudly built using the following technology
+                                </strong>
+                            </h6>
+                        </div>
+                        <div class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">
+                                    <strong>
+                                        Blazor
+                                    </strong>
+                                </h5>
+                                <small class="text-muted">
+                                    Server-Side
+                                </small>
+                            </div>
+                            <p class="mb-1">
+                                Originally built using Blazor WebAssembly, the website is now leveraging Blazor Server
+                            </p>
+                            <small>
+                                <NavLink href="@Configuration.GetBlazorUrl()" target="_blank">
+                                    Learn more about Blazor
+                                </NavLink>
+                            </small>
+                        </div>
+                        <div class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">
+                                    <strong>
+                                        C#
+                                    </strong>
+                                </h5>
+                                <small class="text-muted">
+                                    Version 11
+                                </small>
+                            </div>
+                            <p class="mb-1">
+                                The 3 layers of the website (UI, Shared, and API) utilize C#
+                            </p>
+                            <small>
+                                <NavLink href="@Configuration.GetCSharpUrl()" target="_blank">
+                                    Learn more about C#
+                                </NavLink>
+                            </small>
+                        </div>
+                        <div class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">
+                                    <strong>
+                                        .NET Framework
+                                    </strong>
+                                </h5>
+                                <small class="text-muted">
+                                    Version 7
+                                </small>
+                            </div>
+                            <p class="mb-1">The 3 layers of the website (UI, Shared, and API) utilize .NET 7</p>
+                            <small>
+                                <NavLink href="@Configuration.GetDotNetUrl()" target="_blank">
+                                    Learn more about .NET 7
+                                </NavLink>
+                            </small>
+                        </div>
+                        <div class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">
+                                    <strong>
+                                        Bootstrap
+                                    </strong>
+                                </h5>
+                                <small class="text-muted">
+                                    Version 5
+                                </small>
+                            </div>
+                            <p class="mb-1">
+                                The website applies Bootstrap for styling and layout
+                            </p>
+                            <small>
+                                <NavLink href="@Configuration.GetBootstrapUrl()" target="_blank">
+                                    Learn more about Bootstrap
+                                </NavLink>
+                            </small>
+                        </div>
+                        <div class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">
+                                    <strong>
+                                        Javascript
+                                    </strong>
+                                </h5>
+                            </div>
+                            <p class="mb-1">
+                                Javascript is used primarily for interacting with 3rd party libraries such as jQuery and
+                                Zoomify (highway maps)
+                            </p>
+                            <small>
+                                <NavLink href="@Configuration.GetJavascriptUrl()" target="_blank">
+                                    Learn more about Javascript
+                                </NavLink>
+                            </small>
+                        </div>
+                        <div class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">
+                                    <strong>
+                                        Microsoft Azure
+                                    </strong>
+                                </h5>
+                            </div>
+                            <p class="mb-1">
+                                The website uses several Azure services, which includes: App Services, Blob Storage, Active Directory,
+                                SQL, and API Management Service
+                            </p>
+                            <small class="text-muted">
+                                <NavLink href="@Configuration.GetAzureUrl()" target="_blank">
+                                    Learn more about Azure
+                                </NavLink>
+                            </small>
+                        </div>
+                        <div class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">
+                                    <strong>
+                                        Github
+                                    </strong>
+                                </h5>
+                                <small class="text-muted">
+                                    Git
+                                </small>
+                            </div>
+                            <p class="mb-1">
+                                Source code maintained using Git and can be found on Github
+                            </p>
+                            <small class="text-muted">
+                                <NavLink href="@Configuration.GetGithubUrl()" target="_blank">
+                                    View code for website on Github
+                                </NavLink>
+                            </small>
+                        </div>
                     </div>
-                    <p class="mb-1">The 3 layers of the website (UI, Shared, and API) utilize C#</p>
-                    <small><a href="@Configuration.GetCSharpUrl()" target="_blank">Learn more about C#</a></small>
-                </div>
-                <div class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1"><strong>.NET Framework</strong></h5>
-                        <small class="text-muted">Version 7</small>
-                    </div>
-                    <p class="mb-1">The 3 layers of the website (UI, Shared, and API) utilize .NET 7</p>
-                    <small><a href="@Configuration.GetDotNetUrl()" target="_blank">Learn more about .NET 7</a></small>
-                </div>
-                <div class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1"><strong>Bootstrap</strong></h5>
-                        <small class="text-muted">Version 5</small>
-                    </div>
-                    <p class="mb-1">The website applies Bootstrap for styling and layout</p>
-                    <small><a href="@Configuration.GetBootstrapUrl()" target="_blank">Learn more about Bootstrap</a></small>
-                </div>
-                <div class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1"><strong>Javascript</strong></h5>
-                    </div>
-                    <p class="mb-1">Javascript is used primarily for interacting with 3rd party libraries such as jQuery and Zoomify (highway maps)</p>
-                    <small><a href="@Configuration.GetJavascriptUrl()" target="_blank">Learn more about Javascript</a></small>
-                </div>
-                <div class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1"><strong>Microsoft Azure</strong></h5>
-                    </div>
-                    <p class="mb-1">The website uses several Azure services, which includes: App Services, Blob Storage, Active Directory, SQL, and API Management Service</p>
-                    <small class="text-muted"><a href="@Configuration.GetAzureUrl()" target="_blank">Learn more about Azure</a></small>
-                </div>
-                <div class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1"><strong>Github</strong></h5>
-                        <small class="text-muted">Git</small>
-                    </div>
-                    <p class="mb-1">Source code maintained using Git and can be found on Github</p>
-                    <small class="text-muted"><a href="@Configuration.GetGithubUrl()" target="_blank">View code for website on Github</a></small>
                 </div>
             </div>
         </div>

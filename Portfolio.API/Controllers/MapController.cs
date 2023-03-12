@@ -7,7 +7,7 @@ namespace Portfolio.API.Controllers
     /// <summary>
     /// 
     /// </summary>
-    [ApiController, Route("map"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
+    [ApiController, Route("v1/map"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class MapController : ControllerBase
     {
         private readonly ILogger<MapController> _logger;
