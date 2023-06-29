@@ -1,16 +1,25 @@
-﻿using Newtonsoft.Json;
-using Portfolio.API.Extensions;
-using Portfolio.API.Interfaces;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Portfolio.Shared.Configuration;
+using Portfolio.Shared.Extensions;
+using Portfolio.Shared.Interfaces;
 using Portfolio.Shared.Models;
 
-namespace Portfolio.API.Repository
+namespace Portfolio.Shared.DataAccess
 {
-    public class MapRepository : IMapRepository
+    public class MapDataAccess : IMapDataAccess
     {
-        private RepositoryConfiguration? _configuration;
-        private string? _mapDataLocation;
+        private readonly DataAccessConfiguration _configuration;
+        private readonly string _mapDataLocation;
 
-        public async Task<IEnumerable<MapModel>?> GetAllMapsAsync()
+        public MapDataAccess(ILogger<IMapDataAccess> logger, IConfiguration configuration)
+        {
+            _configuration = new(logger, configuration);
+            _mapDataLocation = configuration.GetMapDataLocation();
+        }
+
+        public async Task<IEnumerable<MapModel>?> GetMapsAsync()
         {
             List<MapModel>? maps = null;
 
@@ -18,7 +27,7 @@ namespace Portfolio.API.Repository
             {
                 if (!string.IsNullOrWhiteSpace(_mapDataLocation))
                 {
-                    using var streamReader = new StreamReader(_mapDataLocation);
+                    using StreamReader streamReader = new(_mapDataLocation);
                     var text = await streamReader.ReadToEndAsync();
                     maps = JsonConvert.DeserializeObject<List<MapModel>>(text);
                 }
@@ -31,7 +40,7 @@ namespace Portfolio.API.Repository
             return maps;
         }
 
-        public async Task<MapModel?> GetMapById(int id)
+        public async Task<MapModel?> GetMapByIdAsync(long id)
         {
             MapModel? map = null;
 
@@ -44,7 +53,7 @@ namespace Portfolio.API.Repository
 
                 if (!string.IsNullOrWhiteSpace(_mapDataLocation))
                 {
-                    using var streamReader = new StreamReader(_mapDataLocation);
+                    using StreamReader streamReader = new(_mapDataLocation);
                     var text = await streamReader.ReadToEndAsync();
                     map = JsonConvert.DeserializeObject<List<MapModel>>(text)?.FirstOrDefault(x => x.Id == id);
                 }
@@ -55,12 +64,6 @@ namespace Portfolio.API.Repository
             }
 
             return map;
-        }
-
-        public void InjectDependencies(ILogger logger, IConfiguration configuration)
-        {
-            _configuration = new RepositoryConfiguration(logger, configuration);
-            _mapDataLocation = configuration.GetMapDataLocation();
         }
     }
 }

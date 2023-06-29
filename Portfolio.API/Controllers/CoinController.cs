@@ -1,26 +1,34 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web.Resource;
-using Portfolio.API.Interfaces;
-using Portfolio.Shared.Requests;
+using Portfolio.Shared.Repository;
+using Portfolio.Shared.Requests.Collectibles.Coin;
+using Portfolio.Shared.Requests.Commands;
+using Portfolio.Shared.Requests.Queries;
+using System.ComponentModel.DataAnnotations;
 
 namespace Portfolio.API.Controllers
 {
     /// <summary>
-    /// 
+    /// Provides endpoints for interacting with coins.
     /// </summary>
-    [ApiController, Route("v1/coin"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
+    [ApiController,
+     Route($"{Strings.V1Lowercase}/{Strings.CoinLowercase}"),
+     RequiredScope(RequiredScopesConfigurationKey = Strings.AzureAdScopes)]
     public class CoinController : ControllerBase
     {
-        private readonly ILogger<CoinController> _logger;
-        private readonly IConfiguration _configuration;
-        private readonly ICoinRepository _repository;
+        /// <summary>
+        /// Field for storing the injected mediator dependency.
+        /// </summary>
+        private readonly ISender _mediator;
 
-        public CoinController(ILogger<CoinController> logger, IConfiguration configuration, ICoinRepository repository)
+        /// <summary>
+        /// Constructor used to inject our mediator dependency.
+        /// </summary>
+        /// <param name="mediator">The required mediator dependency used for the mediator behavioral design pattern.</param>
+        public CoinController(ISender mediator)
         {
-            _logger = logger;
-            _configuration = configuration;
-            _repository = repository;
-            _repository.InjectDependencies(_logger, _configuration);
+            _mediator = mediator;
         }
 
         /// <summary>
@@ -28,33 +36,32 @@ namespace Portfolio.API.Controllers
         /// </summary>
         /// <param name="id">The id of the coin.</param>
         /// <returns>Returns the details of a coin, if found.</returns>
-        [HttpGet, Route("{id:int}")]
-        public async Task<IActionResult> GetById(int id)
+        [HttpGet, Route(Strings.IdOfTypeLong)]
+        public async Task<IActionResult> GetByIdAsync([Range(1, long.MaxValue)] long id)
         {
-            return id <= 0 ? BadRequest(ModelState) : Ok(await _repository.GetById(id));
+            return Ok(await _mediator.Send(new GetCoinByIdQuery(id)));
         }
 
         /// <summary>
-        /// Adds a new coin to the database.
+        /// Adds a new coin.
         /// </summary>
         /// <param name="request">The request containing details about the new coin.</param>
         /// <returns>Returns an integer value indicating the number of rows affected."/></returns>
-
-        [HttpPost, Route("add")]
-        public async Task<IActionResult> AddCoin(AddCoinRequest request)
+        [HttpPost, Route(Strings.AddLowercase)]
+        public async Task<IActionResult> AddCoinAsync([Required(ErrorMessage = Strings.RequestRequiredMessage)] AddCoinRequest request)
         {
-            return request == null ? BadRequest(ModelState) : Ok(await _repository.AddCoin(request));
+            return Ok(await _mediator.Send(new AddCoinCommand(request)));
         }
 
         /// <summary>
-        /// Updates an existing coin in the database.
+        /// Updates an existing coin.
         /// </summary>
         /// <param name="request">The request containing details about the coin to update.</param>
         /// <returns>Returns an integer value indicating the number of rows affected.</returns>
-        [HttpPut, Route("update")]
-        public async Task<IActionResult> UpdateCoin(UpdateCoinRequest request)
+        [HttpPut, Route(Strings.UpdateLowercase)]
+        public async Task<IActionResult> UpdateCoin([Required(ErrorMessage = Strings.RequestRequiredMessage)] UpdateCoinRequest request)
         {
-            return request == null ? BadRequest(ModelState) : Ok(await _repository.UpdateCoin(request));
+            return Ok(await _mediator.Send(new UpdateCoinCommand(request)));
         }
     }
 }

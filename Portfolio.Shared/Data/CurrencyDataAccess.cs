@@ -1,22 +1,30 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
-using Portfolio.API.Interfaces;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Portfolio.Shared.Configuration;
+using Portfolio.Shared.Interfaces;
 using Portfolio.Shared.Models;
 using Portfolio.Shared.Requests;
 
-namespace Portfolio.API.Repository
+namespace Portfolio.Shared.DataAccess
 {
-    public class CurrencyRepository : ICurrencyRepository
+    public class CurrencyDataAccess : ICurrencyDataAccess
     {
-        private RepositoryConfiguration _config;
+        private DataAccessConfiguration _config;
 
-        public async Task<int> AddCurrency(AddCurrencyRequest request)
+        public CurrencyDataAccess(ILogger<ICurrencyDataAccess> logger, IConfiguration configuration)
+        {
+            _config = new(logger, configuration);
+        }
+
+        public async Task<int> AddCurrencyAsync(AddCurrencyRequest request)
         {
             var result = 0;
 
             try
             {
-                using var connection = new SqlConnection(_config.ConnectionString);
+                using SqlConnection connection = new(_config.ConnectionString);
                 result = await connection.ExecuteAsync("dbo.AddCurrency", null, null, _config.CommandTimeout, _config.CommandType);
             }
             catch (Exception ex)
@@ -27,14 +35,14 @@ namespace Portfolio.API.Repository
             return result;
         }
 
-        public async Task<IEnumerable<CurrencyModel>?> GetAllCurrency()
+        public async Task<IEnumerable<CurrencyModel>?> GetAllCurrencyAsync()
         {
             IEnumerable<CurrencyModel>? currency = null;
 
             try
             {
-                using var connection = new SqlConnection(_config.ConnectionString);
-                currency = (await connection.QueryAsync<CurrencyModel>("dbo.GetAllCurrency", null, null, _config.CommandTimeout, _config.CommandType));
+                using SqlConnection connection = new(_config.ConnectionString);
+                currency = await connection.QueryAsync<CurrencyModel>("dbo.GetAllCurrency", null, null, _config.CommandTimeout, _config.CommandType);
             }
             catch (Exception ex)
             {
@@ -44,14 +52,14 @@ namespace Portfolio.API.Repository
             return currency;
         }
 
-        public async Task<CurrencyModel?> GetCurrencyById(int id)
+        public async Task<CurrencyModel?> GetCurrencyByIdAsync(long id)
         {
             CurrencyModel? currency = null;
 
             try
             {
                 var parameters = new { Id = id };
-                using var connection = new SqlConnection(_config.ConnectionString);
+                using SqlConnection connection = new(_config.ConnectionString);
                 currency = (await connection.QueryAsync<CurrencyModel>("dbo.GetCurrencyById", parameters, null, _config.CommandTimeout, _config.CommandType)).First();
             }
             catch (Exception ex)
@@ -62,18 +70,13 @@ namespace Portfolio.API.Repository
             return currency;
         }
 
-        public void InjectDependencies(ILogger logger, IConfiguration configuration)
-        {
-            _config = new RepositoryConfiguration(logger, configuration);
-        }
-
-        public async Task<int> UpdateCurrency(UpdateCurrencyRequest request)
+        public async Task<int> UpdateCurrencyAsync(UpdateCurrencyRequest request)
         {
             var result = 0;
 
             try
             {
-                using var connection = new SqlConnection(_config.ConnectionString);
+                using SqlConnection connection = new(_config.ConnectionString);
                 result = await connection.ExecuteAsync("dbo.UpdateCurrency", null, null, _config.CommandTimeout, _config.CommandType);
             }
             catch (Exception ex)

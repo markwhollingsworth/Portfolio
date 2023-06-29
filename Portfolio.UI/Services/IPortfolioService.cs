@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Portfolio.Shared.Models;
-using Portfolio.Shared.Requests;
+using Portfolio.Shared.Requests.Collectibles.Coin;
 
 namespace Portfolio.UI.Services
 {

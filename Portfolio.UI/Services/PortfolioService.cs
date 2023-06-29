@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 using OpenXmlPowerTools;
 using Portfolio.Shared.Models;
 using Portfolio.Shared.Repository;
-using Portfolio.Shared.Requests;
+using Portfolio.Shared.Requests.Collectibles.Coin;
 using System.Text.Json;
 using System.Xml.Linq;
 
@@ -22,8 +22,8 @@ namespace Portfolio.UI.Services
 
         public async Task AddCoinAsync(AddCoinRequest request)
         {
-            var baseApiUrl = _configuration[StringRepository.BasePortfolioApiUrlKey];
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, $"{baseApiUrl}/inventory/coin/add");
+            var baseApiUrl = _configuration[Shared.Repository.Strings.BasePortfolioApiUrlKey];
+            HttpRequestMessage httpRequest = new(HttpMethod.Post, $"{baseApiUrl}/inventory/coin/add");
             httpRequest.Content = JsonContent.Create(httpRequest);
             await _httpClient.SendAsync(httpRequest);
         }
@@ -37,14 +37,14 @@ namespace Portfolio.UI.Services
                 {
                     byte[] fileContents;
                     var documentUrl = _configuration.GetValue<string>(key);
-                    var request = new HttpRequestMessage(HttpMethod.Get, documentUrl);
+                    HttpRequestMessage request = new(HttpMethod.Get, documentUrl);
                     var response = await _httpClient.SendAsync(request);
                     fileContents = await response.Content.ReadAsByteArrayAsync();
 
-                    using var memoryStream = new MemoryStream();
+                    using MemoryStream memoryStream = new();
                     await memoryStream.WriteAsync(fileContents, 0, fileContents.Length);
                     using var doc = WordprocessingDocument.Open(memoryStream, true);
-                    var settings = new HtmlConverterSettings();
+                    HtmlConverterSettings settings = new();
                     html = HtmlConverter.ConvertToHtml(doc, settings);
                 }
             }
@@ -58,8 +58,8 @@ namespace Portfolio.UI.Services
         public async Task<CoinModel?> GetCoinByIdAsync(int id)
         {
             CoinModel? coin = null;
-            var baseApiUrl = _configuration.GetValue<string>(StringRepository.BasePortfolioApiUrlKey);
-            using var request = new HttpRequestMessage(HttpMethod.Get, $"{baseApiUrl}/coin/{id}");
+            var baseApiUrl = _configuration.GetValue<string>(Shared.Repository.Strings.BasePortfolioApiUrlKey);
+            using HttpRequestMessage request = new(HttpMethod.Get, $"{baseApiUrl}/coin/{id}");
             using var response = await _httpClient.SendAsync(request);
 
             if (response.IsSuccessStatusCode)
@@ -74,8 +74,8 @@ namespace Portfolio.UI.Services
         public async Task<IEnumerable<DenominationModel>?> GetDenominationsAsync()
         {
             IEnumerable<DenominationModel>? denominations = null;
-            var baseApiUrl = _configuration.GetValue<string>(StringRepository.BasePortfolioApiUrlKey);
-            using var request = new HttpRequestMessage(HttpMethod.Get, $"{baseApiUrl}/denomination/all");
+            var baseApiUrl = _configuration.GetValue<string>(Shared.Repository.Strings.BasePortfolioApiUrlKey);
+            using HttpRequestMessage request = new(HttpMethod.Get, $"{baseApiUrl}/denomination/all");
             using var response = await _httpClient.SendAsync(request);
 
             if (response.IsSuccessStatusCode)
@@ -108,32 +108,32 @@ namespace Portfolio.UI.Services
 
         public async Task<IEnumerable<InventoryModel>> GetInventoryAsync()
         {
-            var inventory = new List<InventoryModel>();
-            var baseApiUrl = _configuration.GetValue<string>(StringRepository.BasePortfolioApiUrlKey);
+            List<InventoryModel> inventory = new();
+            var baseApiUrl = _configuration.GetValue<string>(Shared.Repository.Strings.BasePortfolioApiUrlKey);
 
             if (!string.IsNullOrWhiteSpace(baseApiUrl))
             {
-                using var request = new HttpRequestMessage(HttpMethod.Get, $"{baseApiUrl}/inventory");
+                using HttpRequestMessage request = new(HttpMethod.Get, $"{baseApiUrl}/inventory");
                 using var response = await _httpClient.SendAsync(request);
 
                 if (response.IsSuccessStatusCode)
                 {
                     using var responseStream = await response.Content.ReadAsStreamAsync();
-                    inventory = await JsonSerializer.DeserializeAsync<List<InventoryModel>>(responseStream);
+                    inventory = await JsonSerializer.DeserializeAsync<List<InventoryModel>?>(responseStream) ?? new();
                 }
             }
 
-            return inventory ?? new List<InventoryModel>();
+            return inventory;
         }
 
         public async Task<MapModel?> GetMapAsync(int id)
         {
             MapModel? map = null;
-            var baseUri = _configuration.GetValue<string>(StringRepository.BasePortfolioApiUrlKey);
+            var baseUri = _configuration.GetValue<string>(Shared.Repository.Strings.BasePortfolioApiUrlKey);
 
             if (!string.IsNullOrWhiteSpace(baseUri))
             {
-                using var request = new HttpRequestMessage(HttpMethod.Get, $"{baseUri}/map/{id}");
+                using HttpRequestMessage request = new(HttpMethod.Get, $"{baseUri}/map/{id}");
                 using var response = await _httpClient.SendAsync(request);
 
                 if (response.IsSuccessStatusCode)
@@ -149,11 +149,11 @@ namespace Portfolio.UI.Services
         public async Task<IEnumerable<MapModel>> GetMapsAsync()
         {
             List<MapModel>? maps = null;
-            var baseUrl = _configuration.GetValue<string>(StringRepository.BasePortfolioApiUrlKey);
+            var baseUrl = _configuration.GetValue<string>(Shared.Repository.Strings.BasePortfolioApiUrlKey);
 
             if (!string.IsNullOrWhiteSpace(baseUrl))
             {
-                var request = new HttpRequestMessage(HttpMethod.Get, $"{baseUrl}/map/all");
+                HttpRequestMessage request = new(HttpMethod.Get, $"{baseUrl}/map/all");
                 var response = await _httpClient.SendAsync(request);
 
                 if (response.IsSuccessStatusCode)
@@ -163,14 +163,14 @@ namespace Portfolio.UI.Services
                 }
             }
 
-            return maps ?? new List<MapModel>();
+            return maps ?? new();
         }
 
         public async Task<IEnumerable<MintModel>?> GetMintsAsync()
         {
             List<MintModel>? mints = null;
-            var baseApiUrl = _configuration[StringRepository.BasePortfolioApiUrlKey];
-            var request = new HttpRequestMessage(HttpMethod.Get, $"{baseApiUrl}/mint/mints");
+            var baseApiUrl = _configuration[Shared.Repository.Strings.BasePortfolioApiUrlKey];
+            HttpRequestMessage request = new(HttpMethod.Get, $"{baseApiUrl}/mint/mints");
             var response = await _httpClient.SendAsync(request);
 
             if (response.IsSuccessStatusCode)
@@ -184,8 +184,8 @@ namespace Portfolio.UI.Services
 
         public async Task UpdateCoinAsync(UpdateCoinRequest request)
         {
-            var baseApiUrl = _configuration[StringRepository.BasePortfolioApiUrlKey];
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, $"{baseApiUrl}/coin/update");
+            var baseApiUrl = _configuration[Shared.Repository.Strings.BasePortfolioApiUrlKey];
+            HttpRequestMessage httpRequest = new(HttpMethod.Post, $"{baseApiUrl}/coin/update");
             httpRequest.Content = JsonContent.Create(httpRequest);
             await _httpClient.SendAsync(httpRequest);
         }
