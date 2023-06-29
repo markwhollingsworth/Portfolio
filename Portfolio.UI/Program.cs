@@ -1,10 +1,25 @@
+using Microsoft.AspNetCore.Http.Connections;
 using Portfolio.UI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddServerSideBlazor();
+builder.Services.AddServerSideBlazor().AddHubOptions(options =>
+{
+    options.ClientTimeoutInterval = TimeSpan.FromSeconds(60);
+    options.EnableDetailedErrors = true;
+    options.HandshakeTimeout = TimeSpan.FromSeconds(30);
+    options.KeepAliveInterval = TimeSpan.FromSeconds(10);
+    options.MaximumParallelInvocationsPerClient = 4;
+    options.MaximumReceiveMessageSize = 64 * 1024;
+    options.StreamBufferCapacity = 10;
+    if (builder.Environment.IsDevelopment())
+    {
+        options.EnableDetailedErrors = true;
+    }
+
+});
 #pragma warning disable CS8604 // Possible null reference argument.
 builder.Services.AddHttpClient<IPortfolioService, PortfolioService>(client =>
 client.BaseAddress = new(builder.Configuration.GetValue<string>("BasePortfolioApiUrl")));
@@ -23,6 +38,12 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-app.MapBlazorHub();
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapBlazorHub(options =>
+{
+    options.Transports = HttpTransportType.WebSockets | HttpTransportType.LongPolling;
+});
+app.MapControllers();
 app.MapFallbackToPage("/_Host");
 app.Run();
