@@ -7,15 +7,30 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Enums\OldArizonaRoads\" />
-    <Folder Include="Strings\" />
-    <Folder Include="Requests\OldArizonaRoads\" />
+    <None Remove="Resources\maps.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\maps.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Responses\Collectibles\" />
     <Folder Include="Responses\OldArizonaRoads\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="MediatR" Version="12.0.1" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
   </ItemGroup>
 
 </Project>

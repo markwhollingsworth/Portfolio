@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Portfolio.Shared.Requests
+namespace Portfolio.Shared.Requests.Collectibles.Coin
 {
     public class AddCoinRequest
     {

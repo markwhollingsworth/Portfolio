@@ -1,59 +1,77 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web.Resource;
-using Portfolio.API.Interfaces;
+using Portfolio.Shared.Requests.Queries;
+using Portfolio.Shared.Repository;
 using Portfolio.Shared.Requests;
+using System.ComponentModel.DataAnnotations;
+using Portfolio.Shared.Requests.Commands;
 
 namespace Portfolio.API.Controllers
 {
     /// <summary>
-    /// 
+    /// Provides endpoints for interacting with currency.
     /// </summary>
-    [ApiController, Route("v1/currency"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
+    [ApiController,
+     Route($"{Strings.V1Lowercase}/{Strings.CurrencyLowercase}"),
+     RequiredScope(RequiredScopesConfigurationKey = Strings.AzureAdScopes)]
     public class CurrencyController : ControllerBase
     {
-        private readonly ILogger<CurrencyController> _logger;
-        private readonly IConfiguration _configuration;
-        private readonly ICurrencyRepository _repository;
+        /// <summary>
+        /// Field for storing the injected mediator dependency.
+        /// </summary>
+        private readonly ISender _mediator;
 
-        public CurrencyController(ILogger<CurrencyController> logger, IConfiguration configuration, ICurrencyRepository repository)
+        /// <summary>
+        /// Constructor used to inject our mediator dependency.
+        /// </summary>
+        /// <param name="mediator">The required mediator dependency used for the mediator behavioral design pattern.</param>
+        public CurrencyController(ISender mediator)
         {
-            _logger = logger;
-            _configuration = configuration;
-            _repository = repository;
-            _repository.InjectDependencies(_logger, _configuration);
+            _mediator = mediator;
         }
 
         /// <summary>
         /// Gets all currency.
         /// </summary>
         /// <returns></returns>
-        [HttpGet, Route("")]
-        public async Task<IActionResult> GetAllCurrency()
+        [HttpGet, Route(Strings.EmptyString)]
+        public async Task<IActionResult> GetCurrencyAsync()
         {
-            return Ok(await _repository.GetAllCurrency());
+            return Ok(await _mediator.Send(new GetCurrencyQuery()));
         }
 
         /// <summary>
-        /// 
+        /// Gets currency by Id.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpGet, Route("{id:int}")]
-        public async Task<IActionResult> GetCurrencyById(int id)
+        /// <param name="id">The Id of the currency.</param>
+        /// <returns>Returns the details about the currency.</returns>
+        [HttpGet, Route(Strings.IdOfTypeLong)]
+        public async Task<IActionResult> GetCurrencyByIdAsync([Range(1, long.MaxValue)] long id)
         {
-            return id <= 0 ? BadRequest(ModelState) : Ok(await _repository.GetCurrencyById(id));
+            return Ok(await _mediator.Send(new GetCurrencyByIdQuery(id)));
         }
 
-        [HttpPost, Route("add")]
-        public async Task<IActionResult> AddCurrency(AddCurrencyRequest request)
+        /// <summary>
+        /// Saves currency to the database.
+        /// </summary>
+        /// <param name="request">The request object containing details about the currency to edit.</param>
+        /// <returns>Returns the number of rows affected.</returns>
+        [HttpPost, Route(Strings.AddLowercase)]
+        public async Task<IActionResult> AddCurrencyAsync([Required(ErrorMessage = Strings.RequestRequiredMessage)] AddCurrencyRequest request)
         {
-            return request == null ? BadRequest(ModelState) : Ok(await _repository.AddCurrency(request));
+            return Ok(await _mediator.Send(new AddCurrencyCommand(request)));
         }
 
-        [HttpPut, Route("update")]
-        public async Task<IActionResult> UpdateCurrency(UpdateCurrencyRequest request)
+        /// <summary>
+        /// Updates existing currency.
+        /// </summary>
+        /// <param name="request">The request containing details about the changes to the curency.</param>
+        /// <returns>Returns the number of rows affected.</returns>
+        [HttpPut, Route(Strings.UpdateLowercase)]
+        public async Task<IActionResult> UpdateCurrencyAsync([Required(ErrorMessage = Strings.RequestRequiredMessage)] UpdateCurrencyRequest request)
         {
-            return request == null ? BadRequest(ModelState) : Ok(await _repository.UpdateCurrency(request));
+            return Ok(await _mediator.Send(new UpdateCurrencyCommand(request)));
         }
     }
 }

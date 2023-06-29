@@ -1,22 +1,27 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
-using Portfolio.API.Interfaces;
-using Portfolio.API.Repository;
+using Portfolio.Shared.DataAccess;
+using Portfolio.Shared.Interfaces;
+using Portfolio.Shared.Repository;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Logging.ClearProviders().AddConsole();
 builder.Services.AddControllers().AddJsonOptions(options => { options.JsonSerializerOptions.PropertyNamingPolicy = null; });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAuthorization();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
+                .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection(Strings.AzureAd));
 
-builder.Services.AddScoped<ICoinRepository, CoinRepository>();
-builder.Services.AddScoped<ICurrencyRepository, CurrencyRepository>();
-builder.Services.AddScoped<IDenominationRepository, DenominationRepository>();
-builder.Services.AddScoped<IInventoryRepository, InventoryRepository>();
-builder.Services.AddScoped<IMapRepository, MapRepository>();
-builder.Services.AddScoped<IMintRepository, MintRepository>();
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.Load(Strings.PortfolioDotShared)));
+
+builder.Services.AddScoped<ICoinDataAccess, CoinDataAccess>();
+builder.Services.AddScoped<ICurrencyDataAccess, CurrencyDataAccess>();
+builder.Services.AddScoped<IDenominationDataAccess, DenominationDataAccess>();
+builder.Services.AddScoped<IInventoryDataAccess, InventoryDataAccess>();
+builder.Services.AddScoped<IMapDataAccess, MapDataAccess>();
+builder.Services.AddScoped<IMintDataAccess, MintDataAccess>();
 
 var app = builder.Build();
 
@@ -35,9 +40,6 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-app.UseCors(builder => builder
-    .AllowAnyOrigin()
-    .AllowAnyMethod()
-    .AllowAnyHeader());
+app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 app.Run();

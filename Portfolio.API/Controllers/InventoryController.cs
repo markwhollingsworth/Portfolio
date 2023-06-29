@@ -1,28 +1,41 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web.Resource;
-using Portfolio.API.Interfaces;
+using Portfolio.Shared.Repository;
+using Portfolio.Shared.Requests.Queries;
 
 namespace Portfolio.API.Controllers
 {
-    [ApiController, Route("v1/inventory"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
+    /// <summary>
+    /// The Inventory controller provides endpoints for interacting with maps.
+    /// </summary>
+    [ApiController, 
+     Route($"{Strings.V1Lowercase}/{Strings.InventoryLowercase}"), 
+     RequiredScope(RequiredScopesConfigurationKey = Strings.AzureAdScopes)]
     public class InventoryController : ControllerBase
     {
-        private readonly ILogger<InventoryController> _logger;
-        private readonly IConfiguration _configuration;
-        private readonly IInventoryRepository _repository;
+        /// <summary>
+        /// Field for storing the injected mediator dependency.
+        /// </summary>
+        private readonly ISender _mediator;
 
-        public InventoryController(ILogger<InventoryController> logger, IConfiguration configuration, IInventoryRepository repository)
+        /// <summary>
+        /// Constructor used to inject our mediator dependency.
+        /// </summary>
+        /// <param name="mediator">The required mediator dependency used for the mediator behavioral design pattern.</param>
+        public InventoryController(ISender mediator)
         {
-            _logger = logger;
-            _configuration = configuration;
-            _repository = repository;
-            _repository.InjectDependencies(logger, configuration);
+            _mediator = mediator;
         }
 
-        [HttpGet, Route("")]
-        public async Task<IActionResult> GetInventory()
+        /// <summary>
+        /// Gets all coin inventory.
+        /// </summary>
+        /// <returns>Returns a collection of coin inventory.</returns>
+        [HttpGet, Route(Strings.EmptyString)]
+        public async Task<IActionResult> GetInventoryAsync()
         {
-            return Ok(await _repository.GetInventory());
+            return Ok(await _mediator.Send(new GetInventoryQuery()));
         }
     }
 }

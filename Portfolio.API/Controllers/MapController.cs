@@ -1,52 +1,53 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web.Resource;
-using Portfolio.API.Interfaces;
+using Portfolio.Shared.Repository;
+using Portfolio.Shared.Requests.Queries;
+using System.ComponentModel.DataAnnotations;
 
 namespace Portfolio.API.Controllers
 {
     /// <summary>
-    /// 
+    /// The Map controller provides endpoints for interacting with maps.
     /// </summary>
-    [ApiController, Route("v1/map"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
+    [ApiController, 
+     Route($"{Strings.V1Lowercase}/{Strings.MapsLowercase}"), 
+     RequiredScope(RequiredScopesConfigurationKey = Strings.AzureAdScopes)]
     public class MapController : ControllerBase
     {
-        private readonly ILogger<MapController> _logger;
-        private readonly IConfiguration _configuration;
-        private readonly IMapRepository _repository;
+        /// <summary>
+        /// Field for storing the injected mediator dependency.
+        /// </summary>
+        private ISender _mediator;
 
         /// <summary>
-        /// 
+        /// Constructor used to inject our mediator dependency.
         /// </summary>
-        /// <param name="logger"></param>
-        /// <param name="configuration"></param>
-        /// <param name="repository"></param>
-        public MapController(ILogger<MapController> logger, IConfiguration configuration, IMapRepository repository)
+        /// <param name="mediator">The required mediator dependency used for the mediator behavioral design pattern.</param>
+        public MapController(ISender mediator)
         {
-            _logger = logger;
-            _configuration = configuration;
-            _repository = repository;
-            _repository.InjectDependencies(_logger, _configuration);
+            _mediator = mediator;
         }
 
         /// <summary>
         /// Gets all maps.
         /// </summary>
         /// <returns>Returns a collection of maps.</returns>
-        [HttpGet, Route("all")]
-        public async Task<IActionResult> GetAllMapsAsync()
+        [HttpGet, Route(Strings.AllLowercase)]
+        public async Task<IActionResult> GetMapsAsync()
         {
-            return Ok(await _repository.GetAllMapsAsync());
+            return Ok(await _mediator.Send(new GetMapsQuery()));
         }
 
         /// <summary>
         /// Gets a map by id.
         /// </summary>
         /// <param name="id">The id of the map.</param>
-        /// <returns>If found, returns a map; else, returns nothing.</returns>
-        [HttpGet, Route("{id:int}")]
-        public async Task<IActionResult> GetMapByIdAsync(int id)
+        /// <returns>If a map is found for the corresponding Id, returns a map; else, returns null.</returns>
+        [HttpGet, Route(Strings.IdOfTypeLong)]
+        public async Task<IActionResult> GetMapByIdAsync([Range(1, long.MaxValue)] long id)
         {
-            return id <= 0 ? BadRequest(ModelState) : Ok(await _repository.GetMapById(id));
+            return Ok(await _mediator.Send(new GetMapByIdQuery(id)));
         }
     }
 }

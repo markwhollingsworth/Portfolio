@@ -1,31 +1,42 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OutputCaching;
 using Microsoft.Identity.Web.Resource;
-using Portfolio.API.Interfaces;
+using Portfolio.Shared.Repository;
+using Portfolio.Shared.Requests.Queries;
 
 namespace Portfolio.API.Controllers
 {
     /// <summary>
-    /// 
+    /// Provides endpoints for interacting with denominations.
     /// </summary>
-    [ApiController, Route("v1/denomination"), RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
+    [ApiController, 
+     Route($"{Strings.V1Lowercase}/{Strings.DenominationLowercase}"), 
+     RequiredScope(RequiredScopesConfigurationKey = Strings.AzureAdScopes)]
     public class DenominationController : ControllerBase
     {
-        private readonly ILogger<DenominationController> _logger;
-        private readonly IConfiguration _configuration;
-        private readonly IDenominationRepository _repository;
+        /// <summary>
+        /// Field for storing the injected mediator dependency.
+        /// </summary>
+        private readonly ISender _mediator;
 
-        public DenominationController(ILogger<DenominationController> logger, IConfiguration configuration, IDenominationRepository repository)
+        /// <summary>
+        /// Constructor used to inject our mediator dependency.
+        /// </summary>
+        /// <param name="mediator">The required mediator dependency used for the mediator behavioral design pattern.</param>
+        public DenominationController(ISender mediator)
         {
-            _logger = logger;
-            _configuration = configuration;
-            _repository = repository;
-            _repository.InjectDependencies(_logger, _configuration);
+            _mediator = mediator;
         }
 
-        [HttpGet, Route(""), Route("all")]
+        /// <summary>
+        /// Gets all the denominations from the database.
+        /// </summary>
+        /// <returns>Returns a list of denominations.</returns>
+        [HttpGet, Route(Strings.EmptyString), Route(Strings.AllLowercase), OutputCache(Duration = 60)]
         public async Task<IActionResult> GetDenominations()
         {
-            return Ok(await _repository.GetDenominations());
+            return Ok(await _mediator.Send(new GetDenominationsQuery()));
         }
     }
 }

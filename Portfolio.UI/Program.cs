@@ -7,7 +7,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 #pragma warning disable CS8604 // Possible null reference argument.
 builder.Services.AddHttpClient<IPortfolioService, PortfolioService>(client =>
-client.BaseAddress = new Uri(builder.Configuration.GetValue<string>("BasePortfolioApiUrl")));
+client.BaseAddress = new(builder.Configuration.GetValue<string>("BasePortfolioApiUrl")));
 #pragma warning restore CS8604 // Possible null reference argument.
 
 var app = builder.Build();
