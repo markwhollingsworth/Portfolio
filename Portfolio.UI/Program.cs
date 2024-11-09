@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Http.Connections;
+using Portfolio.Shared.DataAccess;
+using Portfolio.Shared.Interfaces;
 using Portfolio.UI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,10 +22,14 @@ builder.Services.AddServerSideBlazor().AddHubOptions(options =>
     }
 
 });
-#pragma warning disable CS8604 // Possible null reference argument.
-builder.Services.AddHttpClient<IPortfolioService, PortfolioService>(client =>
-client.BaseAddress = new(builder.Configuration.GetValue<string>("BasePortfolioApiUrl")));
-#pragma warning restore CS8604 // Possible null reference argument.
+
+builder.Services.AddSingleton<IInventoryDataAccess, InventoryDataAccess>();
+builder.Services.AddSingleton<IMapDataAccess, MapDataAccess>();
+builder.Services.AddSingleton<IMintDataAccess, MintDataAccess>();
+builder.Services.AddSingleton<IDenominationDataAccess, DenominationDataAccess>();
+builder.Services.AddSingleton<ICollectibleDataAccess, CollectibleDataAccess>();
+builder.Services.AddSingleton<IPortfolioService, PortfolioService>();
+builder.Services.AddSingleton<HttpClient>();
 
 var app = builder.Build();
 

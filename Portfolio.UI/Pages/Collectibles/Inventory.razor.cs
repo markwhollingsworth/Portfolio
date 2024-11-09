@@ -10,7 +10,7 @@ namespace Portfolio.UI.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            Items = (await PortfolioService.GetInventoryAsync()).ToList();
+            Items = (await PortfolioService.GetInventoryAsync())?.ToList();
         }
     }
 }

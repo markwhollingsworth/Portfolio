@@ -2,7 +2,7 @@
 {
     public class MapModel
     {
-        public long Id { get; set; }
+        public Guid Id { get; set; }
         public string? Year { get; set; }
         public string? Month { get; set; }
         public string? State { get; set; }

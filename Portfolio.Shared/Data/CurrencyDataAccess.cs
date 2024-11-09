@@ -18,23 +18,6 @@ namespace Portfolio.Shared.DataAccess
             _config = new(logger, configuration);
         }
 
-        public async Task<int> AddCurrencyAsync(AddCurrencyRequest request)
-        {
-            var result = 0;
-
-            try
-            {
-                using SqlConnection connection = new(_config.ConnectionString);
-                result = await connection.ExecuteAsync("dbo.AddCurrency", null, null, _config.CommandTimeout, _config.CommandType);
-            }
-            catch (Exception ex)
-            {
-                _config.Logger.LogError(ex.Message);
-            }
-
-            return result;
-        }
-
         public async Task<IEnumerable<CurrencyModel>?> GetAllCurrencyAsync()
         {
             IEnumerable<CurrencyModel>? currency = null;
@@ -68,23 +51,6 @@ namespace Portfolio.Shared.DataAccess
             }
 
             return currency;
-        }
-
-        public async Task<int> UpdateCurrencyAsync(UpdateCurrencyRequest request)
-        {
-            var result = 0;
-
-            try
-            {
-                using SqlConnection connection = new(_config.ConnectionString);
-                result = await connection.ExecuteAsync("dbo.UpdateCurrency", null, null, _config.CommandTimeout, _config.CommandType);
-            }
-            catch (Exception ex)
-            {
-                _config.Logger.LogError(ex.Message);
-            }
-
-            return result;
         }
     }
 }

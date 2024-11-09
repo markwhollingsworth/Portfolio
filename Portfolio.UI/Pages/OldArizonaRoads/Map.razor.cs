@@ -6,13 +6,13 @@ namespace Portfolio.UI.Pages
     public partial class Map
     {
         [Parameter]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         private MapModel? MapDetail { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-            MapDetail = await PortfolioService.GetMapAsync(Id);
+            MapDetail = await PortfolioService.GetMapByIdAsync(Id);
         }
     }
 }
