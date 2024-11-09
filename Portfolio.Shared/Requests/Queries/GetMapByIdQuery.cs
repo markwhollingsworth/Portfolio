@@ -5,10 +5,10 @@ namespace Portfolio.Shared.Requests.Queries
 {
     public class GetMapByIdQuery : IRequest<MapModel>
     {
-        public long Id { get; set; }
+        public Guid Id { get; set; }
 
-        public GetMapByIdQuery(long id) => Id = id;
+        public GetMapByIdQuery(Guid id) => Id = id;
 
-        public record GetMapById(long Id) : IRequest<MapModel>;
+        public record GetMapById(Guid Id) : IRequest<MapModel>;
     }
 }

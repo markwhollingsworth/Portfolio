@@ -40,17 +40,12 @@ namespace Portfolio.Shared.DataAccess
             return maps;
         }
 
-        public async Task<MapModel?> GetMapByIdAsync(long id)
+        public async Task<MapModel?> GetMapByIdAsync(Guid id)
         {
             MapModel? map = null;
 
             try
             {
-                if (id <= 0)
-                {
-                    throw new ArgumentException($"{nameof(id)} is invalid");
-                }
-
                 if (!string.IsNullOrWhiteSpace(_mapDataLocation))
                 {
                     using StreamReader streamReader = new(_mapDataLocation);

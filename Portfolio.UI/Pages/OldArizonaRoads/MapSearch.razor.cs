@@ -10,7 +10,7 @@ namespace Portfolio.UI.Pages
 
         private List<MapModel>? FilteredMaps => PortfolioService.GetFilteredMaps(Maps, SearchText)?.ToList();
 
-        private static string GetMapLink(long id) => $"/map/{id}";
+        private static string GetMapLink(Guid id) => $"/map/{id}";
 
         protected override async Task OnInitializedAsync()
         {

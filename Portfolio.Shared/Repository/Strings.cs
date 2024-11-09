@@ -8,7 +8,6 @@
         public const string AzureAdScopes = "AzureAd:Scopes";
         public const string AzureFallbackUrl = "https://www.google.com/?q=azure";
         public const string AzureUrlKey = "AzureUrl";
-        public const string BasePortfolioApiUrlKey = "BasePortfolioApiUrl";
         public const string BlazorUrlKey = "BlazorUrl";
         public const string BlazorFallbackUrl = "https://www.google.com/search?q=blazor";
         public const string BootstrapUrlKey = "BootstrapUrl";
