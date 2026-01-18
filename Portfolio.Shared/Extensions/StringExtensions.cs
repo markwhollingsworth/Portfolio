@@ -1,4 +1,4 @@
-﻿namespace Portfolio.Shared.Extensions
+﻿namespace Portfolio.UI.Extensions
 {
     public static class StringExtensions
     {

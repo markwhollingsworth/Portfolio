@@ -1,13 +1,17 @@
 using Microsoft.AspNetCore.Http.Connections;
-using Portfolio.Shared.DataAccess;
-using Portfolio.Shared.Interfaces;
+using Portfolio.UI.DataAccess;
+using Portfolio.UI.Interfaces;
+using Portfolio.Shared.Repository;
 using Portfolio.UI.Services;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.Load(Strings.PortfolioDotShared)));
 builder.Services.AddRazorPages();
-builder.Services.AddServerSideBlazor().AddHubOptions(options =>
+builder.Services.AddServerSideBlazor();
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents().AddHubOptions(options =>
 {
     options.ClientTimeoutInterval = TimeSpan.FromSeconds(60);
     options.EnableDetailedErrors = true;
@@ -16,20 +20,64 @@ builder.Services.AddServerSideBlazor().AddHubOptions(options =>
     options.MaximumParallelInvocationsPerClient = 4;
     options.MaximumReceiveMessageSize = 64 * 1024;
     options.StreamBufferCapacity = 10;
-    if (builder.Environment.IsDevelopment())
-    {
+    //if (builder.Environment.IsDevelopment())
+    //{
         options.EnableDetailedErrors = true;
-    }
-
+    //}
 });
 
-builder.Services.AddSingleton<IInventoryDataAccess, InventoryDataAccess>();
-builder.Services.AddSingleton<IMapDataAccess, MapDataAccess>();
-builder.Services.AddSingleton<IMintDataAccess, MintDataAccess>();
-builder.Services.AddSingleton<IDenominationDataAccess, DenominationDataAccess>();
-builder.Services.AddSingleton<ICollectibleDataAccess, CollectibleDataAccess>();
-builder.Services.AddSingleton<IPortfolioService, PortfolioService>();
+//var connectionString =
+//    builder.Configuration.GetConnectionString("DefaultConnection")
+//        ?? throw new InvalidOperationException("Connection string"
+//        + "'DefaultConnection' not found.");
+
+//builder.Services.AddAzureSql(connectionString);//, clientBuilder =>
+//{
+//    clientBuilder.AddBlobServiceClient(
+//        new Uri("https://<account-name>.blob.core.windows.net"));
+//    clientBuilder.UseCredential(new DefaultAzureCredential());
+//});
+
+builder.Services.AddSingleton<ICoinDataAccess, CoinDataAccess>();
+builder.Services.AddSingleton<ICurrencyDataAccess, CurrencyDataAccess>();
+builder.Services.AddScoped<IPortfolioService, PortfolioService>();
+builder.Services.AddScoped<IMapDataAccess, MapDataAccess>();
 builder.Services.AddSingleton<HttpClient>();
+string azureSignalrConnectionString = builder.Configuration["Azure:SignalR:ConnectionString"];
+builder.Services.AddSignalR().AddAzureSignalR(options =>
+{
+    options.ConnectionString = azureSignalrConnectionString;
+});
+
+//builder.Services.AddAzureClients(clientBuilder =>
+//{
+//    clientBuilder.AddClient()
+//        //new Uri("https://<account-name>.blob.core.windows.net"));
+//    clientBuilder.UseCredential(new DefaultAzureCredential());
+//});
+
+//var connectionString =
+//    builder.Configuration.GetConnectionString("DefaultConnection")
+//        ?? throw new InvalidOperationException("Connection string"
+//        + "'DefaultConnection' not found.");
+
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//{
+//    //options.UseSqlServer(connectionString);
+//    options.UseAzureSql(connectionString);//.UseAzureServer(connectionString);//.UseAzureSql(connectionString).;//.UseCredential(new DefaultAzureCredential());
+//});
+
+//var tenantId = builder.Configuration.GetValue<string>("AzureAd:TenantId")!;
+//var vaultUri = builder.Configuration.GetValue<string>("AzureAd:VaultUri")!;
+//var secretName = builder.Configuration.GetValue<string>("AzureAd:SecretName")!;
+
+//builder.Services.Configure<MicrosoftIdentityOptions>(
+//    OpenIdConnectDefaults.AuthenticationScheme,
+//    options =>
+//    {
+//        options.ClientSecret =
+//            AzureHelper.GetKeyVaultSecret(tenantId, vaultUri, secretName);
+//    });
 
 var app = builder.Build();
 
@@ -41,9 +89,9 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseAntiforgery();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapBlazorHub(options =>
@@ -52,4 +100,5 @@ app.MapBlazorHub(options =>
 });
 app.MapControllers();
 app.MapFallbackToPage("/_Host");
+
 app.Run();

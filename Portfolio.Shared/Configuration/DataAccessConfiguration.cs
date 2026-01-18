@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Portfolio.Shared.Extensions;
+using Portfolio.UI.Extensions;
 using System.Data;
 
-namespace Portfolio.Shared.Configuration
+namespace Portfolio.UI.Configuration
 {
     public class DataAccessConfiguration
     {

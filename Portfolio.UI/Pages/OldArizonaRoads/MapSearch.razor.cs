@@ -1,4 +1,4 @@
-﻿using Portfolio.Shared.Models;
+﻿using Portfolio.UI.Models;
 
 namespace Portfolio.UI.Pages
 {
@@ -10,7 +10,7 @@ namespace Portfolio.UI.Pages
 
         private List<MapModel>? FilteredMaps => PortfolioService.GetFilteredMaps(Maps, SearchText)?.ToList();
 
-        private static string GetMapLink(Guid id) => $"/map/{id}";
+        private static string GetMapLink(int id) => $"/map/{id}";
 
         protected override async Task OnInitializedAsync()
         {

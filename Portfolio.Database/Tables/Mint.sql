@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[Mint](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Abbreviation] [varchar](5) NOT NULL,
+	[Name] [varchar](50) NOT NULL,
+	[IsActive] [bit] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO

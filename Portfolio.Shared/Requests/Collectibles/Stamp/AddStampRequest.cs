@@ -1,4 +1,4 @@
-﻿namespace Portfolio.Shared.Requests
+﻿namespace Portfolio.UI.Requests
 {
     public class AddStampRequest
     {

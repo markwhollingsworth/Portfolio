@@ -1,46 +1,34 @@
 ﻿using DocumentFormat.OpenXml.Packaging;
 using Microsoft.AspNetCore.Components;
 using OpenXmlPowerTools;
-using Portfolio.Shared.Enums;
-using Portfolio.Shared.Handlers.Commands;
-using Portfolio.Shared.Handlers.Queries;
-using Portfolio.Shared.Interfaces;
-using Portfolio.Shared.Models;
-using Portfolio.Shared.Requests.Collectibles;
-using Portfolio.Shared.Requests.Commands;
-using Portfolio.Shared.Requests.Queries;
+using Portfolio.Shared.Models.Collectibles;
+using Portfolio.UI.Handlers.Commands;
+using Portfolio.UI.Handlers.Queries;
+using Portfolio.UI.Interfaces;
+using Portfolio.UI.Models;
+using Portfolio.UI.Requests.Collectibles;
+using Portfolio.UI.Requests.Commands;
+using Portfolio.UI.Requests.Queries;
 using System.Xml.Linq;
 
 namespace Portfolio.UI.Services
 {
     public class PortfolioService : IPortfolioService
     {
-        private readonly HttpClient _httpClient;
         private readonly IConfiguration _configuration;
-        private readonly ICollectibleDataAccess _collectibleDataAccess;
-        private readonly IDenominationDataAccess _denominationDataAccess;
-        private readonly IInventoryDataAccess _inventoryDataAccess;
         private readonly IMapDataAccess _mapDataAccess;
-        private readonly IMintDataAccess _mintDataAccess;
+        private readonly ICoinDataAccess _coinDataAccess;
+        private readonly HttpClient _httpClient;
 
-        public PortfolioService(HttpClient httpClient, IConfiguration configuration, ICollectibleDataAccess collectibleDataAccess,
-            IDenominationDataAccess denominationDataAccess, IInventoryDataAccess inventoryDataAccess, IMapDataAccess mapDataAccess, IMintDataAccess mintDataAccess)
+        public PortfolioService(IConfiguration configuration,
+                                ICoinDataAccess coinDataAccess,
+                                IMapDataAccess mapDataAccess,
+                                HttpClient httpClient)
         {
-            _httpClient = httpClient;
             _configuration = configuration;
-            _collectibleDataAccess = collectibleDataAccess;
-            _denominationDataAccess = denominationDataAccess;
-            _inventoryDataAccess = inventoryDataAccess;
+            _coinDataAccess = coinDataAccess;
             _mapDataAccess = mapDataAccess;
-            _mintDataAccess = mintDataAccess;
-        }
-
-        public async Task<int> AddCollectibleAsync(AddCollectibleRequest request)
-        {
-            var handler = new AddCollectibleHandler(_collectibleDataAccess);
-            var command = new AddCollectibleCommand(request);
-            var rowsAffected = await handler.Handle(command, new CancellationToken());
-            return rowsAffected;
+            _httpClient = httpClient;
         }
 
         public async Task<MarkupString> ConvertDocumentToHtmlAsync(string key)
@@ -65,22 +53,31 @@ namespace Portfolio.UI.Services
             }
             catch (Exception ex)
             {
+                // log exception - TODO
             }
 
             return html != null ? (MarkupString)html.ToString() : (MarkupString)"Failed to load resume.  Please try again later.";
         }
 
-        public async Task<CollectibleModel?> GetCollectibleByIdAsync(Guid id, CollectibleType collectibleType)
+        public async Task<CoinModel?> GetCoinByIdAsync(int id)
         {
-            var handler = new GetCollectibleByIdHandler(_collectibleDataAccess);
-            var request = new GetCollectibleByIdQuery(id, collectibleType);
-            var collectible = await handler.Handle(request, new CancellationToken());
-            return collectible;
+            var handler = new GetCoinByIdHandler(_coinDataAccess);
+            var request = new GetCoinByIdQuery(id);
+            var coin = await handler.Handle(request, new CancellationToken());
+            return coin;
+        }
+
+        public async Task<IEnumerable<InventoryModel>?> GetCoinsAsync()
+        {
+            var handler = new GetCoinsHandler(_coinDataAccess);
+            var request = new GetCoinsQuery();
+            var coins = await handler.Handle(request, new CancellationToken());
+            return coins;
         }
 
         public async Task<IEnumerable<DenominationModel>?> GetDenominationsAsync()
         {
-            var handler = new GetDenominationsHandler(_denominationDataAccess);
+            var handler = new GetDenominationsHandler(_coinDataAccess);
             var request = new GetDenominationsQuery();
             var denominations = await handler.Handle(request, new CancellationToken());
             return denominations;
@@ -105,15 +102,15 @@ namespace Portfolio.UI.Services
             return filteredMaps;
         }
 
-        public async Task<IEnumerable<InventoryModel>?> GetInventoryAsync()
+        public async Task<IEnumerable<GradingCompanyModel>?> GetGradingCompaniesAsync()
         {
-            var handler = new GetInventoryHandler(_inventoryDataAccess);
-            var request = new GetInventoryQuery();
-            var inventory = await handler.Handle(request, new CancellationToken());
-            return inventory;
+            var handler = new GetGradingCompaniesHandler(_coinDataAccess);
+            var request = new GetGradingCompaniesQuery();
+            var gradingCompanies = await handler.Handle(request, new CancellationToken());
+            return gradingCompanies;
         }
 
-        public async Task<MapModel?> GetMapByIdAsync(Guid id)
+        public async Task<MapModel?> GetMapByIdAsync(int id)
         {
             var handler = new GetMapByIdHandler(_mapDataAccess);
             var map = await handler.Handle(new GetMapByIdQuery(id), new CancellationToken());
@@ -127,11 +124,34 @@ namespace Portfolio.UI.Services
             return maps;
         }
 
+        public async Task<MintModel?> GetMintByIdAsync(int id)
+        {
+            var handler = new GetMintByIdHandler(_coinDataAccess);
+            var request = new GetMintByIdQuery(id);
+            var mint = await handler.Handle(request, new CancellationToken());
+            return mint;
+        }
+
         public async Task<IEnumerable<MintModel>?> GetMintsAsync()
         {
-            var handler = new GetMintsHandler(_mintDataAccess);
+            var handler = new GetMintsHandler(_coinDataAccess);
             var mints = await handler.Handle(new GetMintsQuery(), new CancellationToken());
             return mints;
+        }
+
+        public async Task<PurchaseDetailModel?> GetPurchaseDetailByIdAsync(int id)
+        {
+            var handler = new GetPurchaseDetailByIdHandler(_coinDataAccess);
+            var purchaseDetail = await handler.Handle(new GetPurchaseDetailByIdQuery(id), new CancellationToken());
+            return purchaseDetail;
+        }
+
+        public async Task<int> SaveCoinAsync(SaveCoinRequest request)
+        {
+            var handler = new SaveCoinHandler(_coinDataAccess);
+            var command = new SaveCoinCommand(request);
+            var rowsAffected = await handler.Handle(command, new CancellationToken());
+            return rowsAffected;
         }
     }
 }

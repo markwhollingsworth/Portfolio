@@ -1,10 +1,10 @@
-﻿using Portfolio.Shared.Models;
+﻿using Portfolio.UI.Models;
 
-namespace Portfolio.Shared.Interfaces
+namespace Portfolio.UI.Interfaces
 {
     public interface IMapDataAccess
     {
         Task<IEnumerable<MapModel>?> GetMapsAsync();
-        Task<MapModel?> GetMapByIdAsync(Guid id);
+        Task<MapModel?> GetMapByIdAsync(int id);
     }
 }

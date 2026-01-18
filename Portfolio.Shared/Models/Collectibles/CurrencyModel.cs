@@ -1,4 +1,4 @@
-﻿namespace Portfolio.Shared.Models
+﻿namespace Portfolio.UI.Models
 {
     public class CurrencyModel
     {

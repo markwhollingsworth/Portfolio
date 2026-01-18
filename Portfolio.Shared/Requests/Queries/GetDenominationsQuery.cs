@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using Portfolio.Shared.Models;
+using Portfolio.UI.Models;
 
-namespace Portfolio.Shared.Requests.Queries
+namespace Portfolio.UI.Requests.Queries
 {
     public class GetDenominationsQuery : IRequest<IEnumerable<DenominationModel>?>
     {

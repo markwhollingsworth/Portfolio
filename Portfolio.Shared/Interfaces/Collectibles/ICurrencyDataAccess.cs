@@ -1,6 +1,6 @@
-﻿using Portfolio.Shared.Models;
+﻿using Portfolio.UI.Models;
 
-namespace Portfolio.Shared.Interfaces
+namespace Portfolio.UI.Interfaces
 {
     public interface ICurrencyDataAccess
     {

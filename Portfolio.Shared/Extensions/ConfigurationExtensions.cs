@@ -2,7 +2,7 @@
 using Portfolio.Shared.Repository;
 using System.Configuration;
 
-namespace Portfolio.Shared.Extensions
+namespace Portfolio.UI.Extensions
 {
     public static class ConfigurationExtensions
     {

@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using Portfolio.Shared.Interfaces;
-using Portfolio.Shared.Models;
-using Portfolio.Shared.Requests.Queries;
+using Portfolio.UI.Interfaces;
+using Portfolio.UI.Models;
+using Portfolio.UI.Requests.Queries;
 
-namespace Portfolio.Shared.Handlers.Queries
+namespace Portfolio.UI.Handlers.Queries
 {
     public class GetMapByIdHandler : IRequestHandler<GetMapByIdQuery, MapModel?>
     {

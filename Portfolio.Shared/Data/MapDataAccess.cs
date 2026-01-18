@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using Portfolio.Shared.Configuration;
-using Portfolio.Shared.Extensions;
-using Portfolio.Shared.Interfaces;
-using Portfolio.Shared.Models;
+using Portfolio.UI.Configuration;
+using Portfolio.UI.Extensions;
+using Portfolio.UI.Interfaces;
+using Portfolio.UI.Models;
 
-namespace Portfolio.Shared.DataAccess
+namespace Portfolio.UI.DataAccess
 {
     public class MapDataAccess : IMapDataAccess
     {
@@ -40,7 +40,7 @@ namespace Portfolio.Shared.DataAccess
             return maps;
         }
 
-        public async Task<MapModel?> GetMapByIdAsync(Guid id)
+        public async Task<MapModel?> GetMapByIdAsync(int id)
         {
             MapModel? map = null;
 

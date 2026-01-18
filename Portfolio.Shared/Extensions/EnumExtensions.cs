@@ -1,6 +1,6 @@
 ﻿using Portfolio.Shared.Enums;
 
-namespace Portfolio.Shared.Extensions
+namespace Portfolio.UI.Extensions
 {
     public static class EnumExtensions
     {

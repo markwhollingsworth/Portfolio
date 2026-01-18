@@ -2,12 +2,11 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Portfolio.Shared.Configuration;
-using Portfolio.Shared.Interfaces;
-using Portfolio.Shared.Models;
-using Portfolio.Shared.Requests;
+using Portfolio.UI.Configuration;
+using Portfolio.UI.Interfaces;
+using Portfolio.UI.Models;
 
-namespace Portfolio.Shared.DataAccess
+namespace Portfolio.UI.DataAccess
 {
     public class CurrencyDataAccess : ICurrencyDataAccess
     {

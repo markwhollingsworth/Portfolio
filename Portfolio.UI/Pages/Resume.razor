@@ -1,11 +1,24 @@
 ﻿@page "/resume"
-@inject IPortfolioService PortfolioService
 @namespace Portfolio.UI.Pages
 
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            @ResumeHtml
+@if (ResumeHtml.Value == null)
+{
+    <div class="container">
+        <div class="row">
+            <div id="global-loader">
+                <div class="whirly-loader">
+                </div>
+            </div>
         </div>
     </div>
-</div>
+}
+else
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                @ResumeHtml
+            </div>
+        </div>
+    </div>
+}

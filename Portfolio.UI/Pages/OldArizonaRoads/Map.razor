@@ -7,16 +7,16 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <NavLink href="/">
-                    Home
+                    @Strings.Home
                 </NavLink>
             </li>
             <li class="breadcrumb-item">
                 <NavLink href="/map/search">
-                    Map search
+                    @Strings.MapSearch
                 </NavLink>
             </li>
             <li class="breadcrumb-item">
-                Map detail
+                @Strings.MapDetail
             </li>
         </ol>
     </nav>
@@ -45,6 +45,21 @@ else if (string.IsNullOrWhiteSpace(MapDetail.Url))
 }
 else
 {
-    <MapComponent Map="@MapDetail">
-    </MapComponent>
+    @*<MapComponent Map="@MapDetail">
+    </MapComponent>*@
+
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                @*             <div class="jumbotron jumbotron-fluid h-75">
+                <h6 class="display-6 text-center">
+                    @GetFullDescription()
+                </h6>
+                <br />
+                <div id="mapContainer"></div>
+            </div> *@
+                <div id="mapContainer"></div>
+            </div>
+        </div>
+    </div>
 }

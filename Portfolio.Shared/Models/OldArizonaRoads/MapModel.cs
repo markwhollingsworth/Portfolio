@@ -1,8 +1,8 @@
-﻿namespace Portfolio.Shared.Models
+﻿namespace Portfolio.UI.Models
 {
     public class MapModel
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string? Year { get; set; }
         public string? Month { get; set; }
         public string? State { get; set; }
