@@ -1,0 +1,76 @@
+﻿@page "/coin/{Id:int}"
+@namespace Portfolio.UI.Pages
+
+<div class="container my-3 fs-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <NavLink href="/">
+                    @Strings.Home
+                </NavLink>
+            </li>
+            <li class="breadcrumb-item">
+                <NavLink href="/coins">
+                    @Strings.Coins
+                </NavLink>
+            </li>
+            <li class="breadcrumb-item">
+                @Strings.CoinDetail
+            </li>
+        </ol>
+    </nav>
+</div>
+
+@if (IsLoading)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-sm col-md col-lg col-xl">
+                <div id="global-loader">
+                    <div class="whirly-loader">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@Item.Coin.Description</h5>
+                <h6 class="card-subtitle mb-2 text-muted">@(Item.Coin.ListPrice != null && Item.Coin.ListPrice > 0 ? "For Sale" : "Not For Sale")</h6>
+                <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <span class="card-text"><em>Year:</em> @Item.Coin.Year</span>
+                    </div>
+                    <div class="col">
+                        <span class="card-text"><em>Mint:</em> @(Item?.Mint != null ? Item.Mint.Name : "N/A")</span>
+                    </div>
+                    <div class="col">
+                        <span class="card-text"><em>Quantity:</em> @Item.Coin.Quantity</span>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col">
+                        <span class="card-text"><em>Purchase Date:</em> @(Item?.PurchaseDetail?.Date != null ? Item.PurchaseDetail.Date.Value.ToShortDateString() : "Unknown")</span>
+                    </div>
+                    <div class="col">
+                        <span class="card-text"><em>Purchase Amount:</em> $@(Item?.PurchaseDetail?.Total != null ? Item.PurchaseDetail.Total.Value.ToString("F2") : "0.00")</span>
+                    </div>
+                        <div class="col">
+                        <span class="card-text"><em>Purchased From:</em> @(Item?.PurchaseDetail?.SellerName != null ? Item.PurchaseDetail.SellerName : "Unknown")</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm col-md col-lg col-xl">
+                        <a href="/img/1829-f.jpg" data-lightbox="coins"><img src="/img/1829-f.jpg" height="150" width="150" /></a>
+                        <a href="/img/1829-r.jpg" data-lightbox="coins"></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

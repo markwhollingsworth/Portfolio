@@ -1,0 +1,65 @@
+﻿@page "/map/{Id:int}"
+@inject IPortfolioService PortfolioService
+@namespace Portfolio.UI.Pages
+
+<div class="container my-3 fs-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <NavLink href="/">
+                    @Strings.Home
+                </NavLink>
+            </li>
+            <li class="breadcrumb-item">
+                <NavLink href="/map/search">
+                    @Strings.MapSearch
+                </NavLink>
+            </li>
+            <li class="breadcrumb-item">
+                @Strings.MapDetail
+            </li>
+        </ol>
+    </nav>
+</div>
+
+@if (MapDetail == null)
+{
+    <div class="container">
+        <div class="row">
+            <div id="global-loader">
+                <div class="whirly-loader">
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else if (string.IsNullOrWhiteSpace(MapDetail.Url))
+{
+    <div class="container">
+        <div class="row">
+            <p>
+                Map url is invalid.
+            </p>
+        </div>
+    </div>
+}
+else
+{
+    @*<MapComponent Map="@MapDetail">
+    </MapComponent>*@
+
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                @*             <div class="jumbotron jumbotron-fluid h-75">
+                <h6 class="display-6 text-center">
+                    @GetFullDescription()
+                </h6>
+                <br />
+                <div id="mapContainer"></div>
+            </div> *@
+                <div id="mapContainer"></div>
+            </div>
+        </div>
+    </div>
+}

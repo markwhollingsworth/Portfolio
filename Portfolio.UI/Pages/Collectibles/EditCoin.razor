@@ -1,0 +1,215 @@
+﻿@page "/edit/coin/{Id:int}"
+@namespace Portfolio.UI.Pages
+
+<div class="container my-3 fs-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <NavLink href="/">
+                    @Strings.Home
+                </NavLink>
+            </li>
+            <li class="breadcrumb-item">
+                @Strings.Coins
+            </li>
+        </ol>
+    </nav>
+</div>
+
+@if (!IsLoadingComplete)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-sm col-md col-lg col-xl">
+                <div id="global-loader">
+                    <div class="whirly-loader">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    @if (IsSaveCoinSuccessful)
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-sm col-md col-lg col-xl">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>
+                            @SaveCoinMessage
+                        </strong>
+                        <NavLink href="/coins">
+                            @Strings.ReturnToInventory
+                        </NavLink>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">
+                                &times;
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm col-md col-lg col-xl">
+                <div class="card border border-primary">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            @Strings.AddCoin
+                        </h5>
+                        <EditForm Model="@SaveCoinRequest" OnValidSubmit="@SaveCoin">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <DataAnnotationsValidator />
+                                        <div class="validation">
+                                            <ValidationSummary class="alert alert-primary" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row form-row align-items-center">
+                                        <div class="col col-lg-8 col-md-6 col-sm-4">
+                                            <label for="description" class="required-field">@Strings.Description</label>
+                                            <input id="description" class="form-control" @bind="SaveCoinRequest.Description" />
+                                        </div>
+                                        <div class="col col-lg-2 col-md-3 col-sm-4">
+                                            <label for="quantity" class="required-field">@Strings.Quantity</label>
+                                            <input id="quantity" type="number" class="form-control" @bind="SaveCoinRequest.PurchaseDetail.Quantity" onkeypress="return (event.charCode != 8 && event.charCode == 0 || (event.charCode >= 48 && event.charCode <= 57))" />
+                                        </div>
+                                        <div class="col col-lg-2 col-md-3 col-sm-4">
+                                            <label for="purchaseDate">@Strings.PurchaseDate</label>
+                                            <input id="purchaseDate" data-provide="datepicker" class="datepicker form-control" @bind="SaveCoinRequest.PurchaseDetail.Date" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row form-row align-items-center">
+                                        <div class="col col-lg-3 col-md-3 col-sm-3">
+                                            <label class="sr-only" for="denomination">@Strings.Denomination</label>
+                                            @if (Denominations?.Count > 0)
+                                            {
+                                                <div class="dropdown">
+                                                    <InputSelect class="form-select" @bind-Value="SelectedDenomination">
+                                                        <option selected="selected" value="0">@Strings.Choose</option>
+                                                        @foreach (var denomination in @Denominations)
+                                                        {
+                                                            <option value="@denomination.Key">@denomination.Value</option>
+                                                        }
+                                                    </InputSelect>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div>Unable to save the denomination.  Please try again later.</div>
+                                            }
+                                        </div>
+                                        <div class="col col-lg-3 col-md-3 col-sm-3">
+                                            <label class="sr-only" for="denomination">@Strings.Mint</label>
+                                            @if (Mints?.Count > 0)
+                                            {
+                                                <div class="dropdown">
+                                                    <InputSelect class="form-select" @bind-Value="SelectedMintMark">
+                                                        <option selected="selected" value="0">@Strings.Choose</option>
+                                                        @foreach (var mint in @Mints)
+                                                        {
+                                                            <option value="@mint.Key">@mint.Value</option>
+                                                        }
+                                                    </InputSelect>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div>Unable to save the mint.  Please try again later.</div>
+                                            }
+                                        </div>
+                                        <div class="col col-lg-2 col-md-2 col-sm-2">
+                                            <label class="sr-only" for="gradingCompany">@Strings.GradedBy</label>
+                                            @if (GradingCompanies?.Count > 0)
+                                            {
+                                                <div class="dropdown">
+                                                    <InputSelect class="form-select" @bind-Value="SelectedGradingCompany">
+                                                        <option selected="selected" value="0">@Strings.Choose</option>
+                                                        @foreach (var gradingCompany in @GradingCompanies)
+                                                        {
+                                                            <option value="@gradingCompany.Key">@gradingCompany.Value</option>
+                                                        }
+                                                    </InputSelect>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div>Unable to save the grading company.  Please try again later.</div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row form-row align-items-center">
+                                        <div class="col">
+                                            <label class="sr-only" for="subtotal">@Strings.Subtotal</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">$</div>
+                                                </div>
+                                                <input id="subtotal" type="text" class="form-control" @bind="SaveCoinRequest.PurchaseDetail.Subtotal" />
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label class="sr-only" for="shipping">@Strings.Shipping</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">$</div>
+                                                </div>
+                                                <div>
+                                                    <input id="shipping" type="text" class="form-control" @bind="SaveCoinRequest.PurchaseDetail.Shipping" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label class="sr-only" for="tax">@Strings.Tax</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">$</div>
+                                                </div>
+                                                <input id="tax" type="text" class="form-control" @bind="SaveCoinRequest.PurchaseDetail.Tax" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row form-row align-items-center">
+                                        <div class="col col-lg-5 col-md-6 col-sm-4">
+                                            <label class="sr-only" for="sellerName">@Strings.SellerName</label>
+                                            <div class="input-group">
+                                                <input id="sellerName" type="text" class="form-control" @bind="SaveCoinRequest.PurchaseDetail.SellerName" />
+                                            </div>
+                                        </div>
+                                        <div class="col col-lg-7 col-md-6 col-sm-4">
+                                            <label class="sr-only" for="sellerAddress">@Strings.SellerAddress</label>
+                                            <div class="input-group">
+                                                <input id="sellerAddress" type="text" class="form-control" @bind="SaveCoinRequest.PurchaseDetail.SellerAddress" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class=" col col-sm col-md col-lg col-xl">
+                                    <button class="btn btn-primary" type="submit">
+                                        @Strings.Save
+                                    </button>
+                                </div>
+                            </div>
+                        </EditForm>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

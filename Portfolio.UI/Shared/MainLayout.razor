@@ -1,0 +1,87 @@
+﻿@namespace Portfolio.UI.Pages
+@inherits LayoutComponentBase
+
+<div class="page">
+    <div class="main-wrapper">
+        <div class="sidebar side-three new-header">
+            <div class="container">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul class="nav">
+                        <li>
+                            <a href="/">
+                                <img src="/img/icons/home.svg" alt="Home" />
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/markwarrenhollingsworth/" target="_blank">
+                                <i data-feather="layers"></i>
+                                <img src="/img/icons/linkedin.svg" alt="LinkedIn" />
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/markwhollingsworth/" target="_blank">
+                                <i data-feather="layers"></i>
+                                <img src="/img/icons/github.svg" alt="Github" />
+                                <span>Github</span>
+                            </a>
+                        </li>
+                       <li class="nav-item">
+                            <a href="/resume" class="nav-link px-2 text-muted">
+                                <i data-feather="layers"></i>
+                                <img src="/img/icons/resume.svg" alt="Resume" />
+                                <span>Résumé</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:markhollingsworth85@gmail.com">
+                                <i data-feather="layers"></i>
+                                <img src="/img/icons/email3.svg" alt="Email" />
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            @Body
+        </div>
+
+        <div>
+            <footer class="footer">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link px-2">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.linkedin.com/in/markwarrenhollingsworth/" target="_blank" class="nav-link px-2">
+                            LinkedIn
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://github.com/markwhollingsworth/" target="_blank" class="nav-link px-2">
+                            Github
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/resume" class="nav-link px-2">
+                            Résumé
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="mailto:markhollingsworth85@gmail.com" class="nav-link px-2">
+                            Email
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link px-2">&copy; 2024 Mark Hollingsworth</span>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+</div>
