@@ -1,4 +1,5 @@
-﻿using Portfolio.Common.Models.Collectibles;
+﻿using Microsoft.AspNetCore.Components;
+using Portfolio.Common.Models.Collectibles;
 using System.Text.Json;
 
 namespace Portfolio.UI.Pages.Collectibles
@@ -12,6 +13,9 @@ namespace Portfolio.UI.Pages.Collectibles
         //private bool IsDeleteCoinSuccessful { get; set; } = false;
         private bool IsLoadingComplete { get; set; } = false;
 
+        [Inject] IHttpClientFactory? ClientFactory { get; set; }
+        [Inject] IConfiguration? Configuration { get; set; }
+
         #endregion Properties
 
         #region Methods
@@ -19,16 +23,28 @@ namespace Portfolio.UI.Pages.Collectibles
         private async Task<List<InventoryModel>> GetInventoryAsync()
         {
             List<InventoryModel>? inventory = null;
-            var baseApiUrl = Configuration.GetValue<string>("BaseCollectibleApiUrl");
-            var request = new HttpRequestMessage(HttpMethod.Get, $"{baseApiUrl}api/inventory");
-
-            var client = ClientFactory.CreateClient("api");
-            var response = await client.SendAsync(request);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                using var responseStream = await response.Content.ReadAsStreamAsync();
-                inventory = await JsonSerializer.DeserializeAsync<List<InventoryModel>>(responseStream);
+                var baseApiUrl = Configuration?.GetValue<string>("BaseCollectibleApiUrl");
+                if (!string.IsNullOrWhiteSpace(baseApiUrl) && ClientFactory != null)
+                {
+                    var request = new HttpRequestMessage(HttpMethod.Get, $"{baseApiUrl}api/inventory");
+                    var client = new HttpClient()
+                    {
+                        BaseAddress = new Uri(baseApiUrl)
+                    };
+                    var response = await client.SendAsync(request);
+
+                    if (response != null && response.IsSuccessStatusCode)
+                    {
+                        using var responseStream = await response.Content.ReadAsStreamAsync();
+                        inventory = await JsonSerializer.DeserializeAsync<List<InventoryModel>>(responseStream);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
 
             return inventory ?? new List<InventoryModel>();

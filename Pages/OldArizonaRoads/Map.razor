@@ -14,15 +14,15 @@ else if (MapDetail == null)
 {
     <p>Unable to find map.</p>
 }
-else if (string.IsNullOrWhiteSpace(MapDetail.MapUrl))
+else if (string.IsNullOrWhiteSpace(MapDetail.Url))
 {
     <p>Map url is invalid.</p>
 }
-else if (string.IsNullOrWhiteSpace(MapDetail.MapDescription))
+else if (string.IsNullOrWhiteSpace(MapDetail.Description))
 {
     <p>Map description is invalid.</p>
 }
 else
 {
-    <MapComponent MapUrl="@MapDetail.MapUrl" PageTitle="@MapDetail.MapDescription"></MapComponent>
+    <MapComponent MapUrl="@MapDetail.Url" PageTitle="@MapDetail.Description"></MapComponent>
 }

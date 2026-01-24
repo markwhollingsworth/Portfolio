@@ -12,7 +12,7 @@ namespace Portfolio.UI.Pages.OldArizonaRoads
         public List<MapModel> Maps { get; set; } = new List<MapModel>();
 
         public List<MapModel> FilteredMaps => Maps.Where(
-            x => x.MapDescription.Contains(SearchText, StringComparison.OrdinalIgnoreCase)).ToList();
+            x => x.Description.Contains(SearchText, StringComparison.OrdinalIgnoreCase)).ToList();
 
         #endregion Properties
 
