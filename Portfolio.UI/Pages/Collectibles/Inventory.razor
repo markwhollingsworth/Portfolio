@@ -1,0 +1,81 @@
+﻿@page "/inventory"
+@inject IPortfolioService PortfolioService
+@inject IConfiguration Configuration
+@namespace Portfolio.UI.Pages
+
+<div class="container my-3 fs-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <NavLink href="/">
+                    Home
+                </NavLink>
+            </li>
+            <li class="breadcrumb-item">
+                Collectibles
+            </li>
+        </ol>
+    </nav>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm col-md col-lg col-xl">
+            @if (Items == null)
+            {
+                <div id="global-loader">
+                    <div class="whirly-loader">
+                    </div>
+                </div>
+            }
+            else if (!Items.Any())
+            {
+                <p>
+                    No inventory
+                </p>
+            }
+            else
+            {
+                <div class="card border border-primary">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Current inventory
+                        </h5>
+                        <div class="table-responsive">
+                            <table class="table datanew dataTable no-footer">
+                                <tbody>
+                                    <tr>
+                                        <th class="sorting_asc">
+                                            Description
+                                        </th>
+                                        <th class="sorting_asc">
+                                            List Price
+                                        </th>
+                                        <th class="sorting_asc">
+                                            Quantity
+                                        </th>
+                                    </tr>
+                                    @foreach (var item in Items)
+                                    {
+                                        <tr role="row" @key="item.Id">
+                                            <td>
+                                                <NavLink href="@GetItemLink(item.Id)">
+                                                    @item.Description
+                                                </NavLink>
+                                            </td>
+                                            <td>
+                                                @item.ListPrice.ToString("C2")
+                                            </td>
+                                            <td>
+                                                @item.Quantity
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
