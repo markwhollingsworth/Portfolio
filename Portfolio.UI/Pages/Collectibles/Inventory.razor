@@ -1,7 +1,6 @@
-﻿@page "/inventory"
-@inject IPortfolioService PortfolioService
-@inject IConfiguration Configuration
+﻿@page "/collectibles"
 @namespace Portfolio.UI.Pages
+@using Portfolio.Shared.Enums
 
 <div class="container my-3 fs-5">
     <nav aria-label="breadcrumb">
@@ -17,64 +16,229 @@
         </ol>
     </nav>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-sm col-md col-lg col-xl">
+
+<div role="main" class="main shop pt-4">
+    <div class="container">
+        <div class="row">
+
             @if (Items == null)
             {
-                <div id="global-loader">
-                    <div class="whirly-loader">
-                    </div>
-                </div>
-            }
-            else if (!Items.Any())
-            {
-                <p>
-                    No inventory
-                </p>
-            }
-            else
-            {
-                <div class="card border border-primary">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            Current inventory
-                        </h5>
-                        <div class="table-responsive">
-                            <table class="table datanew dataTable no-footer">
-                                <tbody>
-                                    <tr>
-                                        <th class="sorting_asc">
-                                            Description
-                                        </th>
-                                        <th class="sorting_asc">
-                                            List Price
-                                        </th>
-                                        <th class="sorting_asc">
-                                            Quantity
-                                        </th>
-                                    </tr>
-                                    @foreach (var item in Items)
-                                    {
-                                        <tr role="row" @key="item.Id">
-                                            <td>
-                                                <NavLink href="@GetItemLink(item.Id)">
-                                                    @item.Description
-                                                </NavLink>
-                                            </td>
-                                            <td>
-                                                @item.ListPrice.ToString("C2")
-                                            </td>
-                                            <td>
-                                                @item.Quantity
-                                            </td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
+                <div class="col-sm col-md col-lg col-xl">
+                    <div id="global-loader">
+                        <div class="whirly-loader">
                         </div>
                     </div>
                 </div>
+            }
+            else
+            {
+                <div class="col-lg-3 order-2 order-lg-1">
+                    <aside class="sidebar">
+                        <div class="input-group mb-3 pb-1">
+                            <input class="form-control text-1"
+                                   placeholder="Search..."
+                                   @bind="searchTerm"
+                                   @bind:event="oninput"
+                                   @bind:after="PerformSearch"
+                                   type="text">
+                        </div>
+                        <h5 class="font-weight-semi-bold pt-3">Categories</h5>
+                        <ul class="nav nav-list flex-column">
+                            <li class="nav-item">
+
+                                <a class="nav-link d-flex justify-content-between align-items-center"
+                                   href="#"
+                                   @onclick="ToggleCoinsSubmenu"
+                                   @onclick:preventDefault="true">
+                                    Coins
+                                </a>
+                                @if (isCoinsExpanded)
+                                {
+                                    <ul class="nav nav-list flex-column ms-3">
+                                        <li class="nav-item">
+                                            <a class="nav-link d-flex justify-content-between align-items-center"
+                                               href="#"
+                                               @onclick="ToggleUSCoinsSubmenu"
+                                               @onclick:preventDefault="true">
+                                                United States
+                                            </a>
+                                            @if (isUnitedStatesExpanded)
+                                            {
+                                                <ul class="nav nav-list flex-column ms-3">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link @(selectedDenomination == CoinDenomination.Cent ? "active" : "")"
+                                                           href="#"
+                                                           @onclick="() => FilterByDenomination(CoinDenomination.Cent)"
+                                                           @onclick:preventDefault="true">
+                                                            Cent
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link @(selectedDenomination == CoinDenomination.Nickel ? "active" : "")"
+                                                           href="#"
+                                                           @onclick="() => FilterByDenomination(CoinDenomination.Nickel)"
+                                                           @onclick:preventDefault="true">
+                                                            Nickel
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link @(selectedDenomination == CoinDenomination.Dime ? "active" : "")"
+                                                           href="#"
+                                                           @onclick="() => FilterByDenomination(CoinDenomination.Dime)"
+                                                           @onclick:preventDefault="true">
+                                                            Dime
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link @(selectedDenomination == CoinDenomination.Quarter ? "active" : "")"
+                                                           href="#"
+                                                           @onclick="() => FilterByDenomination(CoinDenomination.Quarter)"
+                                                           @onclick:preventDefault="true">
+                                                            Quarter
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link @(selectedDenomination == CoinDenomination.HalfDollar ? "active" : "")"
+                                                           href="#"
+                                                           @onclick="() => FilterByDenomination(CoinDenomination.HalfDollar)"
+                                                           @onclick:preventDefault="true">
+                                                            Half Dollar
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link @(selectedDenomination == CoinDenomination.Dollar ? "active" : "")"
+                                                           href="#"
+                                                           @onclick="() => FilterByDenomination(CoinDenomination.Dollar)"
+                                                           @onclick:preventDefault="true">
+                                                            Dollar
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            }
+                                        </li>
+                                    </ul>
+                                }
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="#">Currency</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Stamps</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Other</a></li>
+                        </ul>
+                    </aside>
+                </div>
+
+                @if (Items.Count == 0)
+                {
+                    <div class="col-lg-9 order-1 order-lg-2">
+                        <p>
+                            No inventory, please adjust your search filter
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-lg-9 order-1 order-lg-2">
+                        <div class="row products product-thumb-info-list">
+                            @foreach (var item in Items)
+                            {
+                                <div class="col-sm-6 col-lg-4" @key="item.Id">
+                                    <div class="product mb-0">
+                                        <div class="product-thumb-info border-0 mb-3">
+                                            <div class="product-thumb-info-badges-wrapper">
+                                                <span class="badge badge-ecommerce text-bg-warning">@item.Quantity In Stock</span>
+                                            </div>
+                                            <div class="addtocart-btn-wrapper">
+                                                <a href="#" class="text-decoration-none addtocart-btn" title="Add to Cart" @onclick="() => AddToCart(item.Id)" @onclick:preventDefault="true">
+                                                    <i class="icons icon-bag"></i>
+                                                </a>
+                                            </div>
+                                            <a href="#" class="quick-view text-uppercase font-weight-semibold text-2" @onclick="() => QuickView(item.Id)" @onclick:preventDefault="true">
+                                                QUICK VIEW
+                                            </a>
+                                            <NavLink href="@($"/collectible/1/{item.Id}")">
+                                                <div class="product-thumb-info-image">
+                                                    <img alt="@item.Description" class="img-fluid" src="@GetProductImage(item.Id)">
+                                                </div>
+                                            </NavLink>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">@GetCategoryName(item.DenominationId)</a>
+                                                <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0">
+                                                    <NavLink href="@($"/collectible/{item.Id}")" class="text-color-dark text-color-hover-primary">
+                                                        @item.Description
+                                                    </NavLink>
+                                                </h3>
+                                            </div>
+                                            <a href="#" class="text-decoration-none text-color-default text-color-hover-dark text-4" @onclick="() => ToggleFavorite(item.Id)" @onclick:preventDefault="true">
+                                                <i class="@(IsFavorite(item.Id) ? "fas" : "far") fa-heart"></i>
+                                            </a>
+                                        </div>
+                                        <p class="price text-5 mb-3">
+                                            <span class="amount">@item.ListPrice.ToString("C2")</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                @if (totalPages > 1)
+                                {
+                                    <ul class="pagination float-end">
+                                        <li class="page-item @(currentPage == 1 ? "disabled" : "")">
+                                            <a class="page-link" href="#" @onclick="PreviousPage" @onclick:preventDefault="true">
+                                                <i class="fas fa-angle-left"></i>
+                                            </a>
+                                        </li>
+
+                                        @if (currentPage > 3)
+                                        {
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" @onclick="() => GoToPage(1)" @onclick:preventDefault="true">1</a>
+                                            </li>
+                                            @if (currentPage > 4)
+                                            {
+                                                <li class="page-item disabled">
+                                                    <span class="page-link">...</span>
+                                                </li>
+                                            }
+                                        }
+
+                                        @foreach (var page in GetPageNumbers())
+                                        {
+                                            <li class="page-item @(page == currentPage ? "active" : "")">
+                                                <a class="page-link" href="#" @onclick="() => GoToPage(page)" @onclick:preventDefault="true">@(page)</a>
+                                            </li>
+                                        }
+
+                                        @if (currentPage < totalPages - 2)
+                                        {
+                                            @if (currentPage < totalPages - 3)
+                                            {
+                                                <li class="page-item disabled">
+                                                    <span class="page-link">...</span>
+                                                </li>
+                                            }
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" @onclick="() => GoToPage(totalPages)" @onclick:preventDefault="true">@totalPages</a>
+                                            </li>
+                                        }
+
+                                        <li class="page-item @(currentPage == totalPages ? "disabled" : "")">
+                                            <a class="page-link" href="#" @onclick="NextPage" @onclick:preventDefault="true">
+                                                <i class="fas fa-angle-right"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="text-end text-muted mb-3">
+                                        <small>Showing @((currentPage - 1) * pageSize + 1) - @Math.Min(currentPage * pageSize, totalRecords) of @totalRecords items</small>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
             }
         </div>
     </div>

@@ -33,10 +33,10 @@ namespace Portfolio.Shared.DataAccess
         /// <summary>
         /// Gets a collectible
         /// </summary>
-        /// <param name="id">The id, of type Guid, of the collectible</param>
+        /// <param name="id">The id, of type int, of the collectible</param>
         /// <param name="collectibleType">The type of the collectible</param>
         /// <returns>Returns details about the collectible.</returns>
-        public async Task<CollectibleModel?> GetByIdAsync(Guid id, CollectibleType collectibleType)
+        public async Task<CollectibleModel?> GetByIdAsync(int id, CollectibleType collectibleType)
         {
             _configuration.Logger.LogInformation($"Calling method {nameof(GetByIdAsync)} with {nameof(id)} of {id}, {nameof(collectibleType)} of {collectibleType}");
             CollectibleModel? collectible = null;
@@ -44,8 +44,8 @@ namespace Portfolio.Shared.DataAccess
             try
             {
                 using SqlConnection connection = new(_configuration.ConnectionString);
-                var parameters = new { Id = id, CollectibleType = collectibleType };
-                collectible = (await connection.QueryAsync<CollectibleModel>("dbo.GetCollectibleById", parameters, null, _configuration.CommandTimeout, _configuration.CommandType)).First();
+                var parameters = new { Id = id, CollectibleType = (int)collectibleType };
+                collectible = (await connection.QueryAsync<CollectibleModel>("dbo.GetCollectible", parameters, null, _configuration.CommandTimeout, _configuration.CommandType)).First();
             }
             catch (Exception ex)
             {

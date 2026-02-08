@@ -3,9 +3,21 @@
 @namespace Portfolio.UI.Pages
 
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            @ResumeHtml
+    @if (IsLoading)
+    {
+        <div class="col-sm col-md col-lg col-xl">
+            <div id="global-loader">
+                <div class="whirly-loader">
+                </div>
+            </div>
         </div>
-    </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-12">
+                @ResumeHtml
+            </div>
+        </div>
+    }
 </div>
