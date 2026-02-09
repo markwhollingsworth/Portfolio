@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Wordprocessing;
 using Microsoft.AspNetCore.Components;
 using OpenXmlPowerTools;
 using Portfolio.Shared.Enums;
@@ -10,6 +11,7 @@ using Portfolio.Shared.Requests.Collectibles;
 using Portfolio.Shared.Requests.Commands;
 using Portfolio.Shared.Requests.Queries;
 using System.Xml.Linq;
+using static Portfolio.Shared.Requests.Queries.GetInventoryQuery;
 
 namespace Portfolio.UI.Services
 {
@@ -63,14 +65,14 @@ namespace Portfolio.UI.Services
                     html = HtmlConverter.ConvertToHtml(doc, settings);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
 
             return html != null ? (MarkupString)html.ToString() : (MarkupString)"Failed to load resume.  Please try again later.";
         }
 
-        public async Task<CollectibleModel?> GetCollectibleByIdAsync(Guid id, CollectibleType collectibleType)
+        public async Task<CollectibleModel?> GetCollectibleByIdAsync(int id, CollectibleType collectibleType)
         {
             var handler = new GetCollectibleByIdHandler(_collectibleDataAccess);
             var request = new GetCollectibleByIdQuery(id, collectibleType);
@@ -105,10 +107,12 @@ namespace Portfolio.UI.Services
             return filteredMaps;
         }
 
-        public async Task<IEnumerable<InventoryModel>?> GetInventoryAsync()
+        //public async Task<PaginatedResult<InventoryModel>?> GetInventoryAsync(int pageNumber = 1, int pageSize = 10)
+        public async Task<PaginatedResult<InventoryModel>?> GetInventoryAsync(SearchCriteria searchCriteria)
         {
             var handler = new GetInventoryHandler(_inventoryDataAccess);
-            var request = new GetInventoryQuery();
+            //var request = new GetInventoryQuery(pageNumber, pageSize);
+            var request = new GetInventoryQuery(searchCriteria);
             var inventory = await handler.Handle(request, new CancellationToken());
             return inventory;
         }

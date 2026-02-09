@@ -6,7 +6,7 @@ namespace Portfolio.Shared.Interfaces
 {
     public interface ICollectibleDataAccess
     {
-        Task<CollectibleModel?> GetByIdAsync(Guid id, CollectibleType collectibleType);
+        Task<CollectibleModel?> GetByIdAsync(int id, CollectibleType collectibleType);
         Task<int> SaveCollectibleAsync(AddCollectibleRequest request);
     }
 }

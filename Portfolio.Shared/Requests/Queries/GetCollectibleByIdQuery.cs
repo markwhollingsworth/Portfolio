@@ -6,11 +6,11 @@ namespace Portfolio.Shared.Requests.Queries
 {
     public class GetCollectibleByIdQuery : IRequest<CollectibleModel>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public CollectibleType CollectibleType { get; set; }
 
-        public GetCollectibleByIdQuery(Guid id, CollectibleType collectibleType)
+        public GetCollectibleByIdQuery(int id, CollectibleType collectibleType)
         {
             Id = id;
             CollectibleType = collectibleType;
